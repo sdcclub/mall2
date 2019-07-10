@@ -1,7 +1,7 @@
 package com.etc.model.dao;
 
-import com.model.entity.Order;
-import com.model.entity.OrderExample;
+import com.etc.model.entity.Order;
+import com.etc.model.entity.OrderExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

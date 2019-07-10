@@ -1,7 +1,7 @@
 package com.etc.model.dao;
 
-import com.model.entity.Goods;
-import com.model.entity.GoodsExample;
+import com.etc.model.entity.Goods;
+import com.etc.model.entity.GoodsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
