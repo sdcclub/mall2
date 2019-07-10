@@ -1,80 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df9b7d2b-6ee6-4e86-80e2-ab86b591a5c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/checkout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/checkout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/creditly.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/easy-responsive-tabs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/flexslider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/jquery-ui1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/shop.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/icon.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/a6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/arr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/cc1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/cc2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/close_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/f1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/f2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/f3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/g1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/g2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/g3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/g4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/left-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/p1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/p2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/p3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/p4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/paypal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/pp1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/right-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/t1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/t2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/t3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/team1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/tt1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/tt2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/typo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/creditly.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/easing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/easy-responsive-tabs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/imagezoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery-2.2.3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery.flexisel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery.flexslider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/minicart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/move-top.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/responsiveslides.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/payment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/service.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/shop.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/single.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/typography.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" />
-    </list>
+    <list default="true" id="df9b7d2b-6ee6-4e86-80e2-ab86b591a5c7" name="Default Changelist" comment="加入商品图片" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,79 +16,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/init.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="95">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/shop.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2356">
+              <caret line="124" column="77" selection-start-line="124" selection-start-column="77" selection-end-line="124" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/etc/controller/LoginController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/checkout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="912">
-              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/etc/reverse/Generator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/etc/model/dao/CartMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/Configuration.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/init.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            <state relative-caret-position="380">
+              <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -214,8 +99,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="151" />
-    <option name="y" value="337" />
+    <option name="x" value="541" />
+    <option name="y" value="7" />
     <option name="width" value="1049" />
     <option name="height" value="1010" />
   </component>
@@ -225,52 +110,42 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mall2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mall2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mall2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mall2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="etc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mall2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="etc" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mall2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
@@ -280,10 +155,15 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="mall2" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -296,21 +176,22 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Mall\Mall\src\main\webapp\WEB-INF" />
-      <recent name="F:\Mall\Mall\src\main\java" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Mall\Mall\src\main\webapp" />
+      <recent name="F:\Mall\Mall\src\main\webapp\WEB-INF\jsp" />
+      <recent name="F:\Mall\Mall\src\main\java\com\etc" />
+      <recent name="F:\Mall\Mall\src\main\java\com\etc\reverse" />
       <recent name="C:\Users\JasmineXYY\Desktop\Practice\final\project\Mall\src\main\webapp\WEB-INF" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.etc.exception" />
       <recent name="com.etc.interceptor" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator.USER-20190611ED\IdeaProjects\mall2\src\main\webapp" />
+      <recent name="F:\Mall\Mall\src\main\webapp\WEB-INF" />
+      <recent name="F:\Mall\Mall\src\main\java" />
       <recent name="F:\Mall\Mall\src\main\webapp" />
-      <recent name="F:\Mall\Mall\src\main\webapp\WEB-INF\jsp" />
-      <recent name="F:\Mall\Mall\src\main\java\com\etc" />
-      <recent name="F:\Mall\Mall\src\main\java\com\etc\reverse" />
       <recent name="C:\Users\JasmineXYY\Desktop\Practice\final\project\Mall\src\main\webapp\WEB-INF" />
     </key>
   </component>
@@ -420,12 +301,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20848000" />
+    <option name="totallyTimeSpent" value="22800000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25427872" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25692964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -446,14 +328,14 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.32922733" />
+      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32997763" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="JSF" order="5" />
+      <window_info anchor="right" id="JSF" order="5" weight="0.32995737" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="CDI" order="7" />
       <window_info anchor="right" id="Database" order="8" />
@@ -462,11 +344,37 @@
       <window_info anchor="right" id="Palette&#9;" order="11" />
       <window_info anchor="right" id="Theme Preview" order="12" />
       <window_info anchor="right" id="Jms Messenger" order="13" />
-      <window_info anchor="right" id="Bean Validation" order="14" />
+      <window_info anchor="right" id="Bean Validation" order="14" weight="0.32995737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始项目" />
@@ -474,6 +382,10 @@
     <MESSAGE value="添加界面模板" />
     <MESSAGE value="添加一个空的LoginController测试controller包" />
     <option name="LAST_COMMIT_MESSAGE" value="添加一个空的LoginController测试controller包" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/generator/mybatis-generator-core/1.3.6/mybatis-generator-core-1.3.6.jar!/org/mybatis/generator/config/xml/mybatis-generator-config_1_0.dtd">
@@ -575,6 +487,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2356">
+          <caret line="124" column="77" selection-start-line="124" selection-start-column="77" selection-end-line="124" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
         </state>
       </provider>
     </entry>
