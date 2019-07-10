@@ -1,7 +1,7 @@
 package com.etc.model.dao;
 
-import com.model.entity.Admin;
-import com.model.entity.AdminExample;
+import com.etc.model.entity.Admin;
+import com.etc.model.entity.AdminExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
