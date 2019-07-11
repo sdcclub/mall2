@@ -295,62 +295,52 @@ public class CartExample {
             return (Criteria) this;
         }
 
-        public Criteria andCcountEqualTo(String value) {
+        public Criteria andCcountEqualTo(Integer value) {
             addCriterion("ccount =", value, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountNotEqualTo(String value) {
+        public Criteria andCcountNotEqualTo(Integer value) {
             addCriterion("ccount <>", value, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountGreaterThan(String value) {
+        public Criteria andCcountGreaterThan(Integer value) {
             addCriterion("ccount >", value, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountGreaterThanOrEqualTo(String value) {
+        public Criteria andCcountGreaterThanOrEqualTo(Integer value) {
             addCriterion("ccount >=", value, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountLessThan(String value) {
+        public Criteria andCcountLessThan(Integer value) {
             addCriterion("ccount <", value, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountLessThanOrEqualTo(String value) {
+        public Criteria andCcountLessThanOrEqualTo(Integer value) {
             addCriterion("ccount <=", value, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountLike(String value) {
-            addCriterion("ccount like", value, "ccount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCcountNotLike(String value) {
-            addCriterion("ccount not like", value, "ccount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCcountIn(List<String> values) {
+        public Criteria andCcountIn(List<Integer> values) {
             addCriterion("ccount in", values, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountNotIn(List<String> values) {
+        public Criteria andCcountNotIn(List<Integer> values) {
             addCriterion("ccount not in", values, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountBetween(String value1, String value2) {
+        public Criteria andCcountBetween(Integer value1, Integer value2) {
             addCriterion("ccount between", value1, value2, "ccount");
             return (Criteria) this;
         }
 
-        public Criteria andCcountNotBetween(String value1, String value2) {
+        public Criteria andCcountNotBetween(Integer value1, Integer value2) {
             addCriterion("ccount not between", value1, value2, "ccount");
             return (Criteria) this;
         }

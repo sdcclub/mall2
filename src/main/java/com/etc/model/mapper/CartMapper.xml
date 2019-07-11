@@ -5,7 +5,7 @@
     <id column="cid" jdbcType="INTEGER" property="cid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="gid" jdbcType="INTEGER" property="gid" />
-    <result column="ccount" jdbcType="VARCHAR" property="ccount" />
+    <result column="ccount" jdbcType="INTEGER" property="ccount" />
     <result column="cadddate" jdbcType="TIMESTAMP" property="cadddate" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -103,7 +103,7 @@
     insert into cart (cid, uid, gid, 
       ccount, cadddate)
     values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
-      #{ccount,jdbcType=VARCHAR}, #{cadddate,jdbcType=TIMESTAMP})
+      #{ccount,jdbcType=INTEGER}, #{cadddate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.model.entity.Cart">
     insert into cart
@@ -135,7 +135,7 @@
         #{gid,jdbcType=INTEGER},
       </if>
       <if test="ccount != null">
-        #{ccount,jdbcType=VARCHAR},
+        #{ccount,jdbcType=INTEGER},
       </if>
       <if test="cadddate != null">
         #{cadddate,jdbcType=TIMESTAMP},
@@ -161,7 +161,7 @@
         gid = #{record.gid,jdbcType=INTEGER},
       </if>
       <if test="record.ccount != null">
-        ccount = #{record.ccount,jdbcType=VARCHAR},
+        ccount = #{record.ccount,jdbcType=INTEGER},
       </if>
       <if test="record.cadddate != null">
         cadddate = #{record.cadddate,jdbcType=TIMESTAMP},
@@ -176,7 +176,7 @@
     set cid = #{record.cid,jdbcType=INTEGER},
       uid = #{record.uid,jdbcType=INTEGER},
       gid = #{record.gid,jdbcType=INTEGER},
-      ccount = #{record.ccount,jdbcType=VARCHAR},
+      ccount = #{record.ccount,jdbcType=INTEGER},
       cadddate = #{record.cadddate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -192,7 +192,7 @@
         gid = #{gid,jdbcType=INTEGER},
       </if>
       <if test="ccount != null">
-        ccount = #{ccount,jdbcType=VARCHAR},
+        ccount = #{ccount,jdbcType=INTEGER},
       </if>
       <if test="cadddate != null">
         cadddate = #{cadddate,jdbcType=TIMESTAMP},
@@ -204,7 +204,7 @@
     update cart
     set uid = #{uid,jdbcType=INTEGER},
       gid = #{gid,jdbcType=INTEGER},
-      ccount = #{ccount,jdbcType=VARCHAR},
+      ccount = #{ccount,jdbcType=INTEGER},
       cadddate = #{cadddate,jdbcType=TIMESTAMP}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
@@ -212,7 +212,7 @@
     <id column="cid" jdbcType="INTEGER" property="cid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="gid" jdbcType="INTEGER" property="gid" />
-    <result column="ccount" jdbcType="VARCHAR" property="ccount" />
+    <result column="ccount" jdbcType="INTEGER" property="ccount" />
     <result column="cadddate" jdbcType="TIMESTAMP" property="cadddate" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -310,7 +310,7 @@
     insert into cart (cid, uid, gid, 
       ccount, cadddate)
     values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
-      #{ccount,jdbcType=VARCHAR}, #{cadddate,jdbcType=TIMESTAMP})
+      #{ccount,jdbcType=INTEGER}, #{cadddate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.model.entity.Cart">
     insert into cart
@@ -342,7 +342,7 @@
         #{gid,jdbcType=INTEGER},
       </if>
       <if test="ccount != null">
-        #{ccount,jdbcType=VARCHAR},
+        #{ccount,jdbcType=INTEGER},
       </if>
       <if test="cadddate != null">
         #{cadddate,jdbcType=TIMESTAMP},
@@ -368,7 +368,7 @@
         gid = #{record.gid,jdbcType=INTEGER},
       </if>
       <if test="record.ccount != null">
-        ccount = #{record.ccount,jdbcType=VARCHAR},
+        ccount = #{record.ccount,jdbcType=INTEGER},
       </if>
       <if test="record.cadddate != null">
         cadddate = #{record.cadddate,jdbcType=TIMESTAMP},
@@ -383,7 +383,7 @@
     set cid = #{record.cid,jdbcType=INTEGER},
       uid = #{record.uid,jdbcType=INTEGER},
       gid = #{record.gid,jdbcType=INTEGER},
-      ccount = #{record.ccount,jdbcType=VARCHAR},
+      ccount = #{record.ccount,jdbcType=INTEGER},
       cadddate = #{record.cadddate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -399,7 +399,7 @@
         gid = #{gid,jdbcType=INTEGER},
       </if>
       <if test="ccount != null">
-        ccount = #{ccount,jdbcType=VARCHAR},
+        ccount = #{ccount,jdbcType=INTEGER},
       </if>
       <if test="cadddate != null">
         cadddate = #{cadddate,jdbcType=TIMESTAMP},
@@ -411,7 +411,7 @@
     update cart
     set uid = #{uid,jdbcType=INTEGER},
       gid = #{gid,jdbcType=INTEGER},
-      ccount = #{ccount,jdbcType=VARCHAR},
+      ccount = #{ccount,jdbcType=INTEGER},
       cadddate = #{cadddate,jdbcType=TIMESTAMP}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
