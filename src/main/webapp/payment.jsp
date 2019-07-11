@@ -190,21 +190,20 @@
                               </tr>
                               </thead>
                               <tbody>
+                              <c:forEach items="${goodslist}" var="goods">
+
                               <tr class="rem1">
                                  <td class="invert">
                                     <c:out value="${count}"/>
-                                    <c:set value="${count+1}"/>
-
+                                    <c:set var="count" value="${count+1}"/>
                                  </td>
-                                 <td class="invert">1</td>
-                                 <td class="invert-image"><a href="single.html"><img src="images/f1.jpg" alt=" " class="img-responsive"></a></td>
-                                 <td class="invert">
-
-                                 </td>
-                                 <td class="invert">Bella Toes</td>
-                                 <td class="invert">$675.00</td>
+                                 <td class="invert"><img src="images/${goods.gpicture}" alt=" " class="img-responsive"></td>
+                                 <td class="invert-image">${goods.gname}</td>
+                                 <td class="invert">${goods.gcount}</td>
+                                 <td class="invert">${goods.gprice}</td>
+                                 <td class="invert">${goods.gcount*goods.gprice}</td>
                               </tr>
-
+                                 </c:forEach>
                               </tbody>
                            </table>
                         </div>

@@ -47,6 +47,17 @@ public class Goods {
         return gprice;
     }
 
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "gid=" + gid +
+                ", gname='" + gname + '\'' +
+                ", gcount=" + gcount +
+                ", gpicture='" + gpicture + '\'' +
+                ", gprice=" + gprice +
+                '}';
+    }
+
     public void setGprice(Double gprice) {
         this.gprice = gprice;
     }
