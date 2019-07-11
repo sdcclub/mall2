@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etc.model.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.model.entity.User">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.User">
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="upassword" jdbcType="VARCHAR" property="upassword" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List">
     uid, username, upassword, ugender, umobile, uaddress, ubirthday, uregistdate
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -86,13 +86,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.model.entity.UserExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.User">
+  <insert id="insert" parameterType="com.etc.model.entity.User">
     insert into user (uid, username, upassword, 
       ugender, umobile, uaddress, 
       ubirthday, uregistdate)
@@ -100,7 +100,7 @@
       #{ugender,jdbcType=VARCHAR}, #{umobile,jdbcType=VARCHAR}, #{uaddress,jdbcType=VARCHAR}, 
       #{ubirthday,jdbcType=DATE}, #{uregistdate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.User">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -155,7 +155,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -207,7 +207,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.User">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.User">
     <id column="Host" jdbcType="CHAR" property="host" />
     <id column="User" jdbcType="CHAR" property="user" />
     <result column="Select_priv" jdbcType="CHAR" property="selectPriv" />
@@ -255,7 +255,7 @@
     <result column="Password_reuse_time" jdbcType="SMALLINT" property="passwordReuseTime" />
     <result column="Password_require_current" jdbcType="CHAR" property="passwordRequireCurrent" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.model.entity.UserWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.etc.model.entity.UserWithBLOBs">
     <result column="ssl_cipher" jdbcType="LONGVARBINARY" property="sslCipher" />
     <result column="x509_issuer" jdbcType="LONGVARBINARY" property="x509Issuer" />
     <result column="x509_subject" jdbcType="LONGVARBINARY" property="x509Subject" />
@@ -333,7 +333,7 @@
   <sql id="Blob_Column_List">
     ssl_cipher, x509_issuer, x509_subject, authentication_string, User_attributes
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.model.entity.UserExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.etc.model.entity.UserExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -349,7 +349,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.model.entity.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -363,7 +363,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="com.model.entity.UserKey" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="com.etc.model.entity.UserKey" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
@@ -372,18 +372,18 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.model.entity.UserKey">
+  <delete id="deleteByPrimaryKey" parameterType="com.etc.model.entity.UserKey">
     delete from user
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.UserExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.UserWithBLOBs">
+  <insert id="insert" parameterType="com.etc.model.entity.UserWithBLOBs">
     insert into user (Host, User, Select_priv, 
       Insert_priv, Update_priv, Delete_priv, 
       Create_priv, Drop_priv, Reload_priv, 
@@ -421,7 +421,7 @@
       #{x509Subject,jdbcType=LONGVARBINARY}, #{authenticationString,jdbcType=LONGVARCHAR}, 
       #{userAttributes,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.UserWithBLOBs">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.UserWithBLOBs">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="host != null">
@@ -734,7 +734,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -1010,7 +1010,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.UserWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.UserWithBLOBs">
     update user
     <set>
       <if test="selectPriv != null">
@@ -1164,7 +1164,7 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.model.entity.UserWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.etc.model.entity.UserWithBLOBs">
     update user
     set Select_priv = #{selectPriv,jdbcType=CHAR},
       Insert_priv = #{insertPriv,jdbcType=CHAR},
@@ -1218,7 +1218,7 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.User">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.User">
     update user
     set Select_priv = #{selectPriv,jdbcType=CHAR},
       Insert_priv = #{insertPriv,jdbcType=CHAR},
@@ -1267,7 +1267,7 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.User">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.User">
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="upassword" jdbcType="VARCHAR" property="upassword" />
@@ -1338,7 +1338,7 @@
   <sql id="Base_Column_List">
     uid, username, upassword, ugender, umobile, uaddress, ubirthday, uregistdate
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -1352,13 +1352,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.model.entity.UserExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.User">
+  <insert id="insert" parameterType="com.etc.model.entity.User">
     insert into user (uid, username, upassword, 
       ugender, umobile, uaddress, 
       ubirthday, uregistdate)
@@ -1366,7 +1366,7 @@
       #{ugender,jdbcType=VARCHAR}, #{umobile,jdbcType=VARCHAR}, #{uaddress,jdbcType=VARCHAR}, 
       #{ubirthday,jdbcType=DATE}, #{uregistdate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.User">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -1421,7 +1421,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -1473,7 +1473,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.User">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.User">
     <id column="Host" jdbcType="CHAR" property="host" />
     <id column="User" jdbcType="CHAR" property="user" />
     <result column="Select_priv" jdbcType="CHAR" property="selectPriv" />
@@ -1521,7 +1521,7 @@
     <result column="Password_reuse_time" jdbcType="SMALLINT" property="passwordReuseTime" />
     <result column="Password_require_current" jdbcType="CHAR" property="passwordRequireCurrent" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.model.entity.UserWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.etc.model.entity.UserWithBLOBs">
     <result column="ssl_cipher" jdbcType="LONGVARBINARY" property="sslCipher" />
     <result column="x509_issuer" jdbcType="LONGVARBINARY" property="x509Issuer" />
     <result column="x509_subject" jdbcType="LONGVARBINARY" property="x509Subject" />
@@ -1599,7 +1599,7 @@
   <sql id="Blob_Column_List">
     ssl_cipher, x509_issuer, x509_subject, authentication_string, User_attributes
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.model.entity.UserExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.etc.model.entity.UserExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -1615,7 +1615,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.model.entity.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -1629,7 +1629,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="com.model.entity.UserKey" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="com.etc.model.entity.UserKey" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
@@ -1638,18 +1638,18 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.model.entity.UserKey">
+  <delete id="deleteByPrimaryKey" parameterType="com.etc.model.entity.UserKey">
     delete from user
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.UserExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.UserWithBLOBs">
+  <insert id="insert" parameterType="com.etc.model.entity.UserWithBLOBs">
     insert into user (Host, User, Select_priv, 
       Insert_priv, Update_priv, Delete_priv, 
       Create_priv, Drop_priv, Reload_priv, 
@@ -1687,7 +1687,7 @@
       #{x509Subject,jdbcType=LONGVARBINARY}, #{authenticationString,jdbcType=LONGVARCHAR}, 
       #{userAttributes,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.UserWithBLOBs">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.UserWithBLOBs">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="host != null">
@@ -2000,7 +2000,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -2276,7 +2276,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.UserWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.UserWithBLOBs">
     update user
     <set>
       <if test="selectPriv != null">
@@ -2430,7 +2430,7 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.model.entity.UserWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.etc.model.entity.UserWithBLOBs">
     update user
     set Select_priv = #{selectPriv,jdbcType=CHAR},
       Insert_priv = #{insertPriv,jdbcType=CHAR},
@@ -2484,7 +2484,7 @@
     where Host = #{host,jdbcType=CHAR}
       and User = #{user,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.User">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.User">
     update user
     set Select_priv = #{selectPriv,jdbcType=CHAR},
       Insert_priv = #{insertPriv,jdbcType=CHAR},
