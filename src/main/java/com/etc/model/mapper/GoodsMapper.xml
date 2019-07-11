@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.model.dao.GoodsMapper">
+<mapper namespace="com.etc.model.dao.GoodsMapper">
   <resultMap id="BaseResultMap" type="com.model.entity.Goods">
     <id column="gid" jdbcType="INTEGER" property="gid" />
     <result column="gname" jdbcType="VARCHAR" property="gname" />
