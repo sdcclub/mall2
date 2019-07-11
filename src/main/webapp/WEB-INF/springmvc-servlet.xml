@@ -84,7 +84,7 @@
     <!-- 前置控制器 -->
     <bean id="viewResovler"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="prefix" value="/xyy-temp/"></property>
         <property name="suffix" value=".jsp"></property>
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
     </bean>
