@@ -1,8 +1,6 @@
 package com.etc.model.entity;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class GoodsExample {
@@ -104,32 +102,6 @@ public class GoodsExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andGidIsNull() {
@@ -262,193 +234,193 @@ public class GoodsExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            addCriterion("type is null");
+        public Criteria andGcountIsNull() {
+            addCriterion("gcount is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            addCriterion("type is not null");
+        public Criteria andGcountIsNotNull() {
+            addCriterion("gcount is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(String value) {
-            addCriterion("type =", value, "type");
+        public Criteria andGcountEqualTo(Integer value) {
+            addCriterion("gcount =", value, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(String value) {
-            addCriterion("type <>", value, "type");
+        public Criteria andGcountNotEqualTo(Integer value) {
+            addCriterion("gcount <>", value, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(String value) {
-            addCriterion("type >", value, "type");
+        public Criteria andGcountGreaterThan(Integer value) {
+            addCriterion("gcount >", value, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("type >=", value, "type");
+        public Criteria andGcountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("gcount >=", value, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(String value) {
-            addCriterion("type <", value, "type");
+        public Criteria andGcountLessThan(Integer value) {
+            addCriterion("gcount <", value, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(String value) {
-            addCriterion("type <=", value, "type");
+        public Criteria andGcountLessThanOrEqualTo(Integer value) {
+            addCriterion("gcount <=", value, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLike(String value) {
-            addCriterion("type like", value, "type");
+        public Criteria andGcountIn(List<Integer> values) {
+            addCriterion("gcount in", values, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotLike(String value) {
-            addCriterion("type not like", value, "type");
+        public Criteria andGcountNotIn(List<Integer> values) {
+            addCriterion("gcount not in", values, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<String> values) {
-            addCriterion("type in", values, "type");
+        public Criteria andGcountBetween(Integer value1, Integer value2) {
+            addCriterion("gcount between", value1, value2, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<String> values) {
-            addCriterion("type not in", values, "type");
+        public Criteria andGcountNotBetween(Integer value1, Integer value2) {
+            addCriterion("gcount not between", value1, value2, "gcount");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(String value1, String value2) {
-            addCriterion("type between", value1, value2, "type");
+        public Criteria andGpictureIsNull() {
+            addCriterion("gpicture is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(String value1, String value2) {
-            addCriterion("type not between", value1, value2, "type");
+        public Criteria andGpictureIsNotNull() {
+            addCriterion("gpicture is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIsNull() {
-            addCriterion("price is null");
+        public Criteria andGpictureEqualTo(String value) {
+            addCriterion("gpicture =", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIsNotNull() {
-            addCriterion("price is not null");
+        public Criteria andGpictureNotEqualTo(String value) {
+            addCriterion("gpicture <>", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceEqualTo(Double value) {
-            addCriterion("price =", value, "price");
+        public Criteria andGpictureGreaterThan(String value) {
+            addCriterion("gpicture >", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotEqualTo(Double value) {
-            addCriterion("price <>", value, "price");
+        public Criteria andGpictureGreaterThanOrEqualTo(String value) {
+            addCriterion("gpicture >=", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceGreaterThan(Double value) {
-            addCriterion("price >", value, "price");
+        public Criteria andGpictureLessThan(String value) {
+            addCriterion("gpicture <", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceGreaterThanOrEqualTo(Double value) {
-            addCriterion("price >=", value, "price");
+        public Criteria andGpictureLessThanOrEqualTo(String value) {
+            addCriterion("gpicture <=", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceLessThan(Double value) {
-            addCriterion("price <", value, "price");
+        public Criteria andGpictureLike(String value) {
+            addCriterion("gpicture like", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceLessThanOrEqualTo(Double value) {
-            addCriterion("price <=", value, "price");
+        public Criteria andGpictureNotLike(String value) {
+            addCriterion("gpicture not like", value, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIn(List<Double> values) {
-            addCriterion("price in", values, "price");
+        public Criteria andGpictureIn(List<String> values) {
+            addCriterion("gpicture in", values, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotIn(List<Double> values) {
-            addCriterion("price not in", values, "price");
+        public Criteria andGpictureNotIn(List<String> values) {
+            addCriterion("gpicture not in", values, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceBetween(Double value1, Double value2) {
-            addCriterion("price between", value1, value2, "price");
+        public Criteria andGpictureBetween(String value1, String value2) {
+            addCriterion("gpicture between", value1, value2, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotBetween(Double value1, Double value2) {
-            addCriterion("price not between", value1, value2, "price");
+        public Criteria andGpictureNotBetween(String value1, String value2) {
+            addCriterion("gpicture not between", value1, value2, "gpicture");
             return (Criteria) this;
         }
 
-        public Criteria andDateIsNull() {
-            addCriterion("date is null");
+        public Criteria andGpriceIsNull() {
+            addCriterion("gprice is null");
             return (Criteria) this;
         }
 
-        public Criteria andDateIsNotNull() {
-            addCriterion("date is not null");
+        public Criteria andGpriceIsNotNull() {
+            addCriterion("gprice is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDateEqualTo(Date value) {
-            addCriterionForJDBCDate("date =", value, "date");
+        public Criteria andGpriceEqualTo(Double value) {
+            addCriterion("gprice =", value, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("date <>", value, "date");
+        public Criteria andGpriceNotEqualTo(Double value) {
+            addCriterion("gprice <>", value, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateGreaterThan(Date value) {
-            addCriterionForJDBCDate("date >", value, "date");
+        public Criteria andGpriceGreaterThan(Double value) {
+            addCriterion("gprice >", value, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("date >=", value, "date");
+        public Criteria andGpriceGreaterThanOrEqualTo(Double value) {
+            addCriterion("gprice >=", value, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateLessThan(Date value) {
-            addCriterionForJDBCDate("date <", value, "date");
+        public Criteria andGpriceLessThan(Double value) {
+            addCriterion("gprice <", value, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("date <=", value, "date");
+        public Criteria andGpriceLessThanOrEqualTo(Double value) {
+            addCriterion("gprice <=", value, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateIn(List<Date> values) {
-            addCriterionForJDBCDate("date in", values, "date");
+        public Criteria andGpriceIn(List<Double> values) {
+            addCriterion("gprice in", values, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("date not in", values, "date");
+        public Criteria andGpriceNotIn(List<Double> values) {
+            addCriterion("gprice not in", values, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("date between", value1, value2, "date");
+        public Criteria andGpriceBetween(Double value1, Double value2) {
+            addCriterion("gprice between", value1, value2, "gprice");
             return (Criteria) this;
         }
 
-        public Criteria andDateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("date not between", value1, value2, "date");
+        public Criteria andGpriceNotBetween(Double value1, Double value2) {
+            addCriterion("gprice not between", value1, value2, "gprice");
             return (Criteria) this;
         }
     }

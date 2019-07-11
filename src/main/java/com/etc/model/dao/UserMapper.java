@@ -1,7 +1,7 @@
 package com.etc.model.dao;
 
-import com.model.entity.User;
-import com.model.entity.UserExample;
+import com.etc.model.entity.User;
+import com.etc.model.entity.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

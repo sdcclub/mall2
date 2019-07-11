@@ -1,3 +1,11 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
++ path + "/";
+%>
 <!DOCTYPE html>
 <html lang="zxx">
    <head>
@@ -25,6 +33,9 @@
       <!--Shoping cart-->
       <link rel="stylesheet" href="css/shop.css" type="text/css" />
       <!--//Shoping cart-->
+      <!--price range-->
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+      <!--//price range-->
       <!--stylesheets-->
       <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
@@ -44,7 +55,7 @@
                   </li>
                   <li>
                      <span class="fas fa-envelope"></span>
-                     <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                     <p>info@example1.com</p>
                   </li>
                   <li>
                   </li>
@@ -54,20 +65,20 @@
          <div class="container-fluid">
             <div class="hedder-up row">
                <div class="col-lg-3 col-md-3 logo-head">
-                  <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
+                  <h1><a class="navbar-brand" href="index.html">电子商城</a></h1>
                </div>
                <div class="col-lg-5 col-md-6 search-right">
                   <form class="form-inline my-lg-0">
-                     <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                     <button class="btn" type="submit">Search</button>
+                     <input class="form-control mr-sm-2" type="search" placeholder="搜索">
+                     <button class="btn" type="submit">搜索</button>
                   </form>
                </div>
                <div class="col-lg-4 col-md-3 right-side-cart">
                   <div class="cart-icons">
                      <ul>
-                        <li>
-                           <span class="far fa-heart"></span>
-                        </li>
+<!--                        <li>-->
+<!--                           <span class="far fa-heart"></span>-->
+<!--                        </li>-->
                         <li>
                            <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                         </li>
@@ -100,7 +111,7 @@
                   <li class="nav-item">
                      <a href="service.html" class="nav-link">Service</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                      <a href="shop.shop.jsp" class="nav-link">Shop Now</a>
                   </li>
                   <li class="nav-item dropdown">
@@ -123,8 +134,8 @@
                         <a class="nav-link " href="product.html">Boys Toys</a>
                      </div>
                   </li>
-                  <li class="nav-item active">
-                     <a href="contact.html " class="nav-link">Contact</a>
+                  <li class="nav-item">
+                     <a href="contact.html" class="nav-link">Contact</a>
                   </li>
                </ul>
             </div>
@@ -141,47 +152,86 @@
          <div class="inner_breadcrumb  ml-4">
             <ul class="short_ls">
                <li>
-                  <a href="index.html">Home</a>
+                  <a href="index.html">主页</a>
                   <span>/ /</span>
                </li>
-               <li>Contact</li>
+               <li>商品详情</li>
             </ul>
          </div>
       </div>
       <!-- //short-->
-      <!--contact -->
+      <!--show Now-->  
+      <!--show Now-->  
       <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
-         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Contact US</h3>
-            <div class="contact-list-grid">
-               <form action="#" method="post">
-                  <div class=" agile-wls-contact-mid">
-                     <div class="form-group contact-forms">
-                        <input type="text" class="form-control" placeholder="Name">
-                     </div>
-                     <div class="form-group contact-forms">
-                        <input type="email" class="form-control" placeholder="Enter">
-                     </div>
-                     <div class="form-group contact-forms">
-                        <input type="text" class="form-control" placeholder="Phone">
-                     </div>
-                     <div class="form-group contact-forms">
-                        <textarea class="form-control" rows="3"></textarea>
-                     </div>
-                     <button type="submit" class="btn btn-block sent-butnn">Send</button>
+         <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">电子商城</h3>
+            <div class="row">
+               <div class="left-ads-display col-lg-9">
+                  <div class="row">
+                     <c:if test="${not empty list}">
+                        <c:forEach items="${list}" var="good">
+                           <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
+                              <div class="product-toys-info">
+                                 <div class="men-pro-item">
+                                    <div class="men-thumb-item">
+                                       <img src="<%=basePath%>pictures/${good.gpicture}" class="img-thumbnail img-fluid" alt="">
+                                       <div class="men-cart-pro">
+                                          <div class="inner-men-cart-pro">
+                                             <a href="single.html" class="link-product-add-cart">商品详情</a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="item-info-product">
+                                       <div class="info-product-price">
+                                          <div class="grid_meta">
+                                             <div class="product_price">
+                                                <h4>
+                                                   <a href="single.html">${good.gname}</a>
+                                                </h4>
+                                                <div class="grid-price mt-2">
+                                                   <span class="money ">${good.gprice}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="toys single-item hvr-outline-out">
+                                             <form action="#" method="post">
+<%--                                                <input type="hidden" name="cmd" value="_cart">--%>
+<%--                                                <input type="hidden" name="add" value="1">--%>
+<%--                                                <input type="hidden" name="toys_item" value="toys(barbie)">--%>
+<%--                                                <input type="hidden" name="amount" value="575.00">--%>
+                                                <button type="submit" class="toys-cart ptoys-cart">
+                                                   <i class="fas fa-cart-plus"></i>
+                                                </button>
+                                             </form>
+                                          </div>
+                                       </div>
+                                       <div class="clearfix"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </c:if>
                   </div>
-               </form>
+               </div>
             </div>
          </div>
-         <!--//contact-map -->
       </section>
 
+      <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
+         <div class="copy-agile-right">
+            <p> 
+               Copyright &copy; 2018.sdcclub All rights reserved.
+            </p>
+         </div>
+      </footer>
+      <!-- //footer -->
       <!-- Modal 1-->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -199,13 +249,13 @@
                            <div class="styled-input">
                               <input type="password" placeholder="password" name="password" required="">
                            </div>
-                           <button type="submit" class="btn subscrib-btnn">Login</button>
+<!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
                         </div>
                      </form>
                   </div>
                </div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                </div>
             </div>
          </div>
@@ -215,7 +265,7 @@
       <script src='js/jquery-2.2.3.min.js'></script>
       <!--//js working-->
       <!-- cart-js -->
-      <script src="js/minicart.js"></script>
+       <script src="js/minicart.js"></script>
       <script>
          toys.render();
          
@@ -230,8 +280,28 @@
          });
       </script>
       <!-- //cart-js -->
+		<!-- price range (top products) -->
+		<script src="js/jquery-ui.js"></script>
+		<script>
+			//<![CDATA[ 
+			$(window).load(function () {
+				$("#slider-range").slider({
+					range: true,
+					min: 0,
+					max: 9000,
+					values: [50, 6000],
+					slide: function (event, ui) {
+						$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+					}
+				});
+				$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+			}); //]]>
+		</script>
+		<!-- //price range (top products) -->
+
       <!-- start-smoth-scrolling -->
-      <script src="js/move-top.js"></script>
+       <script src="js/move-top.js"></script>
       <script src="js/easing.js"></script>
       <script>
          jQuery(document).ready(function ($) {
@@ -265,6 +335,6 @@
       <!-- //here ends scrolling icon -->
       <!--bootstrap working-->
       <script src="js/bootstrap.min.js"></script>
-      <!-- //bootstrap working-->      <!-- //OnScroll-Number-Increase-JavaScript -->
+      <!-- //bootstrap working--> 
    </body>
 </html>
