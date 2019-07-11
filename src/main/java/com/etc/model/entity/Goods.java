@@ -1,17 +1,15 @@
 package com.etc.model.entity;
 
-import java.util.Date;
-
 public class Goods {
     private Integer gid;
 
     private String gname;
 
-    private String type;
+    private Integer gcount;
 
-    private Double price;
+    private String gpicture;
 
-    private Date date;
+    private Double gprice;
 
     public Integer getGid() {
         return gid;
@@ -29,27 +27,27 @@ public class Goods {
         this.gname = gname == null ? null : gname.trim();
     }
 
-    public String getType() {
-        return type;
+    public Integer getGcount() {
+        return gcount;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setGcount(Integer gcount) {
+        this.gcount = gcount;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getGpicture() {
+        return gpicture;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setGpicture(String gpicture) {
+        this.gpicture = gpicture == null ? null : gpicture.trim();
     }
 
-    public Date getDate() {
-        return date;
+    public Double getGprice() {
+        return gprice;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setGprice(Double gprice) {
+        this.gprice = gprice;
     }
 }
