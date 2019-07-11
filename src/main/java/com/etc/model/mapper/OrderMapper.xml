@@ -73,7 +73,7 @@
   <sql id="Base_Column_List">
     oid, onumber, uid, gid, ccount, oprice, ostatus, opaydate, orderdate
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.OrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -97,13 +97,13 @@
     delete from order
     where oid = #{oid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.OrderExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.OrderExample">
     delete from order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Order">
+  <insert id="insert" parameterType="com.etc.model.entity.Order">
     insert into order (oid, onumber, uid, 
       gid, ccount, oprice, 
       ostatus, opaydate, orderdate
@@ -113,7 +113,7 @@
       #{ostatus,jdbcType=VARCHAR}, #{opaydate,jdbcType=TIMESTAMP}, #{orderdate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Order">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Order">
     insert into order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="oid != null">
@@ -174,7 +174,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.OrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.OrderExample" resultType="java.lang.Long">
     select count(*) from order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -230,7 +230,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Order">
     update order
     <set>
       <if test="onumber != null">
@@ -260,7 +260,7 @@
     </set>
     where oid = #{oid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Order">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Order">
     update order
     set onumber = #{onumber,jdbcType=INTEGER},
       uid = #{uid,jdbcType=INTEGER},
@@ -272,7 +272,7 @@
       orderdate = #{orderdate,jdbcType=TIMESTAMP}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.Order">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.Order">
     <id column="oid" jdbcType="INTEGER" property="oid" />
     <result column="onumber" jdbcType="INTEGER" property="onumber" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
@@ -344,7 +344,7 @@
   <sql id="Base_Column_List">
     oid, onumber, uid, gid, ccount, oprice, ostatus, opaydate, orderdate
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.OrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -368,13 +368,13 @@
     delete from order
     where oid = #{oid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.OrderExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.OrderExample">
     delete from order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Order">
+  <insert id="insert" parameterType="com.etc.model.entity.Order">
     insert into order (oid, onumber, uid, 
       gid, ccount, oprice, 
       ostatus, opaydate, orderdate
@@ -384,7 +384,7 @@
       #{ostatus,jdbcType=VARCHAR}, #{opaydate,jdbcType=TIMESTAMP}, #{orderdate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Order">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Order">
     insert into order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="oid != null">
@@ -445,7 +445,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.OrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.OrderExample" resultType="java.lang.Long">
     select count(*) from order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -501,7 +501,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Order">
     update order
     <set>
       <if test="onumber != null">
@@ -531,7 +531,7 @@
     </set>
     where oid = #{oid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Order">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Order">
     update order
     set onumber = #{onumber,jdbcType=INTEGER},
       uid = #{uid,jdbcType=INTEGER},

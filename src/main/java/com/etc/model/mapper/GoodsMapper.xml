@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     gid, gname, gcount, gpicture, gprice
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     delete from goods
     where gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Goods">
+  <insert id="insert" parameterType="com.etc.model.entity.Goods">
     insert into goods (gid, gname, gcount, 
       gpicture, gprice)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{gcount,jdbcType=INTEGER}, 
       #{gpicture,jdbcType=VARCHAR}, #{gprice,jdbcType=DOUBLE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Goods">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Goods">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="gid != null">
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Goods">
     update goods
     <set>
       <if test="gname != null">
@@ -200,7 +200,7 @@
     </set>
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Goods">
     update goods
     set gname = #{gname,jdbcType=VARCHAR},
       gcount = #{gcount,jdbcType=INTEGER},
@@ -208,7 +208,7 @@
       gprice = #{gprice,jdbcType=DOUBLE}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.Goods">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.Goods">
     <id column="gid" jdbcType="INTEGER" property="gid" />
     <result column="gname" jdbcType="VARCHAR" property="gname" />
     <result column="type" jdbcType="VARCHAR" property="type" />
@@ -276,7 +276,7 @@
   <sql id="Base_Column_List">
     gid, gname, type, price, date
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -300,19 +300,19 @@
     delete from goods
     where gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Goods">
+  <insert id="insert" parameterType="com.etc.model.entity.Goods">
     insert into goods (gid, gname, type, 
       price, date)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
       #{price,jdbcType=DOUBLE}, #{date,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Goods">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Goods">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="gid != null">
@@ -349,7 +349,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -389,7 +389,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Goods">
     update goods
     <set>
       <if test="gname != null">
@@ -407,7 +407,7 @@
     </set>
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Goods">
     update goods
     set gname = #{gname,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
@@ -415,7 +415,7 @@
       date = #{date,jdbcType=DATE}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.Goods">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.Goods">
     <id column="gid" jdbcType="INTEGER" property="gid" />
     <result column="gname" jdbcType="VARCHAR" property="gname" />
     <result column="type" jdbcType="VARCHAR" property="type" />
@@ -483,7 +483,7 @@
   <sql id="Base_Column_List">
     gid, gname, type, price, date
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -507,19 +507,19 @@
     delete from goods
     where gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Goods">
+  <insert id="insert" parameterType="com.etc.model.entity.Goods">
     insert into goods (gid, gname, type, 
       price, date)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
       #{price,jdbcType=DOUBLE}, #{date,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Goods">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Goods">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="gid != null">
@@ -556,7 +556,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -596,7 +596,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Goods">
     update goods
     <set>
       <if test="gname != null">
@@ -614,7 +614,7 @@
     </set>
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Goods">
     update goods
     set gname = #{gname,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
@@ -622,7 +622,7 @@
       date = #{date,jdbcType=DATE}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.Goods">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.Goods">
     <id column="gid" jdbcType="INTEGER" property="gid" />
     <result column="gname" jdbcType="VARCHAR" property="gname" />
     <result column="gcount" jdbcType="INTEGER" property="gcount" />
@@ -690,7 +690,7 @@
   <sql id="Base_Column_List">
     gid, gname, gcount, gpicture, gprice
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -714,19 +714,19 @@
     delete from goods
     where gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Goods">
+  <insert id="insert" parameterType="com.etc.model.entity.Goods">
     insert into goods (gid, gname, gcount, 
       gpicture, gprice)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{gcount,jdbcType=INTEGER}, 
       #{gpicture,jdbcType=VARCHAR}, #{gprice,jdbcType=DOUBLE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Goods">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Goods">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="gid != null">
@@ -763,7 +763,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -803,7 +803,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Goods">
     update goods
     <set>
       <if test="gname != null">
@@ -821,7 +821,7 @@
     </set>
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Goods">
     update goods
     set gname = #{gname,jdbcType=VARCHAR},
       gcount = #{gcount,jdbcType=INTEGER},
@@ -829,7 +829,7 @@
       gprice = #{gprice,jdbcType=DOUBLE}
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.Goods">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.Goods">
     <id column="gid" jdbcType="INTEGER" property="gid" />
     <result column="gname" jdbcType="VARCHAR" property="gname" />
     <result column="type" jdbcType="VARCHAR" property="type" />
@@ -897,7 +897,7 @@
   <sql id="Base_Column_List">
     gid, gname, type, price, date
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -921,19 +921,19 @@
     delete from goods
     where gid = #{gid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Goods">
+  <insert id="insert" parameterType="com.etc.model.entity.Goods">
     insert into goods (gid, gname, type, 
       price, date)
     values (#{gid,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
       #{price,jdbcType=DOUBLE}, #{date,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Goods">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Goods">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="gid != null">
@@ -970,7 +970,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -1010,7 +1010,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Goods">
     update goods
     <set>
       <if test="gname != null">
@@ -1028,7 +1028,7 @@
     </set>
     where gid = #{gid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Goods">
     update goods
     set gname = #{gname,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},

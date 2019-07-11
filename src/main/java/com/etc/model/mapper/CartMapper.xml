@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     cid, uid, gid, ccount, cadddate
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.CartExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.CartExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     delete from cart
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.CartExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.CartExample">
     delete from cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Cart">
+  <insert id="insert" parameterType="com.etc.model.entity.Cart">
     insert into cart (cid, uid, gid, 
       ccount, cadddate)
     values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
       #{ccount,jdbcType=INTEGER}, #{cadddate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Cart">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Cart">
     insert into cart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cid != null">
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.CartExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.CartExample" resultType="java.lang.Long">
     select count(*) from cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Cart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Cart">
     update cart
     <set>
       <if test="uid != null">
@@ -200,7 +200,7 @@
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Cart">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Cart">
     update cart
     set uid = #{uid,jdbcType=INTEGER},
       gid = #{gid,jdbcType=INTEGER},
@@ -208,7 +208,7 @@
       cadddate = #{cadddate,jdbcType=TIMESTAMP}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.model.entity.Cart">
+  <resultMap id="BaseResultMap" type="com.etc.model.entity.Cart">
     <id column="cid" jdbcType="INTEGER" property="cid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="gid" jdbcType="INTEGER" property="gid" />
@@ -276,7 +276,7 @@
   <sql id="Base_Column_List">
     cid, uid, gid, ccount, cadddate
   </sql>
-  <select id="selectByExample" parameterType="com.model.entity.CartExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.etc.model.entity.CartExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -300,19 +300,19 @@
     delete from cart
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.model.entity.CartExample">
+  <delete id="deleteByExample" parameterType="com.etc.model.entity.CartExample">
     delete from cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.model.entity.Cart">
+  <insert id="insert" parameterType="com.etc.model.entity.Cart">
     insert into cart (cid, uid, gid, 
       ccount, cadddate)
     values (#{cid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
       #{ccount,jdbcType=INTEGER}, #{cadddate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.model.entity.Cart">
+  <insert id="insertSelective" parameterType="com.etc.model.entity.Cart">
     insert into cart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cid != null">
@@ -349,7 +349,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.model.entity.CartExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.etc.model.entity.CartExample" resultType="java.lang.Long">
     select count(*) from cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -389,7 +389,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.model.entity.Cart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Cart">
     update cart
     <set>
       <if test="uid != null">
@@ -407,7 +407,7 @@
     </set>
     where cid = #{cid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.model.entity.Cart">
+  <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Cart">
     update cart
     set uid = #{uid,jdbcType=INTEGER},
       gid = #{gid,jdbcType=INTEGER},
