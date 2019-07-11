@@ -9,7 +9,7 @@ public class Cart {
 
     private Integer gid;
 
-    private String ccount;
+    private Integer ccount;
 
     private Date cadddate;
 
@@ -37,12 +37,12 @@ public class Cart {
         this.gid = gid;
     }
 
-    public String getCcount() {
+    public Integer getCcount() {
         return ccount;
     }
 
-    public void setCcount(String ccount) {
-        this.ccount = ccount == null ? null : ccount.trim();
+    public void setCcount(Integer ccount) {
+        this.ccount = ccount;
     }
 
     public Date getCadddate() {
