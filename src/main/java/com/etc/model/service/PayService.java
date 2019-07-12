@@ -12,21 +12,45 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static java.lang.System.exit;
+
 @Service
 public class PayService {
-    @Autowired
+
     OrderMapper orderMapper;
+    GoodsMapper goodsMapper;
+
+    public OrderMapper getOrderMapper() {
+        return orderMapper;
+    }
 
     @Autowired
-    GoodsMapper goodsMapper;
+    public void setOrderMapper(OrderMapper orderMapper) {
+        this.orderMapper = orderMapper;
+    }
+
+    public GoodsMapper getGoodsMapper() {
+        return goodsMapper;
+    }
+
+    @Autowired
+    public void setGoodsMapper(GoodsMapper goodsMapper) {
+        this.goodsMapper = goodsMapper;
+    }
 
     public List<Goods> getPayList(User user) {
         OrderExample orderExample=new OrderExample();
-
+        System.out.println("难道没有成功？");
         //获取当前用户待支付的所有订单
         orderExample.createCriteria().andUidEqualTo(user.getUid())
                 .andOstatusEqualTo("待支付");
+        if(orderMapper.selectByExample(orderExample)==null){
+            System.out.println("什么也没查到");
+            exit(-1);
+        }
         List<Order> orderList=orderMapper.selectByExample(orderExample);
+
+
 
         //把订单按照onumber进行倒序排序
         Comparator comparator=new MyComparator();
