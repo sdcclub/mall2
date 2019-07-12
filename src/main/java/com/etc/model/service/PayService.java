@@ -40,7 +40,6 @@ public class PayService {
 
     public List<Goods> getPayList(User user) {
         OrderExample orderExample=new OrderExample();
-        System.out.println("难道没有成功？");
         //获取当前用户待支付的所有订单
         orderExample.createCriteria().andUidEqualTo(user.getUid())
                 .andOstatusEqualTo("待支付");
