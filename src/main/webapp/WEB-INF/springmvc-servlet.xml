@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-        xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:p="http://www.springframework.org/schema/p"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xmlns:mvc="http://www.springframework.org/schema/mvc"
-        xmlns:util="http://www.springframework.org/schema/util"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://www.springframework.org/schema/context
-		http://www.springframework.org/schema/context/spring-context-4.0.xsd
-		http://www.springframework.org/schema/mvc
-		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-		http://www.springframework.org/schema/util
-		http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans">
 
     <!-- 指定包中的类头上带有特定注解，如：@Component、@Repository、@Service、@Controller
     就会将这个类作为bean注册到Spring容器里面，自动注册-->
@@ -35,14 +34,12 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-
-
     <!-- mybatis整合配置 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="url" value="jdbc:mysql://127.0.0.1/mall?characterEncoding=utf-8"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="123456"></property>
+        <property name="password" value="Root123"></property>
     </bean>
     <!--classpath 加了个*-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -84,24 +81,24 @@
     <!-- 前置控制器 -->
     <bean id="viewResovler"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/xyy-temp/"></property>
+        <property name="prefix" value="/"></property>
         <property name="suffix" value=".jsp"></property>
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
     </bean>
     <!-- 异常处理 -->
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="error"></property>
         <property name="exceptionAttribute" value="ex"></property>
-    </bean>
+    </bean>-->
 
 
     <!-- 拦截器 -->
-    <mvc:interceptors>
+    <!--<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="com.etc.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 
     <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
