@@ -25,19 +25,19 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       </script>
       <!--//meta tags ends here-->
       <!--booststrap-->
-      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
       <!--//booststrap end-->
       <!-- font-awesome icons -->
-      <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="<%=basePath%>/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
       <!--Shoping cart-->
-      <link rel="stylesheet" href="css/shop.css" type="text/css" />
+      <link rel="stylesheet" href="<%=basePath%>/css/shop.css" type="text/css" />
       <!--//Shoping cart-->
       <!--price range-->
-      <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+      <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery-ui1.css">
       <!--//price range-->
       <!--stylesheets-->
-      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+      <link href="<%=basePath%>/css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
       <link href="http://fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -76,9 +76,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                <div class="col-lg-4 col-md-3 right-side-cart">
                   <div class="cart-icons">
                      <ul>
-<!--                        <li>-->
-<!--                           <span class="far fa-heart"></span>-->
-<!--                        </li>-->
                         <li>
                            <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                         </li>
@@ -102,17 +99,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                <ul class="navbar-nav ">
-                  <li class="nav-item ">
-                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <li class="nav-item active">
+                     <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                      <a href="about.html" class="nav-link">About</a>
                   </li>
                   <li class="nav-item">
                      <a href="service.html" class="nav-link">Service</a>
-                  </li>
-                  <li class="nav-item active">
-                     <a href="shop.shop.jsp" class="nav-link">Shop Now</a>
                   </li>
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -151,11 +145,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <div class="using-border py-3">
          <div class="inner_breadcrumb  ml-4">
             <ul class="short_ls">
-               <li>
-                  <a href="index.html">主页</a>
-                  <span>/ /</span>
-               </li>
-               <li>商品详情</li>
+               <li></li>
             </ul>
          </div>
       </div>
@@ -174,10 +164,10 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                               <div class="product-toys-info">
                                  <div class="men-pro-item">
                                     <div class="men-thumb-item">
-                                       <img src="<%=basePath%>pictures/${good.gpicture}" class="img-thumbnail img-fluid" alt="">
+                                       <img src="<%=basePath%>pictures/${good.gpicture}" style="width: 400px;height: 300px" class="img-thumbnail img-fluid" alt="">
                                        <div class="men-cart-pro">
                                           <div class="inner-men-cart-pro">
-                                             <a href="single.html" class="link-product-add-cart">商品详情</a>
+                                             <a href="javascript:toSpecific(${good.gid})" class="link-product-add-cart">商品详情</a>
                                           </div>
                                        </div>
                                     </div>
@@ -186,7 +176,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                           <div class="grid_meta">
                                              <div class="product_price">
                                                 <h4>
-                                                   <a href="single.html">${good.gname}</a>
+                                                   <a href="javascript:toSpecific(${good.gid})">${good.gname}</a>
                                                 </h4>
                                                 <div class="grid-price mt-2">
                                                    <span class="money ">${good.gprice}</span>
@@ -195,10 +185,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                           </div>
                                           <div class="toys single-item hvr-outline-out">
                                              <form action="#" method="post">
-<%--                                                <input type="hidden" name="cmd" value="_cart">--%>
-<%--                                                <input type="hidden" name="add" value="1">--%>
-<%--                                                <input type="hidden" name="toys_item" value="toys(barbie)">--%>
-<%--                                                <input type="hidden" name="amount" value="575.00">--%>
                                                 <button type="submit" class="toys-cart ptoys-cart">
                                                    <i class="fas fa-cart-plus"></i>
                                                 </button>
@@ -266,6 +252,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <!--//js working-->
       <!-- cart-js -->
        <script src="js/minicart.js"></script>
+      <script type="text/javascript">
+          function toSpecific(gid) {
+              location.href = "specificgood.html?gid="+gid;
+          }
+      </script>
       <script>
          toys.render();
          
