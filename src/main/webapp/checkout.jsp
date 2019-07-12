@@ -1,4 +1,11 @@
-<%@ taglib prefix="tr" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" import="java.util.*" import="com.etc.model.vo.CartVO"  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -174,7 +181,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c::forEach carts="${cartVOList}" var="cartVO">
+                        <c:forEach items="${cartVOList}" var="cartVO">
                         <tr class="rem1">
                             <td class="invert">${cartVO.cid}</td>
                             <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="pictures/${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
@@ -195,7 +202,7 @@
                                 </div>
                             </td>
                         </tr>
-                        </c::forEach>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -203,55 +210,15 @@
                     <div class="col-md-4 checkout-left-basket">
                         <h4>Continue to basket</h4>
                         <ul>
-                            <li>Product1 <i>-</i> <span>$675.00 </span></li>
-                            <li>Product2 <i>-</i> <span>$325.00 </span></li>
-                            <li>Product3 <i>-</i> <span>$405.00 </span></li>
-                            <li>Total Service Charges <i>-</i> <span>$55.00</span></li>
-                            <li>Total <i>-</i> <span>$1405.00</span></li>
+                            <c:set var="sum" value="0"></c:set>
+                            <c:forEach items="${cartVOList}" var="cartVO">
+                            <li>${cartVO.gname}<i>-</i> <span>${cartVO.gprice*cartVO.gcount}</span></li>
+                                <c:set var="sum" value="${sum+cartVO.gprice*cartVO.gcount}"></c:set>
+                            </c:forEach>
+                            <li>Total <i>-</i> <span>${sum}</span></li>
                         </ul>
                     </div>
                     <div class="col-md-8 address_form">
-                        <h4>Add a new Details</h4>
-                        <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
-                            <section class="creditly-wrapper wrapper">
-                                <div class="information-wrapper">
-                                    <div class="first-row form-group">
-                                        <div class="controls">
-                                            <label class="control-label">Full name: </label>
-                                            <input class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
-                                        </div>
-                                        <div class="card_number_grids">
-                                            <div class="card_number_grid_left">
-                                                <div class="controls">
-                                                    <label class="control-label">Mobile number:</label>
-                                                    <input class="form-control" type="text" placeholder="Mobile number">
-                                                </div>
-                                            </div>
-                                            <div class="card_number_grid_right">
-                                                <div class="controls">
-                                                    <label class="control-label">Landmark: </label>
-                                                    <input class="form-control" type="text" placeholder="Landmark">
-                                                </div>
-                                            </div>
-                                            <div class="clear"> </div>
-                                        </div>
-                                        <div class="controls">
-                                            <label class="control-label">Town/City: </label>
-                                            <input class="form-control" type="text" placeholder="Town/City">
-                                        </div>
-                                        <div class="controls">
-                                            <label class="control-label">Address type: </label>
-                                            <select class="form-control option-w3ls">
-                                                <option>Office</option>
-                                                <option>Home</option>
-                                                <option>Commercial</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button class="submit check_out">Delivery to this Address</button>
-                                </div>
-                            </section>
-                        </form>
                         <div class="checkout-right-basket">
                             <a href="payment.html">Make a Payment </a>
                         </div>
