@@ -1,3 +1,11 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+   String path = request.getContextPath();
+   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+           + path + "/";
+%>
 <!DOCTYPE html>
 <html lang="zxx">
    <head>
@@ -17,19 +25,19 @@
       </script>
       <!--//meta tags ends here-->
       <!--booststrap-->
-      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
       <!--//booststrap end-->
       <!-- font-awesome icons -->
-      <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="<%=basePath%>/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
       <!--Shoping cart-->
-      <link rel="stylesheet" href="css/shop.css" type="text/css" />
+      <link rel="stylesheet" href="<%=basePath%>/css/shop.css" type="text/css" />
       <!--//Shoping cart-->
-      <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
-      <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
-      <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery-ui1.css">
+      <link href="<%=basePath%>/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+      <link rel="stylesheet" href="<%=basePath%>/css/flexslider.css" type="text/css" media="screen" />
       <!--stylesheets-->
-      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+      <link href="<%=basePath%>/css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
       <link href="http://fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -57,20 +65,17 @@
             <div class="container-fluid">
                <div class="hedder-up row">
                   <div class="col-lg-3 col-md-3 logo-head">
-                     <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
+                     <h1><a class="navbar-brand" href="index.html">电子商城</a></h1>
                   </div>
                   <div class="col-lg-5 col-md-6 search-right">
                      <form class="form-inline my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                        <button class="btn" type="submit">Search</button>
+                        <input class="form-control mr-sm-2" type="search" placeholder="搜索">
+                        <button class="btn" type="submit">搜索</button>
                      </form>
                   </div>
                   <div class="col-lg-4 col-md-3 right-side-cart">
                      <div class="cart-icons">
                         <ul>
-                           <li>
-                              <span class="far fa-heart"></span>
-                           </li>
                            <li>
                               <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                            </li>
@@ -94,17 +99,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                <ul class="navbar-nav ">
-                  <li class="nav-item ">
-                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
                   <li class="nav-item">
-                     <a href="about.html" class="nav-link">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="service.html" class="nav-link">Service</a>
+                     <a href="about.html" class="nav-link">首页</a>
                   </li>
                   <li class="nav-item active">
-                     <a href="shop.html" class="nav-link">Shop Now</a>
+                     <a class="nav-link" href="">商品详情<span class="sr-only">(current)</span></a>
                   </li>
                  <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -143,11 +142,7 @@
       <div class="using-border py-3">
          <div class="inner_breadcrumb  ml-4">
             <ul class="short_ls">
-               <li>
-                  <a href="index.html">Home</a>
-                  <span>/ /</span>
-               </li>
-               <li>Single Page</li>
+               <li> </li>
             </ul>
          </div>
       </div>
@@ -162,14 +157,8 @@
                      <div class="grid images_3_of_2">
                         <div class="flexslider1">
                            <ul class="slides">
-                              <li data-thumb="images/f2.jpg">
-                                 <div class="thumb-image"> <img src="images/f2.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
-                              </li>
-                              <li data-thumb="images/f1.jpg">
-                                 <div class="thumb-image"> <img src="images/f1.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
-                              </li>
-                              <li data-thumb="images/f3.jpg">
-                                 <div class="thumb-image"> <img src="images/f3.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                              <li data-thumb="<%=basePath%>pictures/${good.gpicture}">
+                                 <div class="thumb-image"> <img src="<%=basePath%>pictures/${good.gpicture}" data-imagezoom="true" class="img-fluid" alt=" "> </div>
                               </li>
                            </ul>
                            <div class="clearfix"></div>
@@ -177,175 +166,61 @@
                      </div>
                   </div>
                   <div class="col-lg-8 single-right-left simpleCart_shelfItem">
-                     <h3>Soft Teddy Bear (Brown)</h3>
-                     <p><span class="item_price">$650</span>
-                        <del>$1,199</del>
+                     <h3>${good.gname}</h3>
+                     <p><span class="item_price">${good.gprice}</span>
                      </p>
                      <div class="rating1">
                         <ul class="stars">
                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
-                     <div class="description">
-                        <h5>Check delivery, payment options and charges at your location</h5>
-                        <form action="#" method="post">
-                           <input class="form-control" type="text" name="Email" placeholder="Please enter..." required="">
-                           <input type="submit" value="Check">
-                        </form>
-                     </div>
+                     <div style="height: 50px"></div>
                      <div class="color-quality">
                         <div class="color-quality-right">
-                           <h5>Size :</h5>
-                           <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-                              <option value="null">2 Feet</option>
-                              <option value="null">3 Feet</option>
-                              <option value="null">4 Feet</option>
-                              <option value="null">5 Feet</option>
+                           <h5>数量 :</h5>
+                           <select id="country1"  class="frm-field required sect" onchange="showWholePrice(this)">
+                              <option value="null">1</option>
+                              <option value="null">2</option>
+                              <option value="null">3</option>
+                              <option value="null">4</option>
+                              <option value="null">5</option>
                            </select>
                         </div>
                      </div>
+                     <div class="description">
+                        <h5>一共支付金额（默认采用支付宝扫码付款方式）</h5>
+                        <input class="form-control" type="text" id="price" name="Email" placeholder="${good.gprice}" readonly="readonly" >
+                     </div>
                      <div class="occasional">
-                        <h5>Types :</h5>
+                        <h5></h5>
                         <div class="colr ert">
-                           <label class="radio"><input type="radio" name="radio" checked=""><i></i> Soft Teddy Bear (Black)</label>
+                           <label class="radio"><i></i></label>
                         </div>
                         <div class="colr">
-                           <label class="radio"><input type="radio" name="radio"><i></i>Soft Teddy Bear (Brown)</label>
+                           <label class="radio"><i></i></label>
                         </div>
                         <div class="colr">
-                           <label class="radio"><input type="radio" name="radio"><i></i>Pink Teddy Bear (Pink)</label>
+                           <label class="radio"><i></i></label>
                         </div>
                         <div class="clearfix"> </div>
                      </div>
                      <div class="occasion-cart">
                         <div class="toys single-item singlepage">
-                           <form action="#" method="post">
-                              <input type="hidden" name="cmd" value="_cart">
-                              <input type="hidden" name="add" value="1">
-                              <input type="hidden" name="toys_item" value="Farenheit">
-                              <input type="hidden" name="amount" value="575.00">
+                           <form action="addcart.html" method="post">
+                              <input type="hidden" name="gid" value="${good.gid}">
+                              <input type="hidden" id="ccount" name="ccount" value="1">
                               <button type="submit" class="toys-cart ptoys-cart add">
-                              Add to Cart
+                                 添加购物车
                               </button>
                            </form>
                         </div>
                      </div>
-                     <ul class="footer-social text-left mt-lg-4 mt-3">
-                        <li>Share On : </li>
-                        <li class="mx-1">
-                           <a href="#">
-                           <span class="fab fa-facebook-f"></span>
-                           </a>
-                        </li>
-                        <li class="">
-                           <a href="#">
-                           <span class="fab fa-twitter"></span>
-                           </a>
-                        </li>
-                        <li class="mx-1">
-                           <a href="#">
-                           <span class="fab fa-google-plus-g"></span>
-                           </a>
-                        </li>
-                        <li class="">
-                           <a href="#">
-                           <span class="fab fa-linkedin-in"></span>
-                           </a>
-                        </li>
-                        <li class="mx-1">
-                           <a href="#">
-                           <span class="fas fa-rss"></span>
-                           </a>
-                        </li>
-                     </ul>
                   </div>
                   <div class="clearfix"> </div>
-                  <!--/tabs-->
-                  <div class="responsive_tabs">
-                     <div id="horizontalTab">
-                        <ul class="resp-tabs-list">
-                           <li>Description</li>
-                           <li>Reviews</li>
-                           <li>Information</li>
-                        </ul>
-                        <div class="resp-tabs-container">
-                           <!--/tab_one-->
-                           <div class="tab1">
-                              <div class="single_page">
-                                 <h6>Lorem ipsum dolor sit amet</h6>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
-                                 <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
-                              </div>
-                           </div>
-                           <!--//tab_one-->
-                           <div class="tab2">
-                              <div class="single_page">
-                                 <div class="bootstrap-tab-text-grids">
-                                    <div class="bootstrap-tab-text-grid">
-                                       <div class="bootstrap-tab-text-grid-left">
-                                          <img src="images/team1.jpg" alt=" " class="img-fluid">
-                                       </div>
-                                       <div class="bootstrap-tab-text-grid-right">
-                                          <ul>
-                                             <li><a href="#">Admin</a></li>
-                                             <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
-                                          </ul>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam,
-                                             quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-                                             autem vel eum iure reprehenderit.
-                                          </p>
-                                       </div>
-                                       <div class="clearfix"> </div>
-                                    </div>
-                                    <div class="add-review">
-                                       <h4>add a review</h4>
-                                       <form action="#" method="post">
-                                          <div class="row">
-                                             <div class="col-md-6">
-                                                <input type="text" name="Name" required="">
-                                             </div>
-                                             <div class="col-md-6">
-                                                <input type="email" name="Email" required="">
-                                             </div>
-                                          </div>
-                                          <textarea name="Message" required=""></textarea>
-                                          <input type="submit" value="SEND">
-                                       </form>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="tab3">
-                              <div class="single_page">
-                                 <h6>Teddy Bear(Blue)</h6>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
-                                 <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!--//tabs-->
                </div>
             </div>
          </div>
@@ -385,12 +260,27 @@
             </div>
          </div>
       </div>
+
+      <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
+         <div class="copy-agile-right">
+            <p>
+               Copyright &copy; 2018.sdcclub All rights reserved.
+            </p>
+         </div>
+      </footer>
       <!-- //Modal 1-->
       <!--jQuery-->
       <script src="js/jquery-2.2.3.min.js"></script>
       <!-- newsletter modal -->
       <!-- cart-js -->
       <script src="js/minicart.js"></script>
+      <script type="text/javascript">
+         function showWholePrice(ch) {
+            document.getElementById('price').value = ch.options[ch.selectedIndex].text * ${good.gprice};
+            document.getElementById('ccount').value = ch.options[ch.selectedIndex].text;
+         }
+      </script>
+
       <script>
          toys.render();
          

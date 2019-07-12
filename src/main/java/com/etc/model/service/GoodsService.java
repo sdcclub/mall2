@@ -23,4 +23,8 @@ public class GoodsService {
     public List<Goods> findAll(){
         return goodsMapper.selectByExample(null);
     }
+
+    public Goods findByGid(int gid){
+        return goodsMapper.selectByPrimaryKey(gid);
+    }
 }
