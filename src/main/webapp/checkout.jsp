@@ -183,7 +183,7 @@
                         <tbody>
                         <c:forEach items="${cartVOList}" var="cartVO">
                         <tr class="rem1">
-                            <td class="invert">${cartVO.cid}</td>
+                            <td class="invert"><input type="checkbox" name="buy" value="${cartVO.cid}"/>${cartVO.cid}</td>
                             <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="pictures/${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
                             <td class="invert">
                                 <div class="quantity">
@@ -220,7 +220,7 @@
                     </div>
                     <div class="col-md-8 address_form">
                         <div class="checkout-right-basket">
-                            <a href="payment.html">Make a Payment </a>
+                            <a id="payForThings" href="javascript:doPay()">Make a Payment </a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -361,6 +361,27 @@
     function doRemove(cid){
         if(confirm("您是否确定删除编号为："+cid+" 的商品吗？")){
             location.href = "removecart.html?cid="+cid;
+        }
+    }
+</script>
+<script type="text/javascript">
+    function doPay(){
+        var arr=new Array();//定义一个数组
+        $('input[name="buy"]:checked').each(function(){
+            arr.push($(this).val());
+        });
+        if(confirm("您是否确定购买这些商品？")){
+            $.ajax({
+                type: "POST",
+                url: "paythings.html",
+                dataType: 'json',
+                data: {"list":arr},
+                success: function(data){
+                    location.href = "payment.html";
+                },
+                error: function(res){
+                }
+            });
         }
     }
 </script>
