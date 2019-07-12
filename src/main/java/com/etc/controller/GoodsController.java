@@ -5,6 +5,7 @@ import com.etc.model.entity.Goods;
 import com.etc.model.entity.User;
 import com.etc.model.service.CartService;
 import com.etc.model.service.GoodsService;
+import com.etc.model.vo.CartVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @RequestMapping("/")
 @Controller
@@ -59,11 +61,15 @@ public class GoodsController {
     public String addCart(int gid, int ccount){
 //        User user = (User)request.getSession().getAttribute("user");
 //        int uid = user.getUid();
-        Date date = new Date();
         int temp = 1;
+        Date date = new Date();
         Timestamp time = new Timestamp(date.getTime());
-        Cart cart = new Cart(temp,gid,ccount,time);
-        cartService.insertCart(cart);
+        if(goodsService.selectCartByUidAndGid(temp,gid)==0){
+            Cart cart = new Cart(temp,gid,ccount,time);
+            goodsService.insertCart(cart);
+        }else{
+            goodsService.updateCcountByUidAndGid(temp,gid,ccount);
+        }
         return "forward:/showgoods.html";
     }
 }
