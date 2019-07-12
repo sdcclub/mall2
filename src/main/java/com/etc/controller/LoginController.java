@@ -28,7 +28,7 @@ public class LoginController {
         boolean re=loginService.checkAccount(userVO,identification==null);
         System.out.println(re);
         if(re) {
-            return "index";
+            return "shop";
         }else {
             model.addAttribute("msg","用户名或密码错误，请重新登录");
             return "login";
