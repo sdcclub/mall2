@@ -19,10 +19,6 @@ public class CartService {
     @Autowired
     private GoodsMapper goodsMapper;
 
-    public void insertCart(Cart cart){
-        cartMapper.insert(cart);
-    }
-
     public List<CartVO> getCart(int uid){
         System.out.println("hi");
         final CartExample cartExample=new CartExample();
