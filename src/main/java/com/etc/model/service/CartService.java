@@ -51,4 +51,26 @@ public class CartService {
         System.out.println(cartVOList.size());
         return cartVOList;
     }
+    public void removeCart(int cid){
+        cartMapper.deleteByPrimaryKey(cid);
+    }
+
+    public void minusCart(int cid){
+        Cart cart=cartMapper.selectByPrimaryKey(cid);
+        System.out.println(cart);
+        int count=cart.getCcount()-1;
+        System.out.println(count);
+        cart.setCcount(count);
+        cartMapper.updateByPrimaryKey(cart);
+        System.out.println("111");
+    }
+    public void plusCart(int cid){
+        Cart cart=cartMapper.selectByPrimaryKey(cid);
+        System.out.println(cart);
+        int count=cart.getCcount()+1;
+        System.out.println(count);
+        cart.setCcount(count);
+        cartMapper.updateByPrimaryKey(cart);
+        System.out.println("111");
+    }
 }

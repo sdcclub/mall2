@@ -188,18 +188,18 @@
                             <td class="invert">
                                 <div class="quantity">
                                     <div class="quantity-select">
-                                        <div class="entry value-minus">&nbsp;</div>
+                                        <a id="minus" href="javascript:doMinus(${cartVO.cid})"><div class="entry value-minus">&nbsp;</div></a>
                                         <div class="entry value"><span>${cartVO.gcount}</span></div>
-                                        <div class="entry value-plus active">&nbsp;</div>
+                                        <a id="plus" href="javascript:doPlus(${cartVO.cid})"><div class="entry value-plus active">&nbsp;</div></a>
                                     </div>
                                 </div>
                             </td>
                             <td class="invert">${cartVO.gname}</td>
                             <td class="invert">${cartVO.gprice}</td>
                             <td class="invert">
-                                <div class="rem">
-                                    <div class="close1"> </div>
-                                </div>
+                                    <a id="removeA" href="javascript:doRemove(${cartVO.cid})" style="color: black">
+                                        x
+                                    </a>
                             </td>
                         </tr>
                         </c:forEach>
@@ -293,24 +293,21 @@
             newVal = parseInt(divUpd.text(), 10) + 1;
         divUpd.text(newVal);
     });
+    function doPlus(cid){
+        location.href = "pluscart.html?cid="+cid;
+    }
 
     $('.value-minus').on('click', function () {
         var divUpd = $(this).parent().find('.value'),
             newVal = parseInt(divUpd.text(), 10) - 1;
         if (newVal >= 1) divUpd.text(newVal);
     });
+    function doMinus(cid){
+        location.href = "minuscart.html?cid=" + cid;
+    }
 </script>
 <!--quantity-->
 <!--closed-->
-<script>
-    $(document).ready(function (c) {
-        $('.close1').on('click', function (c) {
-            $('.rem1').fadeOut('slow', function (c) {
-                $('.rem1').remove();
-            });
-        });
-    });
-</script>
 <script>
     $(document).ready(function (c) {
         $('.close2').on('click', function (c) {
@@ -359,6 +356,13 @@
         });
 
     });
+</script>
+<script type="text/javascript">
+    function doRemove(cid){
+        if(confirm("您是否确定删除编号为："+cid+" 的商品吗？")){
+            location.href = "removecart.html?cid="+cid;
+        }
+    }
 </script>
 <!-- //here ends scrolling icon -->
 <!--bootstrap working-->

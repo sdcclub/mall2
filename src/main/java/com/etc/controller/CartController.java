@@ -30,4 +30,22 @@ public class CartController {
 
         return "checkout";
     }
+    @RequestMapping("removecart")
+    public String removeCart(int cid){
+        cartService.removeCart(cid);
+        return "forward:/checkout.html";
+    }
+
+    @RequestMapping("minuscart")
+    public String  minusCart(int cid){
+        System.out.println("-");
+        cartService.minusCart(cid);
+        return "forward:/checkout.html";
+    }
+    @RequestMapping("pluscart")
+    public String  plusCart(int cid){
+        System.out.println("+");
+        cartService.minusCart(cid);
+        return "forward:/checkout.html";
+    }
 }
