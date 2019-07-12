@@ -46,18 +46,17 @@ public class LoginService {
         UserExample ue=new UserExample();
         ue.createCriteria().andUsernameEqualTo(userVO.getUsername())
                 .andUpasswordEqualTo(userVO.getPassword());
-        User user=userMapper.selectByExample(ue).get(0);
-        return user!=null;
+        int row=userMapper.selectByExample(ue).size();
+        return row>0;
     }
 
     private boolean checkAdminAccount(UserVO userVO){
         System.out.println("Check Admin");
         AdminExample ue=new AdminExample();
         System.out.println(ue);
-        System.out.println(adminMapper);
         ue.createCriteria().andAnameEqualTo(userVO.getUsername())
                 .andApasswordEqualTo(userVO.getPassword());
-        Admin user=adminMapper.selectByExample(ue).get(0);
-        return user!=null;
+        int row=adminMapper.selectByExample(ue).size();
+        return row>0;
     }
 }

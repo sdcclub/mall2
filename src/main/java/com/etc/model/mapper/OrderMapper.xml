@@ -79,7 +79,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from order
+    from orderinfo
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,21 +90,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from order
+    from orderinfo
     where oid = #{oid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from order
+    delete from orderinfo
     where oid = #{oid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.etc.model.entity.OrderExample">
-    delete from order
+    delete from orderinfo
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.etc.model.entity.Order">
-    insert into order (oid, onumber, uid, 
+    insert into orderinfo (oid, onumber, uid,
       gid, ccount, oprice, 
       ostatus, opaydate, orderdate
       )
@@ -114,7 +114,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.etc.model.entity.Order">
-    insert into order
+    insert into orderinfo
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="oid != null">
         oid,
@@ -175,13 +175,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.etc.model.entity.OrderExample" resultType="java.lang.Long">
-    select count(*) from order
+    select count(*) from orderinfo
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update order
+    update orderinfo
     <set>
       <if test="record.oid != null">
         oid = #{record.oid,jdbcType=INTEGER},
@@ -216,7 +216,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update order
+    update orderinfo
     set oid = #{record.oid,jdbcType=INTEGER},
       onumber = #{record.onumber,jdbcType=INTEGER},
       uid = #{record.uid,jdbcType=INTEGER},
@@ -231,7 +231,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.etc.model.entity.Order">
-    update order
+    update orderinfo
     <set>
       <if test="onumber != null">
         onumber = #{onumber,jdbcType=INTEGER},
@@ -261,7 +261,7 @@
     where oid = #{oid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.etc.model.entity.Order">
-    update order
+    update orderinfo
     set onumber = #{onumber,jdbcType=INTEGER},
       uid = #{uid,jdbcType=INTEGER},
       gid = #{gid,jdbcType=INTEGER},

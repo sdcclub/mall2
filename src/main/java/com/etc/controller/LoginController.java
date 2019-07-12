@@ -25,8 +25,10 @@ public class LoginController {
     @RequestMapping("login")
     public String login(UserVO userVO, String identification, Model model){
         System.out.println(identification);
-        if(loginService.checkAccount(userVO,identification==null)) {
-            return "index";
+        boolean re=loginService.checkAccount(userVO,identification==null);
+        System.out.println(re);
+        if(re) {
+            return "shop";
         }else {
             model.addAttribute("msg","用户名或密码错误，请重新登录");
             return "login";
