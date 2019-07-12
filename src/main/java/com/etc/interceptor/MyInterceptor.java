@@ -31,7 +31,7 @@ public class MyInterceptor implements HandlerInterceptor {
 			return true;
 		else{
 			request.setAttribute("msg","���ȵ�¼ϵͳ");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			//request.getRequestDispatcher("login.jsp").forward(request, response);
 			return false;
 		}
 	}
