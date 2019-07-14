@@ -68,10 +68,10 @@
                      <h1><a class="navbar-brand" href="index.html">电子商城</a></h1>
                   </div>
                   <div class="col-lg-5 col-md-6 search-right">
-                     <form class="form-inline my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="搜索">
-                        <button class="btn" type="submit">搜索</button>
-                     </form>
+                      <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
+                          <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
+                          <button class="btn" type="submit">搜索</button>
+                      </form>
                   </div>
                   <div class="col-lg-4 col-md-3 right-side-cart">
                      <div class="cart-icons">
@@ -100,10 +100,10 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                <ul class="navbar-nav ">
                   <li class="nav-item">
-                     <a href="about.html" class="nav-link">首页</a>
+                     <a href="/showgoods.html" class="nav-link">首页</a>
                   </li>
                   <li class="nav-item active">
-                     <a class="nav-link" href="">商品详情<span class="sr-only">(current)</span></a>
+                     <a class="nav-link" href="#">商品详情<span class="sr-only">(current)</span></a>
                   </li>
                  <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -264,7 +264,7 @@
       <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
          <div class="copy-agile-right">
             <p>
-               Copyright &copy; 2018.sdcclub All rights reserved.
+               Copyright &copy; 2019 sdcclub All rights reserved.
             </p>
          </div>
       </footer>

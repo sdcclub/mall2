@@ -5,19 +5,20 @@ import com.etc.model.dao.GoodsMapper;
 import com.etc.model.entity.Cart;
 import com.etc.model.entity.CartExample;
 import com.etc.model.entity.Goods;
+import com.etc.model.entity.GoodsExample;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class GoodsService {
-    private SqlSession session;
-
     private GoodsMapper goodsMapper;
-
     private CartMapper cartMapper;
+    int usedCount;
 
     public CartMapper getCartMapper() {
         return cartMapper;
@@ -49,22 +50,30 @@ public class GoodsService {
         cartMapper.insert(cart);
     }
 
-    public int selectCartByUidAndGid(int uid,int gid){
+    public List<Cart> selectCartByUidAndGid(int uid,int gid){
         CartExample ce = new CartExample();
         ce.createCriteria().andUidEqualTo(uid).andGidEqualTo(gid);
-        List<Cart> list = session.getMapper(CartMapper.class).selectByExample(ce);
-        if(list.isEmpty()){
-            return 0;
-        }else{
-            return 1;
+        List<Cart> list = cartMapper.selectByExample(ce);
+        for(Cart cart:list){
+            usedCount+=cart.getCcount();
         }
+        return list;
     }
 
     public int updateCcountByUidAndGid(int uid,int gid,int ccount){
         CartExample ce = new CartExample();
         ce.createCriteria().andUidEqualTo(uid).andGidEqualTo(gid);
+        Date date = new Date();
+        Timestamp time = new Timestamp(date.getTime());
         Cart cart=new Cart();
-        cart.setCcount(ccount);
+        cart.setCcount(ccount+usedCount);
+        cart.setCadddate(time);
         return cartMapper.updateByExampleSelective(cart,ce);
+    }
+
+    public List<Goods> findByLike(String string){
+        GoodsExample ge = new GoodsExample();
+        ge.createCriteria().andGnameLike("%"+string+"%");
+        return goodsMapper.selectByExample(ge);
     }
 }

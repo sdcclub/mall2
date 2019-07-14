@@ -6,6 +6,7 @@ import com.etc.model.entity.User;
 import com.etc.model.service.CartService;
 import com.etc.model.service.GoodsService;
 import com.etc.model.vo.CartVO;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,12 +65,19 @@ public class GoodsController {
         int temp = 1;
         Date date = new Date();
         Timestamp time = new Timestamp(date.getTime());
-        if(goodsService.selectCartByUidAndGid(temp,gid)==0){
+        if(goodsService.selectCartByUidAndGid(temp,gid).isEmpty()){
             Cart cart = new Cart(temp,gid,ccount,time);
             goodsService.insertCart(cart);
         }else{
             goodsService.updateCcountByUidAndGid(temp,gid,ccount);
         }
         return "forward:/showgoods.html";
+    }
+
+    @RequestMapping(value = "showsearchgoods",method = RequestMethod.POST)
+    public String showSearchGoods(String string, Model model){
+        List<Goods> list = goodsService.findByLike(string);
+        model.addAttribute("list",list);
+        return "shop";
     }
 }
