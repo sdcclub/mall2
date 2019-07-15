@@ -154,7 +154,7 @@
                 <a href="index.html">Home</a>
                 <span>/ /</span>
             </li>
-            <li>Checkout</li>
+            <li>Admin</li>
         </ul>
     </div>
 </div>
@@ -182,6 +182,7 @@
                         <tbody>
                         <c:forEach items="${list}" var="good">
                             <tr class="rem1">
+                                <td class="invert">${good.gid}</td>
                                 <td class="invert-image"><a href="single.html?gid=${good.gid}"><img src="pictures/${good.gpicture}" alt=" " class="img-responsive"></a></td>
                                 <td class="invert">${good.gcount}</td>
                                 <td class="invert">${good.gname}</td>
@@ -199,7 +200,7 @@
                 <div class="checkout-left">
                     <div class="col-md-8 address_form">
                         <div class="checkout-right-basket">
-                            <a href="addgoods.jsp">新增商品</a>
+                            <a href="addgoods.html">新增商品</a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

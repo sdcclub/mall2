@@ -20,4 +20,9 @@ public class AdminService {
     public void removeGood(int gid){
         goodsMapper.deleteByPrimaryKey(gid);
     }
+
+    public void addGood(Goods goods){
+        goodsMapper.insert(goods);
+    }
+
 }
