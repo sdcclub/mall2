@@ -10,8 +10,8 @@ public class MyComparator implements Comparator {
         Order o11=(Order)o1;
         Order o22=(Order)o2;
 
-        //把当前订单按照onumber进行排序
-        if(o11.getOnumber()>=o22.getOnumber()){
+        //把当前订单按照oid进行排序
+        if(o11.getOid()<=o22.getOid()){
             return 1;
         }else {
             return -1;

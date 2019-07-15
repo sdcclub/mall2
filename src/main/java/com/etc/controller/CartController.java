@@ -59,6 +59,6 @@ public class CartController {
             resultList.add(i);
         }
         cartService.payThings(resultList);
-        return "payment";
+        return "pay";
     }
 }
