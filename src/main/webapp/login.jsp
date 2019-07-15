@@ -24,20 +24,22 @@
       </script>
       <!--//meta tags ends here-->
       <!--booststrap-->
-      <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
       <!--//booststrap end-->
       <!-- font-awesome icons -->
-      <link href="../css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
       <!-- For Clients slider -->
-      <link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="all" />
+      <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
       <!--flexs slider-->
-      <link href="../css/JiSlider.css" rel="stylesheet">
+<%--
+      <link href="css/JiSlider.css" rel="stylesheet">
+--%>
       <!--Shoping cart-->
-      <link rel="stylesheet" href="../css/shop.css" type="text/css" />
+      <link rel="stylesheet" href="css/shop.css" type="text/css" />
       <!--//Shoping cart-->
       <!--stylesheets-->
-      <link href="../css/style.css" rel='stylesheet' type='text/css' media="all">
+      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
       <link href="http://fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -78,9 +80,14 @@
                </div>
                <div class="modal-footer">
 <!--                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
--->                  <button type="button" class="btn btn-secondary" >注册</button>
+-->                  <button type="button" class="btn btn-secondary" onclick="showregister()" value="注册" >注册</button>
                </div>
             </div>
          </div>
 	</body>
+    <script type="text/javascript">
+        function showregister(){
+            window.location.href="showregister.html";
+        }
+    </script>
 </html>
