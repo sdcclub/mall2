@@ -1,11 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-+ path + "/";
-%>
 <!DOCTYPE html>
 <html lang="zxx">
    <head>
@@ -25,19 +20,19 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       </script>
       <!--//meta tags ends here-->
       <!--booststrap-->
-      <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
       <!--//booststrap end-->
       <!-- font-awesome icons -->
-      <link href="<%=basePath%>/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
       <!--Shoping cart-->
-      <link rel="stylesheet" href="<%=basePath%>/css/shop.css" type="text/css" />
+      <link rel="stylesheet" href="css/shop.css" type="text/css" />
       <!--//Shoping cart-->
       <!--price range-->
-      <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery-ui1.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
       <!--//price range-->
       <!--stylesheets-->
-      <link href="<%=basePath%>/css/style.css" rel='stylesheet' type='text/css' media="all">
+      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
       <link href="http://fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -80,7 +75,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                            <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                         </li>
                         <li class="toyscart toyscart2 cart cart box_1">
-                           <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
+                           <a href="/checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
                         </li>
                      </ul>
                   </div>
@@ -146,10 +141,10 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <!-- //short-->
       <!--show Now-->  
       <!--show Now-->  
-      <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
-         <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+      <section class="py-lg-4 py-md-3 py-sm-3 py-3 back-xtt" >
+         <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3" >
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">电子商城</h3>
-            <div class="row">
+            <div style="margin-left: 60px" class="row" >
                <div class="left-ads-display col-lg-9">
                   <div class="row">
                       <c:if test="${not empty list}">
@@ -158,7 +153,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                                   <div class="product-toys-info">
                                       <div class="men-pro-item">
                                           <div class="men-thumb-item">
-                                              <img src="<%=basePath%>pictures/${good.gpicture}" style="width: 400px;height: 250px" class="img-thumbnail img-fluid" alt="">
+                                              <img src="pictures/${good.gpicture}" style="width: 400px;height: 300px" class="img-thumbnail img-fluid" alt="">
                                               <div class="men-cart-pro">
                                                   <div class="inner-men-cart-pro">
                                                       <a href="javascript:toSpecific(${good.gid})" class="link-product-add-cart">商品详情</a>
