@@ -28,6 +28,13 @@
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
+    <dependency>
+      <groupId>com.alipay.sdk</groupId>
+      <artifactId>alipay-sdk-java</artifactId>
+      <version>3.7.110.ALL</version>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -36,10 +43,10 @@
     </dependency>
     <!-- 这个在eclipse中要用，但是如果用在myeclipse中则会和tomcat中的servlet-api起冲突 -->
     <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
-      <version>7.0</version>
-    </dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>7.0</version>
+  </dependency>
     <!-- spring框架包 start -->
     <dependency>
       <groupId>org.springframework</groupId>

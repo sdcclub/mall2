@@ -13,6 +13,16 @@ public class Cart {
 
     private Date cadddate;
 
+    public Cart() {
+    }
+
+    public Cart(Integer uid, Integer gid, Integer ccount, Date cadddate) {
+        this.uid = uid;
+        this.gid = gid;
+        this.ccount = ccount;
+        this.cadddate = cadddate;
+    }
+
     public Integer getCid() {
         return cid;
     }
