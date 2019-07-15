@@ -26,6 +26,7 @@
 	String out_trade_no =order.getOnumber().toString();
 	//付款金额，必填
 	String total_amount = order.getOprice().toString();
+
 	//订单名称，必填
 	String subject =order.getOnumber().toString();
 
@@ -40,9 +41,6 @@
 
 	//请求
 	String result = alipayClient.pageExecute(alipayRequest).getBody();
-
-	Date date=new Date();
-	session.setAttribute("date",date);
 
 	//输出
 	out.print(result);
