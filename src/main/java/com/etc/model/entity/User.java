@@ -1,5 +1,8 @@
 package com.etc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class User {
@@ -15,8 +18,10 @@ public class User {
 
     private String uaddress;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ubirthday;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date uregistdate;
 
     public Integer getUid() {

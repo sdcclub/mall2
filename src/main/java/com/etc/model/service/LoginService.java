@@ -10,6 +10,8 @@ import com.etc.model.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LoginService {
     private AdminMapper adminMapper;
@@ -33,7 +35,7 @@ public class LoginService {
         this.userMapper = userMapper;
     }
 
-    public boolean checkAccount(UserVO userVO,boolean identification){
+    public int checkAccount(UserVO userVO,boolean identification){
         System.out.println("Login Service");
         if(identification)
             return checkUserAccount(userVO);
@@ -41,22 +43,41 @@ public class LoginService {
             return checkAdminAccount(userVO);
     }
 
-    private boolean checkUserAccount(UserVO userVO){
+    private int checkUserAccount(UserVO userVO){
         System.out.println("Check User");
         UserExample ue=new UserExample();
         ue.createCriteria().andUsernameEqualTo(userVO.getUsername())
                 .andUpasswordEqualTo(userVO.getPassword());
-        int row=userMapper.selectByExample(ue).size();
-        return row>0;
+        List<User> users=userMapper.selectByExample(ue);
+        int res=-1;
+        if(users.size()>0) {
+            res=users.get(0).getUid();
+        }
+        return res;
     }
 
-    private boolean checkAdminAccount(UserVO userVO){
+    private int checkAdminAccount(UserVO userVO){
         System.out.println("Check Admin");
         AdminExample ue=new AdminExample();
         System.out.println(ue);
         ue.createCriteria().andAnameEqualTo(userVO.getUsername())
                 .andApasswordEqualTo(userVO.getPassword());
-        int row=adminMapper.selectByExample(ue).size();
-        return row>0;
+        List<Admin> users=adminMapper.selectByExample(ue);
+        int res=-1;
+        if(users.size()>0) {
+            res=users.get(0).getAid();
+        }
+        return res;
+    }
+
+    public boolean checkRepeat(String username){
+        UserExample ue = new UserExample();
+        ue.createCriteria().andUsernameEqualTo(username);
+        int row = userMapper.selectByExample(ue).size();
+        return row==0;
+    }
+
+    public void register(User user){
+        userMapper.insertSelective(user);
     }
 }
