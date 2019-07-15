@@ -11,6 +11,7 @@
 <%@ page import="com.alipay.api.AlipayClient" %>
 <%@ page import="com.alipay.api.request.AlipayTradePagePayRequest" %>
 <%@ page import="com.etc.model.entity.Order" %>
+<%@ page import="java.util.Date" %>
 <%
 	//获得初始化的AlipayClient
 	AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -39,6 +40,9 @@
 
 	//请求
 	String result = alipayClient.pageExecute(alipayRequest).getBody();
+
+	Date date=new Date();
+	session.setAttribute("date",date);
 
 	//输出
 	out.print(result);
