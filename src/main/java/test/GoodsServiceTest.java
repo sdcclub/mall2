@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Carrie Xie
@@ -51,6 +52,15 @@ public class GoodsServiceTest {
         List<Goods> list = goodsService.findByLike(string);
         for(Goods goods:list){
             System.out.println(goods.getGname()+" ");
+        }
+    }
+
+    @Test
+    public void groupByType(){
+        System.out.println("hhh");
+        List<Map<String,Object>> maps = goodsService.groupByType();
+        for(int i=0;i<maps.size();i++){
+            System.out.println(maps.get(i).toString());
         }
     }
 }

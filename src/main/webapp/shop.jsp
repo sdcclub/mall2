@@ -169,7 +169,7 @@
                                                       </div>
                                                   </div>
                                                   <div class="toys single-item hvr-outline-out">
-                                                      <form action="addcart.html" method="post" id="addcart">
+                                                      <form action="addcart.html" method="post" id="addcart" onsubmit="return check();">
                                                           <input type="hidden" name="gid" value="${good.gid}">
                                                           <input type="hidden" id="ccount" name="ccount" value="1">
                                                           <button type="submit" class="toys-cart ptoys-cart" >
@@ -257,7 +257,7 @@
               location.href = "specificgood.html?gid="+gid;
           }
 
-          document.getElementById('addcart').onsubmit = function() {
+          function check() {
               if(confirm("您是否确定添加该商品至购物车？")){
                   return true;
               }else{

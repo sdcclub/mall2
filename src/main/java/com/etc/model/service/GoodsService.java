@@ -2,6 +2,7 @@ package com.etc.model.service;
 
 import com.etc.model.dao.CartMapper;
 import com.etc.model.dao.GoodsMapper;
+import com.etc.model.dao.StatisticalMapper;
 import com.etc.model.entity.Cart;
 import com.etc.model.entity.CartExample;
 import com.etc.model.entity.Goods;
@@ -19,7 +20,17 @@ import java.util.Map;
 public class GoodsService {
     private GoodsMapper goodsMapper;
     private CartMapper cartMapper;
-//    private StatisticalMapper statisticalMapper;
+
+    public StatisticalMapper getStatisticalMapper() {
+        return statisticalMapper;
+    }
+
+    @Autowired
+    public void setStatisticalMapper(StatisticalMapper statisticalMapper) {
+        this.statisticalMapper = statisticalMapper;
+    }
+
+    private StatisticalMapper statisticalMapper;
     int usedCount;
 
     public CartMapper getCartMapper() {
@@ -79,7 +90,7 @@ public class GoodsService {
         return goodsMapper.selectByExample(ge);
     }
 
-//    public List<Map<String,Object>> groupByType(){
-//        return dao.groupByType();
-//    }
+    public List<Map<String,Object>> groupByType(){
+        return statisticalMapper.groupByType();
+    }
 }
