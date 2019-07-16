@@ -183,8 +183,6 @@ td.invert-image a img {
 	padding-left: 0;
 }
 
-
-
 .checkout-right-basket {
 	float: right;
 	margin: 3em 0em;
@@ -202,14 +200,6 @@ td.invert-image a img {
 	border-top: 1px solid #DDD;
 	border-bottom: 1px solid #DDD;
 	margin: 2em 0 0;
-}
-
-.checkout-left-basket a {
-	padding: 10px 20px;
-	color: #fff;
-	font-size: 1em;
-	background: #212121;
-	text-decoration: none;
 }
 
 .checkout-right-basket a {
