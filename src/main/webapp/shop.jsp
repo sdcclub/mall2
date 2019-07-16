@@ -60,7 +60,7 @@
          <div class="container-fluid">
             <div class="hedder-up row">
                <div class="col-lg-3 col-md-3 logo-head">
-                  <h1><a class="navbar-brand" href="index.html">电子商城</a></h1>
+                  <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
                </div>
                <div class="col-lg-5 col-md-6 search-right">
                   <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
@@ -127,21 +127,11 @@
 	  </div>
       <!--//headder-->
       <!-- banner -->
-      <div class="inner_page-banner one-img">
+      <div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
       </div>
       <!--//banner -->
-      <!-- short -->
-      <div class="using-border py-3">
-         <div class="inner_breadcrumb  ml-4">
-            <ul class="short_ls">
-               <li></li>
-            </ul>
-         </div>
-      </div>
-      <!-- //short-->
       <!--show Now-->  
-      <!--show Now-->  
-      <section class="py-lg-4 py-md-3 py-sm-3 py-3 back-xtt" >
+      <section class="py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat center;" >
          <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3" >
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">电子商城</h3>
             <div style="margin-left: 60px" class="row" >
@@ -153,7 +143,7 @@
                                   <div class="product-toys-info">
                                       <div class="men-pro-item">
                                           <div class="men-thumb-item">
-                                              <img src="pictures/${good.gpicture}" style="width: 400px;height: 300px" class="img-thumbnail img-fluid" alt="">
+                                              <img src="${good.gpicture}" style="width: 400px;height: 300px" class="img-thumbnail img-fluid" alt="">
                                               <div class="men-cart-pro">
                                                   <div class="inner-men-cart-pro">
                                                       <a href="javascript:toSpecific(${good.gid})" class="link-product-add-cart">商品详情</a>
