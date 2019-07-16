@@ -202,6 +202,11 @@
                     </table>
                 </div>
                 <div class="checkout-left">
+                    <div class="col-md-8" style="float: left">
+                        <div class="checkout-left-basket">
+                            <a href="showsearchgoods.html">查看报表</a>
+                        </div>
+                    </div>
                     <div class="col-md-8 address_form">
                         <div class="checkout-right-basket">
                             <a href="addgoods.html">新增商品</a>
