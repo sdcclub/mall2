@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>Home</title>
+    <title>Admin</title>
     <!--meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <span class="fas fa-envelope"></span>
-                        <p>info@example1.com</p>
+                        <p><a href="mailto:info@example.com">info@example1.com</a></p>
                     </li>
                     <li>
                     </li>
@@ -65,10 +65,10 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
+                    <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0" hidden>
+                    <form class="form-inline my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search">
                         <button class="btn" type="submit">Search</button>
                     </form>
@@ -102,11 +102,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item active">
-                        <a href="about.html" class="nav-link">购物车</a>
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="service.html" class="nav-link">Service</a>
@@ -144,8 +144,22 @@
 </div>
 <!--//headder-->
 <!-- banner -->
-<div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
+<div class="inner_page-banner one-img">
 </div>
+<!-- short -->
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="index.html">Home</a>
+                <span>/ /</span>
+            </li>
+            <li>Admin</li>
+        </ul>
+    </div>
+</div>
+<!-- //short-->
+<!--Checkout-->
 <!-- //banner -->
 <!-- top Products -->
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
@@ -154,7 +168,6 @@
             <div class="privacy about">
                 <h3>Chec<span>kout</span></h3>
                 <div class="checkout-right">
-                    <h4>Your shopping cart contains: <span>${cartVOList.size()}Products</span></h4>
                     <table class="timetable_sub">
                         <thead>
                         <tr>
@@ -167,46 +180,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${cartVOList}" var="cartVO">
-                        <tr class="rem1">
-                            <td class="invert"><input type="checkbox" name="buy" value="${cartVO.cid}"/>${cartVO.cid}</td>
-                            <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="pictures/${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
-                            <td class="invert">
-                                <div class="quantity">
-                                    <div class="quantity-select">
-                                        <a id="minus" href="javascript:doMinus(${cartVO.cid})"><div class="entry value-minus">&nbsp;</div></a>
-                                        <div class="entry value"><span>${cartVO.gcount}</span></div>
-                                        <a id="plus" href="javascript:doPlus(${cartVO.cid})"><div class="entry value-plus active">&nbsp;</div></a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="invert">${cartVO.gname}</td>
-                            <td class="invert">${cartVO.gprice}</td>
-                            <td class="invert">
-                                    <a id="removeA" href="javascript:doRemove(${cartVO.cid})" style="color: black">
+                        <c:forEach items="${list}" var="good">
+                            <tr class="rem1">
+                                <td class="invert">${good.gid}</td>
+                                <td class="invert-image"><a href="single.html?gid=${good.gid}"><img src="${good.gpicture}" alt=" " class="img-responsive"></a></td>
+                                <td class="invert">${good.gcount}</td>
+                                <td class="invert">${good.gname}</td>
+                                <td class="invert">${good.gprice}</td>
+                                <td class="invert">
+                                    <a id="removeA" href="javascript:doRemove(${good.gid})" style="color: black">
                                         x
                                     </a>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                 </div>
                 <div class="checkout-left">
-                    <div class="col-md-4 checkout-left-basket">
-                        <h4>Continue to basket</h4>
-                        <ul>
-                            <c:set var="sum" value="0"></c:set>
-                            <c:forEach items="${cartVOList}" var="cartVO">
-                            <li>${cartVO.gname}<i>-</i> <span>${cartVO.gprice*cartVO.gcount}</span></li>
-                                <c:set var="sum" value="${sum+cartVO.gprice*cartVO.gcount}"></c:set>
-                            </c:forEach>
-                            <li>Total <i>-</i> <span>${sum}</span></li>
-                        </ul>
-                    </div>
                     <div class="col-md-8 address_form">
                         <div class="checkout-right-basket">
-                            <a id="payForThings" href="javascript:doPay()">Make a Payment </a>
+                            <a href="addgoods.html">新增商品</a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -273,26 +267,6 @@
 </script>
 <!--// cart-js -->
 <!--quantity-->
-<script>
-    $('.value-plus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) + 1;
-        divUpd.text(newVal);
-    });
-    function doPlus(cid){
-        location.href = "pluscart.html?cid="+cid;
-    }
-
-    $('.value-minus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) - 1;
-        if (newVal >= 1) divUpd.text(newVal);
-    });
-    function doMinus(cid){
-        location.href = "minuscart.html?cid=" + cid;
-    }
-</script>
-<!--quantity-->
 <!--closed-->
 <script>
     $(document).ready(function (c) {
@@ -344,33 +318,13 @@
     });
 </script>
 <script type="text/javascript">
-    function doRemove(cid){
-        if(confirm("您是否确定删除编号为："+cid+" 的商品吗？")){
-            location.href = "removecart.html?cid="+cid;
+    function doRemove(gid){
+        if(confirm("您是否确定删除编号为："+gid+" 的商品吗？")){
+            location.href = "removegood.html?gid="+gid;
         }
     }
 </script>
-<script type="text/javascript">
-    function doPay(){
-        var arr=new Array();//定义一个数组
-        $('input[name="buy"]:checked').each(function(){
-            arr.push($(this).val());
-        });
-        if(confirm("您是否确定购买这些商品？")){
-            $.ajax({
-                type: "POST",
-                url: "paythings.html",
-                dataType: 'json',
-                data: {"list":arr},
-                success: function(data){
-                    location.href = "payment.html";
-                },
-                error: function(res){
-                }
-            });
-        }
-    }
-</script>
+
 <!-- //here ends scrolling icon -->
 <!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>

@@ -106,7 +106,7 @@
                   <a href="about.html" class="nav-link">About</a>
                </li>
                <li class="nav-item">
-                  <a href="service.html" class="nav-link">Service</a>
+                  <a href="history_orders.html" class="nav-link">Service</a>
                </li>
                <li class="nav-item active">
                   <a href="shop.html" class="nav-link">Shop Now</a>
@@ -197,17 +197,18 @@
                         </tbody>
                      </table>
                      <hr>
-                      <c:set var="order" value="${ordervolist[0]}"/>
+                      <c:set var="order" value="${ordervolist[0]}" />
                      <ul style="font-size: 20px;">
                         <li style="height: 50px;">商品总价：${order.oprice}</li>
                         <li style="height: 50px;">订单编号：${order.onumber}</li>
                         <li style="height: 50px;">创建订单时间：${order.orderdate}</li>
                      </ul>
+                     <div class="checkout-right-basket">
+                        <a href="alipay.html?oid=${order.oid}">立即付款</a>
+                     </div>
                   </div>
 
-                   <div class="checkout-right-basket">
-                       <a href="alipay.html?oid="${order.oid}>立即付款</a>
-                   </div>
+
                </div>
                <!--//tabs-->
             </div>

@@ -1,13 +1,9 @@
-<%@ page language="java" import="java.util.*" import="com.etc.model.vo.CartVO"  pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
-<!DOCTYPE html>
-<html lang="zxx">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
 <head>
     <title>Home</title>
     <!--meta tags -->
@@ -36,6 +32,7 @@
     <!--checkout-->
     <link rel="stylesheet" type="text/css" href="css/checkout.css">
     <!--//checkout-->
+    <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
     <!--stylesheets-->
     <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
     <!--//stylesheets-->
@@ -55,7 +52,7 @@
                     </li>
                     <li>
                         <span class="fas fa-envelope"></span>
-                        <p>info@example1.com</p>
+                        <p><a href="mailto:info@example.com">info@example1.com</a></p>
                     </li>
                     <li>
                     </li>
@@ -65,10 +62,10 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
+                    <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0" hidden>
+                    <form class="form-inline my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search">
                         <button class="btn" type="submit">Search</button>
                     </form>
@@ -103,10 +100,10 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
                     <li class="nav-item ">
-                        <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a href="about.html" class="nav-link">购物车</a>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="service.html" class="nav-link">Service</a>
@@ -144,80 +141,99 @@
 </div>
 <!--//headder-->
 <!-- banner -->
-<div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
+<div class="inner_page-banner one-img">
 </div>
-<!-- //banner -->
+<!-- short -->
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="index.html">Home</a>
+                <span>/ /</span>
+            </li>
+            <li>Payment</li>
+        </ul>
+    </div>
+</div>
+<!-- //short-->
 <!-- top Products -->
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-        <div class="shop_inner_inf">
-            <div class="privacy about">
-                <h3>Chec<span>kout</span></h3>
-                <div class="checkout-right">
-                    <h4>Your shopping cart contains: <span>${cartVOList.size()}Products</span></h4>
-                    <table class="timetable_sub">
-                        <thead>
-                        <tr>
-                            <th>SL No.</th>
-                            <th>Product</th>
-                            <th>Quality</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Remove</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${cartVOList}" var="cartVO">
-                        <tr class="rem1">
-                            <td class="invert"><input type="checkbox" name="buy" value="${cartVO.cid}"/>${cartVO.cid}</td>
-                            <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="pictures/${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
-                            <td class="invert">
-                                <div class="quantity">
-                                    <div class="quantity-select">
-                                        <a id="minus" href="javascript:doMinus(${cartVO.cid})"><div class="entry value-minus">&nbsp;</div></a>
-                                        <div class="entry value"><span>${cartVO.gcount}</span></div>
-                                        <a id="plus" href="javascript:doPlus(${cartVO.cid})"><div class="entry value-plus active">&nbsp;</div></a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="invert">${cartVO.gname}</td>
-                            <td class="invert">${cartVO.gprice}</td>
-                            <td class="invert">
-                                    <a id="removeA" href="javascript:doRemove(${cartVO.cid})" style="color: black">
-                                        x
-                                    </a>
-                            </td>
-                        </tr>
+        <div class="ads-grid_shop">
+            <div class="shop_inner_inf">
+                <div class="privacy about">
+                    <h3>历史<span>订单</span></h3>
+                    <!--/tabs-->
+                    <div class="responsive_tabs">
+                        <c:if test="${not empty orders}">
+                            <h5>订单详情</h5>
+                        <c:forEach items="${orders}" var="ordervolist">
+                            <!--订单详情框-->
+                            <div class="resp-tabs-container">
+                                <table class="timetable_sub">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>商品图片</th>
+                                        <th>商品名</th>
+                                        <th>购买个数</th>
+                                        <th>单个价格</th>
+                                        <th>总价</th>
+                                    </tr>
+                                    </thead>
+                                    <c:set var="count" value="1"/>
+                                    <tbody>
+                                    <c:forEach items="${ordervolist}" var="goods">
+                                        <tr class="rem1">
+                                            <td class="invert">
+                                                <c:out value="${count}"/>
+                                                <c:set var="count" value="${count+1}"/>
+                                            </td>
+                                            <td class="invert"><img height="150px" width="200px" src="pictures/${goods.goods.gpicture}" alt=" " class="img-responsive"></td>
+                                            <td class="invert-image">${goods.goods.gname}</td>
+                                            <td class="invert">${goods.ccount}</td>
+                                            <td class="invert">${goods.goods.gprice}</td>
+                                            <td class="invert">${goods.ccount*goods.goods.gprice}</td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <c:set var="order" value="${ordervolist[0]}"/>
+                                <ul style="font-size: 20px;">
+                                    <li style="height: 50px;">商品总价：${order.oprice}</li>
+                                    <li style="height: 50px;">订单编号：${order.onumber}</li>
+                                    <li style="height: 50px;">创建订单时间：${order.orderdate}</li>
+                                    <c:if test="${not empty order.opaydate}">
+                                    <li style="height: 50px;">支付订单时间：${order.opaydate}</li>
+                                    </c:if>
+                                    <c:if test="${empty order.opaydate}">
+                                        <div class="checkout-right-basket">
+                                        <a href="alipay.html?oid=${order.oid}">立即付款</a>
+                                        </div>
+                                    </c:if>
+                                </ul>
+<%--                                <c:if test="${order.ostatus=='待支付'}">--%>
+<%--                                    <div class="checkout-right-basket">--%>
+<%--                                        <a href="alipay.html?oid="${order.oid}>立即付款</a>--%>
+<%--                                    </div>--%>
+<%--                                </c:if>--%>
+                            </div>
                         </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="checkout-left">
-                    <div class="col-md-4 checkout-left-basket">
-                        <h4>Continue to basket</h4>
-                        <ul>
-                            <c:set var="sum" value="0"></c:set>
-                            <c:forEach items="${cartVOList}" var="cartVO">
-                            <li>${cartVO.gname}<i>-</i> <span>${cartVO.gprice*cartVO.gcount}</span></li>
-                                <c:set var="sum" value="${sum+cartVO.gprice*cartVO.gcount}"></c:set>
-                            </c:forEach>
-                            <li>Total <i>-</i> <span>${sum}</span></li>
-                        </ul>
+                        </c:if>
+                        <div height="100px"></div>
+                        <c:if test="${empty orders}">
+                            <h6 class="nav-link">您当前没有订单哦~</h6>
+                        </c:if>
                     </div>
-                    <div class="col-md-8 address_form">
-                        <div class="checkout-right-basket">
-                            <a id="payForThings" href="javascript:doPay()">Make a Payment </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                    <div class="clearfix"></div>
+                    <!--//tabs-->
                 </div>
             </div>
+            <!-- //payment -->
+            <div class="clearfix"></div>
         </div>
-        <!-- //top products -->
     </div>
 </section>
-
 <!-- Modal 1-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -272,47 +288,52 @@
     });
 </script>
 <!--// cart-js -->
-<!--quantity-->
+<!-- easy-responsive-tabs -->
+<script src="js/easy-responsive-tabs.js"></script>
 <script>
-    $('.value-plus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) + 1;
-        divUpd.text(newVal);
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
     });
-    function doPlus(cid){
-        location.href = "pluscart.html?cid="+cid;
-    }
+</script>
+<!-- credit-card -->
+<script src="js/creditly.js"></script>
+<link rel="stylesheet" href="css/creditly.css" type="text/css" media="all" />
+<script>
+    $(function () {
+        var creditly = Creditly.initialize(
+            '.creditly-wrapper .expiration-month-and-year',
+            '.creditly-wrapper .credit-card-number',
+            '.creditly-wrapper .security-code',
+            '.creditly-wrapper .card-type');
 
-    $('.value-minus').on('click', function () {
-        var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) - 1;
-        if (newVal >= 1) divUpd.text(newVal);
-    });
-    function doMinus(cid){
-        location.href = "minuscart.html?cid=" + cid;
-    }
-</script>
-<!--quantity-->
-<!--closed-->
-<script>
-    $(document).ready(function (c) {
-        $('.close2').on('click', function (c) {
-            $('.rem2').fadeOut('slow', function (c) {
-                $('.rem2').remove();
-            });
+        $(".creditly-card-form .submit").click(function (e) {
+            e.preventDefault();
+            var output = creditly.validate();
+            if (output) {
+                // Your validated credit card output
+                console.log(output);
+            }
         });
     });
 </script>
-<script>
-    $(document).ready(function (c) {
-        $('.close3').on('click', function (c) {
-            $('.rem3').fadeOut('slow', function (c) {
-                $('.rem3').remove();
-            });
-        });
-    });
-</script>
-<!--//closed-->
+<!-- //credit-card -->
 <!-- start-smoth-scrolling -->
 <script src="js/move-top.js"></script>
 <script src="js/easing.js"></script>
@@ -342,34 +363,6 @@
         });
 
     });
-</script>
-<script type="text/javascript">
-    function doRemove(cid){
-        if(confirm("您是否确定删除编号为："+cid+" 的商品吗？")){
-            location.href = "removecart.html?cid="+cid;
-        }
-    }
-</script>
-<script type="text/javascript">
-    function doPay(){
-        var arr=new Array();//定义一个数组
-        $('input[name="buy"]:checked').each(function(){
-            arr.push($(this).val());
-        });
-        if(confirm("您是否确定购买这些商品？")){
-            $.ajax({
-                type: "POST",
-                url: "paythings.html",
-                dataType: 'json',
-                data: {"list":arr},
-                success: function(data){
-                    location.href = "payment.html";
-                },
-                error: function(res){
-                }
-            });
-        }
-    }
 </script>
 <!-- //here ends scrolling icon -->
 <!--bootstrap working-->

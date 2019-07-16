@@ -11,6 +11,7 @@
 <%@ page import="com.alipay.api.AlipayClient" %>
 <%@ page import="com.alipay.api.request.AlipayTradePagePayRequest" %>
 <%@ page import="com.etc.model.entity.Order" %>
+<%@ page import="java.util.Date" %>
 <%
 	//获得初始化的AlipayClient
 	AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -25,6 +26,7 @@
 	String out_trade_no =order.getOnumber().toString();
 	//付款金额，必填
 	String total_amount = order.getOprice().toString();
+
 	//订单名称，必填
 	String subject =order.getOnumber().toString();
 
