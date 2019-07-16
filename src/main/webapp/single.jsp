@@ -25,19 +25,19 @@
       </script>
       <!--//meta tags ends here-->
       <!--booststrap-->
-      <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
       <!--//booststrap end-->
       <!-- font-awesome icons -->
-      <link href="<%=basePath%>/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
       <!--Shoping cart-->
-      <link rel="stylesheet" href="<%=basePath%>/css/shop.css" type="text/css" />
+      <link rel="stylesheet" href="css/shop.css" type="text/css" />
       <!--//Shoping cart-->
       <link rel="stylesheet" type="text/css" href="<%=basePath%>/css/jquery-ui1.css">
-      <link href="<%=basePath%>/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
-      <link rel="stylesheet" href="<%=basePath%>/css/flexslider.css" type="text/css" media="screen" />
+      <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+      <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
       <!--stylesheets-->
-      <link href="<%=basePath%>/css/style.css" rel='stylesheet' type='text/css' media="all">
+      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
       <link href="http://fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -55,7 +55,7 @@
                   </li>
                   <li>
                      <span class="fas fa-envelope"></span>
-                     <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                     <p>info@example1.com</p>
                   </li>
                   <li>
                   </li>
@@ -135,18 +135,8 @@
 	  </div>
       <!--//headder-->
       <!-- banner -->
-      <div class="inner_page-banner one-img">
+      <div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
       </div>
-      <!--//banner -->
-      <!-- short -->
-      <div class="using-border py-3">
-         <div class="inner_breadcrumb  ml-4">
-            <ul class="short_ls">
-               <li> </li>
-            </ul>
-         </div>
-      </div>
-      <!-- //short-->
       <!--//banner -->
       <!--/shop-->
       <section class="banner-bottom py-lg-5 py-3">
@@ -157,8 +147,8 @@
                      <div class="grid images_3_of_2">
                         <div class="flexslider1">
                            <ul class="slides">
-                              <li data-thumb="<%=basePath%>pictures/${good.gpicture}">
-                                 <div class="thumb-image"> <img src="<%=basePath%>pictures/${good.gpicture}" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                              <li data-thumb="${good.gpicture}">
+                                 <div class="thumb-image"> <img src="${good.gpicture}" data-imagezoom="true" class="img-fluid" alt=" "> </div>
                               </li>
                            </ul>
                            <div class="clearfix"></div>

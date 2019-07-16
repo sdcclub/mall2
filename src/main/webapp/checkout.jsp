@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <span class="fas fa-envelope"></span>
-                        <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                        <p>info@example1.com</p>
                     </li>
                     <li>
                     </li>
@@ -65,10 +65,10 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
+                    <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0">
+                    <form class="form-inline my-lg-0" hidden>
                         <input class="form-control mr-sm-2" type="search" placeholder="Search">
                         <button class="btn" type="submit">Search</button>
                     </form>
@@ -102,11 +102,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                    <li class="nav-item active">
+                        <a href="about.html" class="nav-link">购物车</a>
                     </li>
                     <li class="nav-item">
                         <a href="service.html" class="nav-link">Service</a>
@@ -144,22 +144,8 @@
 </div>
 <!--//headder-->
 <!-- banner -->
-<div class="inner_page-banner one-img">
+<div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
 </div>
-<!-- short -->
-<div class="using-border py-3">
-    <div class="inner_breadcrumb  ml-4">
-        <ul class="short_ls">
-            <li>
-                <a href="index.html">Home</a>
-                <span>/ /</span>
-            </li>
-            <li>Checkout</li>
-        </ul>
-    </div>
-</div>
-<!-- //short-->
-<!--Checkout-->
 <!-- //banner -->
 <!-- top Products -->
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
