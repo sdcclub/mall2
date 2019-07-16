@@ -2,12 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <title>Home</title>
       <!--meta tags -->
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta content="" name="description" />
+       <meta content="webthemez" name="author" />
       <meta name="keywords" content="" />
       <script>
          addEventListener("load", function () {
@@ -60,10 +62,10 @@
          <div class="container-fluid">
             <div class="hedder-up row">
                <div class="col-lg-3 col-md-3 logo-head">
-                  <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
+                  <h1><a class="navbar-brand" >电子商城</a></h1>
                </div>
                <div class="col-lg-5 col-md-6 search-right">
-                  <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
+                  <form class="form-inline my-lg-0" action="#" method="post" hidden>
                      <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
                      <button class="btn" type="submit">搜索</button>
                   </form>
@@ -86,42 +88,42 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-               <ul class="navbar-nav ">
-                  <li class="nav-item active">
-                     <a class="nav-link">数据分析<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="about.html" class="nav-link">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="service.html" class="nav-link">Service</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="icon.html">404 Page</a>
-                        <a class="nav-link " href="typography.html">Typography</a>
-                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Product
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="product.html">Kids Toys</a>
-                        <a class="nav-link " href="product.html">Dolls</a>
-                        <a class="nav-link " href="product.html">Key Toys</a>
-                        <a class="nav-link " href="product.html">Boys Toys</a>
-                     </div>
-                  </li>
-                  <li class="nav-item">
-                     <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-               </ul>
-            </div>
+<%--            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">--%>
+<%--               <ul class="navbar-nav ">--%>
+<%--                  <li class="nav-item active">--%>
+<%--                     <a class="nav-link">数据分析<span class="sr-only">(current)</span></a>--%>
+<%--                  </li>--%>
+<%--                  <li class="nav-item">--%>
+<%--                     <a href="about.html" class="nav-link">About</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="nav-item">--%>
+<%--                     <a href="service.html" class="nav-link">Service</a>--%>
+<%--                  </li>--%>
+<%--                  <li class="nav-item dropdown">--%>
+<%--                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+<%--                     Pages--%>
+<%--                     </a>--%>
+<%--                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
+<%--                        <a class="nav-link" href="icon.html">404 Page</a>--%>
+<%--                        <a class="nav-link " href="typography.html">Typography</a>--%>
+<%--                     </div>--%>
+<%--                  </li>--%>
+<%--                  <li class="nav-item dropdown">--%>
+<%--                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+<%--                     Product--%>
+<%--                     </a>--%>
+<%--                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
+<%--                        <a class="nav-link" href="product.html">Kids Toys</a>--%>
+<%--                        <a class="nav-link " href="product.html">Dolls</a>--%>
+<%--                        <a class="nav-link " href="product.html">Key Toys</a>--%>
+<%--                        <a class="nav-link " href="product.html">Boys Toys</a>--%>
+<%--                     </div>--%>
+<%--                  </li>--%>
+<%--                  <li class="nav-item">--%>
+<%--                     <a href="contact.html" class="nav-link">Contact</a>--%>
+<%--                  </li>--%>
+<%--               </ul>--%>
+<%--            </div>--%>
          </nav>
       </div>
 	  </div>
@@ -133,7 +135,7 @@
       <!--show Now-->  
       <section class="py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat center;" >
          <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3" >
-            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">电子商城</h3>
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">数据分析</h3>
             <div style="margin-left: 60px" class="row" >
                <div class="left-ads-display col-lg-9">
                   <div class="row">
@@ -224,158 +226,149 @@
       <script src='js/jquery-2.2.3.min.js'></script>
       <!--//js working-->
       <!-- cart-js -->
-       <script src="js/minicart.js"></script>
+      <script src="js/minicart.js"></script>
+      <script src="js/echarts.common.min.js"></script>
+      <script src="js/chart.min.js"></script>
       <script type="text/javascript">
-          function toSpecific(gid) {
-              location.href = "specificgood.html?gid="+gid;
-          }
-
-          document.getElementById('addcart').onsubmit = function() {
-              if(confirm("您是否确定添加该商品至购物车？")){
-                  return true;
-              }else{
-                  return false;
-              }
-          }
-      </script>
-      <script type="text/javascript">
-          //初始化好X轴或图表数据的数组
-          var types = new Array();
-          var nums = new Array();
-          var amounts = new Array();
-          var qbeChart = echarts.init(document.getElementById("quantity-bar-echarts"));
-          var qdeChart = echarts.init(document.getElementById("quantity-doughnut-echarts"));
-          var tbeChart = echarts.init(document.getElementById("total-bar-echarts"));
-          var tdeChart = echarts.init(document.getElementById("total-doughnut-echarts"));
-          //发起ajax请求，向后台获取数据，填充数组
-          $.post("getdata.html",{},function(data){
-              var jsonObj = JSON.parse(data);
-              $.each(jsonObj, function() {
-                  types.push(this.type);
-                  nums.push(this.num);
-                  amounts.push(this.amount);
+          jQuery(document).ready(function($) {
+              //初始化好X轴或图表数据的数组
+              var types = new Array();
+              var nums = new Array();
+              var amounts = new Array();
+              var qbeChart = echarts.init(document.getElementById("quantity-bar-echarts"));
+              var qdeChart = echarts.init(document.getElementById("quantity-doughnut-echarts"));
+              var tbeChart = echarts.init(document.getElementById("total-bar-echarts"));
+              var tdeChart = echarts.init(document.getElementById("total-doughnut-echarts"));
+              //发起ajax请求，向后台获取数据，填充数组
+              $.post("getdata.html",{},function(data){
+                  var jsonObj = JSON.parse(data);
+                  $.each(jsonObj, function() {
+                      types.push(this.gname);
+                      nums.push(this.count);
+                      amounts.push(this.amount);
+                  });
+                  //使用数组填充图表配置项Option
+                  var qdeList = new Array();
+                  var tdeList = new Array();
+                  for(var i=0;i<types.length;i++){
+                      var str = new Object();
+                      var str1 = new Object();
+                      str.name = types[i];
+                      str.value = nums[i];
+                      str1.name = types[i];
+                      str1.value = amounts[i];
+                      qdeList.push(str);
+                      tdeList.push(str1);
+                  }
+                  //使用数组填充图表配置项Option
+                  var qbeOption = {
+                      xAxis: {
+                          type: 'category',
+                          data: types
+                      },
+                      yAxis: {
+                          type: 'value'
+                      },
+                      series: [{
+                          data: nums,
+                          type: 'bar'
+                      }]
+                  };
+                  var qdeOption = {
+                      tooltip: {
+                          trigger: 'item',
+                          formatter: "{a} <br/>{b}: {c} ({d}%)"
+                      },
+                      legend: {
+                          orient: 'vertical',
+                          x: 'left',
+                          data:types
+                      },
+                      series: [
+                          {
+                              name:'品类销量',
+                              type:'pie',
+                              radius: ['50%', '70%'],
+                              avoidLabelOverlap: false,
+                              label: {
+                                  normal: {
+                                      show: false,
+                                      position: 'center'
+                                  },
+                                  emphasis: {
+                                      show: true,
+                                      textStyle: {
+                                          fontSize: '30',
+                                          fontWeight: 'bold'
+                                      }
+                                  }
+                              },
+                              labelLine: {
+                                  normal: {
+                                      show: false
+                                  }
+                              }
+                          }
+                      ]
+                  };
+                  qdeOption.series[0].data =qdeList;
+                  var tbeOption = {
+                      xAxis: {
+                          type: 'category',
+                          data: types
+                      },
+                      yAxis: {
+                          type: 'value'
+                      },
+                      series: [{
+                          data: amounts,
+                          type: 'bar'
+                      }]
+                  };
+                  var tdeOption = {
+                      tooltip: {
+                          trigger: 'item',
+                          formatter: "{a} <br/>{b}: {c} ({d}%)"
+                      },
+                      legend: {
+                          orient: 'vertical',
+                          x: 'left',
+                          data:types
+                      },
+                      series: [
+                          {
+                              name:'品类销售额',
+                              type:'pie',
+                              radius: ['50%', '70%'],
+                              avoidLabelOverlap: false,
+                              label: {
+                                  normal: {
+                                      show: false,
+                                      position: 'center'
+                                  },
+                                  emphasis: {
+                                      show: true,
+                                      textStyle: {
+                                          fontSize: '30',
+                                          fontWeight: 'bold'
+                                      }
+                                  }
+                              },
+                              labelLine: {
+                                  normal: {
+                                      show: false
+                                  }
+                              }
+                          }
+                      ]
+                  };
+                  tdeOption.series[0].data =tdeList;
+                  //使用指定的配置项来设置图表，从而显示图表数据
+                  qbeChart.setOption(qbeOption);
+                  qdeChart.setOption(qdeOption);
+                  tbeChart.setOption(tbeOption);
+                  tdeChart.setOption(tdeOption);
               });
-              //使用数组填充图表配置项Option
-              var qdeList = new Array();
-              var tdeList = new Array();
-              for(var i=0;i<types.length;i++){
-                  var str = new Object();
-                  var str1 = new Object();
-                  str.name = types[i];
-                  str.value = nums[i];
-                  str1.name = types[i];
-                  str1.value = amounts[i];
-                  qdeList.push(str);
-                  tdeList.push(str1);
-              }
-              //使用数组填充图表配置项Option
-              var qbeOption = {
-                  xAxis: {
-                      type: 'category',
-                      data: types
-                  },
-                  yAxis: {
-                      type: 'value'
-                  },
-                  series: [{
-                      data: nums,
-                      type: 'bar'
-                  }]
-              };
-              var qdeOption = {
-                  tooltip: {
-                      trigger: 'item',
-                      formatter: "{a} <br/>{b}: {c} ({d}%)"
-                  },
-                  legend: {
-                      orient: 'vertical',
-                      x: 'left',
-                      data:types
-                  },
-                  series: [
-                      {
-                          name:'品类销量',
-                          type:'pie',
-                          radius: ['50%', '70%'],
-                          avoidLabelOverlap: false,
-                          label: {
-                              normal: {
-                                  show: false,
-                                  position: 'center'
-                              },
-                              emphasis: {
-                                  show: true,
-                                  textStyle: {
-                                      fontSize: '30',
-                                      fontWeight: 'bold'
-                                  }
-                              }
-                          },
-                          labelLine: {
-                              normal: {
-                                  show: false
-                              }
-                          }
-                      }
-                  ]
-              };
-              qdeOption.series[0].data =qdeList;
-              var tbeOption = {
-                  xAxis: {
-                      type: 'category',
-                      data: types
-                  },
-                  yAxis: {
-                      type: 'value'
-                  },
-                  series: [{
-                      data: amounts,
-                      type: 'bar'
-                  }]
-              };
-              var tdeOption = {
-                  tooltip: {
-                      trigger: 'item',
-                      formatter: "{a} <br/>{b}: {c} ({d}%)"
-                  },
-                  legend: {
-                      orient: 'vertical',
-                      x: 'left',
-                      data:types
-                  },
-                  series: [
-                      {
-                          name:'品类销售额',
-                          type:'pie',
-                          radius: ['50%', '70%'],
-                          avoidLabelOverlap: false,
-                          label: {
-                              normal: {
-                                  show: false,
-                                  position: 'center'
-                              },
-                              emphasis: {
-                                  show: true,
-                                  textStyle: {
-                                      fontSize: '30',
-                                      fontWeight: 'bold'
-                                  }
-                              }
-                          },
-                          labelLine: {
-                              normal: {
-                                  show: false
-                              }
-                          }
-                      }
-                  ]
-              };
-              tdeOption.series[0].data =tdeList;
-              //使用指定的配置项来设置图表，从而显示图表数据
-              qbeChart.setOption(qbeOption);
-              qdeChart.setOption(qdeOption);
-              tbeChart.setOption(tbeOption);
-              tdeChart.setOption(tdeOption);
           });
       </script>
 

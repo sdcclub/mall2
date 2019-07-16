@@ -66,10 +66,10 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
+                    <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
+                    <form class="form-inline my-lg-0" action="showsearchgoods.html" method="post">
                         <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
                         <button class="btn" type="submit">搜索</button>
                     </form>
@@ -87,7 +87,7 @@
                                 <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
                             </li>
                             <li>
-                                <a href="/history_order.html"><span class="fas fa-history"></span></a>
+                                <a href="history_orders.html"><span class="fas fa-history"></span></a>
                             </li>
                         </ul>
                     </div>
