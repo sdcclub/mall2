@@ -36,15 +36,15 @@ public class LoginService {
     }
 
     public int checkAccount(UserVO userVO,boolean identification){
-        System.out.println("Login Service");
-        if(identification)
+        if(identification) {
             return checkUserAccount(userVO);
-        else
+        }
+        else {
             return checkAdminAccount(userVO);
+        }
     }
 
     private int checkUserAccount(UserVO userVO){
-        System.out.println("Check User");
         UserExample ue=new UserExample();
         ue.createCriteria().andUsernameEqualTo(userVO.getUsername())
                 .andUpasswordEqualTo(userVO.getPassword());
@@ -57,9 +57,7 @@ public class LoginService {
     }
 
     private int checkAdminAccount(UserVO userVO){
-        System.out.println("Check Admin");
         AdminExample ue=new AdminExample();
-        System.out.println(ue);
         ue.createCriteria().andAnameEqualTo(userVO.getUsername())
                 .andApasswordEqualTo(userVO.getPassword());
         List<Admin> users=adminMapper.selectByExample(ue);
@@ -77,7 +75,20 @@ public class LoginService {
         return row==0;
     }
 
-    public void register(User user){
+    public int register(User user){
         userMapper.insertSelective(user);
+        UserExample ue=new UserExample();
+        ue.createCriteria().andUsernameEqualTo(user.getUsername());
+        return userMapper.selectByExample(ue).get(0).getUid();
+    }
+
+    public User getInfo(int uid){
+        return userMapper.selectByPrimaryKey(uid);
+    }
+
+    public void modify(User user){
+        UserExample ue=new UserExample();
+        ue.createCriteria().andUidEqualTo(user.getUid());
+        userMapper.updateByExampleSelective(user,ue);
     }
 }

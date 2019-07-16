@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
+import java.sql.Date;
 
 @RequestMapping("/")
 @Controller
-@SessionAttributes({"uid"})
 public class LoginController {
 
     private LoginService loginService;
@@ -32,12 +31,12 @@ public class LoginController {
 
     @RequestMapping("login")
     public String login(UserVO userVO, String identification, Model model, HttpSession session){
-        System.out.println(identification);
         int re=loginService.checkAccount(userVO,identification==null);
-        System.out.println(re);
         if(re!=-1) {
             session.setAttribute("uid",re);
-            return "shop";
+            int id = identification==null?1:0;
+            session.setAttribute("identification",id);
+            return "forward:/showgoods.html";
         }else {
             model.addAttribute("msg","用户名或密码错误，请重新登录");
             return "login";
@@ -52,14 +51,39 @@ public class LoginController {
     @RequestMapping("checkrepeat")
     @ResponseBody
     public boolean checkRepeat(String username){
-        System.out.println("checking");
         return loginService.checkRepeat(username);
     }
 
     @RequestMapping("doregister")
-    public String doRegister(User user){
-        user.setUregistdate(new Date());
-        loginService.register(user);
-        return "shop";
+    public String doRegister(User user,HttpSession session){
+        user.setUregistdate(new Date(new java.util.Date().getTime()));
+        int id=loginService.register(user);
+        session.setAttribute("uid",id);
+        session.setAttribute("identification",1);
+        return "forward:/showgoods.html";
+    }
+
+    @RequestMapping("getinfo")
+    @ResponseBody
+    public User getInfo(HttpSession session){
+        return loginService.getInfo((Integer)session.getAttribute("uid"));
+    }
+
+    @RequestMapping("modifyuserinfo")
+    public String modifyUserInfo(Model model,HttpSession session){
+        model.addAttribute("user",loginService.getInfo((Integer)session.getAttribute("uid")));
+        return "modify-user-info";
+    }
+
+    @RequestMapping("domodifyuserinfo")
+    public String doModifyUserInfo(User user){
+        loginService.modify(user);
+        return "forward:/showgoods.html";
+    }
+
+    @RequestMapping("logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "login";
     }
 }
