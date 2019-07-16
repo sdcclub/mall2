@@ -26,21 +26,11 @@ public class CartService {
     @Autowired
     private OrderMapper orderMapper;
     public List<CartVO> getCart(int uid){
-        System.out.println("hi");
         final CartExample cartExample=new CartExample();
-        System.out.println("1");
         System.out.println(cartExample);
         cartExample.createCriteria().andUidEqualTo(uid);
-        System.out.println("2");
         System.out.println(cartExample);
         List<Cart> cartList=cartMapper.selectByExample(cartExample);
-        System.out.println("3");
-        if(cartList!=null){
-            System.out.println("不空的");
-        }
-        else {
-            System.out.println("空的");
-        }
         System.out.println(cartList.size());
         List<CartVO> cartVOList=new ArrayList<>();
         for(Cart cart:cartList){
@@ -75,11 +65,8 @@ public class CartService {
     }
 
     public void payThings(List<Integer> list){
-        System.out.println("hi");
         Random random=new Random();
-        System.out.println("hi");
         Order order=new Order();
-        System.out.println("hi");
         int n= random.nextInt(9999999)%+100000;
         System.out.println(n);
         order.setOnumber(n);
