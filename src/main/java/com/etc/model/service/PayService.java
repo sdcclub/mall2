@@ -62,19 +62,28 @@ public class PayService {
         OrderExample orderExample=new OrderExample();
         //获取当前用户待支付的所有订单
         orderExample.createCriteria().andUidEqualTo(user.getUid())
-                .andOstatusEqualTo("待支付");
+                .andOstatusEqualTo("未支付");
         if(orderMapper.selectByExample(orderExample)==null){
             System.out.println("什么也没查到");
-            exit(-1);
+            return null;
         }
 
         List<Order> orderList=orderMapper.selectByExample(orderExample);
 
+        //按照oid降序排序
+        Collections.sort(orderList,new MyComparator());
+        //获取当前最新生成的onumber
+        int onumber=orderList.get(0).getOnumber();
+
         //用一个循环找到当前所有待支付的gid,再查数据库把它放到商品list中
         List<OrderVO> orderVOList=new ArrayList<>();
         for(Order order:orderList){
-            OrderVO orderVO=setOrderVO(order);
-            orderVOList.add(orderVO);
+            if(order.getOnumber()==onumber) {
+                OrderVO orderVO = setOrderVO(order);
+                orderVOList.add(orderVO);
+            }else{
+                break;
+            }
         }
         return orderVOList;
     }
@@ -82,10 +91,6 @@ public class PayService {
     public Order getOrderByOid(int oid){
         Order order=orderMapper.selectByPrimaryKey(oid);
         return order;
-    }
-
-    public void setOrderPayDate(Order order) {
-        orderMapper.updateByPrimaryKeySelective(order);
     }
 
     public List<List<OrderVO>> getHistoryOrdersByUid(Integer uid) {
@@ -105,9 +110,13 @@ public class PayService {
         for(int i=0;i<orderList.size();i++) {
             //涉及到一些操作，只能这么取order了
             Order order=orderList.get(i);
-
+            //System.out.println(order);
             OrderVO orderVO = setOrderVO(order);
-            orderVO.setOpaydate(dateFormat.format(order.getOpaydate()));
+
+            //如果是已支付的订单
+            if(order.getOpaydate()!=null) {
+                orderVO.setOpaydate(dateFormat.format(order.getOpaydate()));
+            }
 
             //如果是同一批订单
             if(onumber!=order.getOnumber()) {
@@ -126,4 +135,23 @@ public class PayService {
 
         return ordersByTime;
     }
+
+
+    public void updateOrdersPaydate(Integer onumber) {
+        OrderExample orderExample=new OrderExample();
+
+        //找到所有的onumber的order
+        orderExample.createCriteria().andOnumberEqualTo(onumber);
+        List<Order> orderList=orderMapper.selectByExample(orderExample);
+        Date date=new Date();
+
+        //只能一个一个的改，因为timestamp本身带有特殊性，如果update的时候为空会自动补全最新时间
+        for(Order order:orderList) {
+            order.setOpaydate(date);
+            order.setOstatus("已支付");
+            System.out.println(order);
+            orderMapper.updateByPrimaryKeySelective(order);
+        }
+    }
+
 }
