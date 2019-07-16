@@ -183,7 +183,7 @@
                         <c:forEach items="${list}" var="good">
                             <tr class="rem1">
                                 <td class="invert">${good.gid}</td>
-                                <td class="invert-image"><a href="single.html?gid=${good.gid}"><img src="pictures/${good.gpicture}" alt=" " class="img-responsive"></a></td>
+                                <td class="invert-image"><a href="single.html?gid=${good.gid}"><img src="${good.gpicture}" alt=" " class="img-responsive"></a></td>
                                 <td class="invert">${good.gcount}</td>
                                 <td class="invert">${good.gname}</td>
                                 <td class="invert">${good.gprice}</td>

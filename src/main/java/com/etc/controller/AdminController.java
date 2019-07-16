@@ -50,7 +50,7 @@ public class AdminController {
         int index=1;
         for(MultipartFile mf : request.getFiles("file")) {
             if(!mf.isEmpty()) {
-               /* //生成唯一编码uuid作为文件名称
+                //生成唯一编码uuid作为文件名称
                 System.out.println(1);
                 String uuid = UUID.randomUUID().toString().replaceAll("-", "");
                 //获取文件类型（可以判断如果不是图片，禁止上传）
@@ -70,9 +70,7 @@ public class AdminController {
                 mf.transferTo(new File(realPath));
                 System.out.println(1);
                 goods.setGpicture(path);
-                System.out.println(goods);*/
-               path=goods.getGname()+".jpg";
-               goods.setGpicture(path);
+                System.out.println(goods);
             }
         }
         adminService.addGood(goods);
