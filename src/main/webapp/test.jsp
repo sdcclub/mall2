@@ -12,5 +12,6 @@
 </head>
 <body>
 <a href="checkout.html">点我跳转</a>
+<a href="admin.html">点我跳转</a>
 </body>
 </html>
