@@ -25,4 +25,11 @@ public class AdminService {
         goodsMapper.insert(goods);
     }
 
+    public Goods selectGood(int gid){
+        return goodsMapper.selectByPrimaryKey(gid);
+    }
+
+    public void editGood(Goods new_goods){
+        goodsMapper.updateByPrimaryKey(new_goods);
+    }
 }
