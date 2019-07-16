@@ -184,7 +184,7 @@
                         <c:forEach items="${cartVOList}" var="cartVO">
                         <tr class="rem1">
                             <td class="invert"><input type="checkbox" name="buy" value="${cartVO.cid}"/>${cartVO.cid}</td>
-                            <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="pictures/${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
+                            <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
                             <td class="invert">
                                 <div class="quantity">
                                     <div class="quantity-select">
