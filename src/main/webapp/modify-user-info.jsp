@@ -165,88 +165,89 @@
 <!--Typography-->
 <section class="inner-pages py-5">
     <div class="container py-xl-5 py-sm-3">
-        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">注册</h3>
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">修改个人信息</h3>
         <!-- forms -->
         <section class="typo-section py-4 border-top border-bottom">
             <h3 class="typo-main-heading mb-lg-4 mb-3 pr-3 pb-1">个人信息</h3>
             <h4 class="typo-sub-heading mb-3">必填</h4>
             <!--					<h4 class="typo-sub-heading mt-4 mb-3">Horizontal form</h4>-->
-          <form action="doregister.html" method="post">
-            <div class="form-group row">
-                <label for="username" class="col-sm-2 col-form-label">用户名</label>
+            <form action="domodifyuserinfo.html" method="post">
+                <div class="form-group row">
+                    <input type="hidden" value="${user.uid}" name="uid">
+                    <label for="username" class="col-sm-2 col-form-label">用户名</label>
 
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名" onblur="checkrepeat(this.value)">
-                    <div id="f"></div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="${user.username}" onblur="checkrepeat(this.value)" value=${user.username}>
+                        <div id="f"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="upassword" class="col-sm-2 col-form-label">密码</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="upassword" name="upassword" placeholder="密码">
+                <div class="form-group row">
+                    <label for="upassword" class="col-sm-2 col-form-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="upassword" name="upassword" value="${user.upassword}">
+                    </div>
                 </div>
-            </div>
-            <fieldset class="form-group">
-                <div class="row">
-                    <div class="col-form-label col-sm-2 pt-0">性别</div>
-                    <input type="hidden" name="ugender" id="ugender"/>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <div class="col-form-label col-sm-2 pt-0">性别</div>
+                        <input type="hidden" name="ugender" id="ugender"/>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="male" value="男" onclick="changegender(this.value)">
+                                <label class="form-check-label" for="male">
+                                    男
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="female" value="女" onclick="changegender(this.value)">
+                                <label class="form-check-label" for="female">
+                                    女
+                                </label>
+                            </div>
+                            <!--<div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                <label class="form-check-label" for="gridRadios3">
+                            Third disabled radio
+                        </label>
+                            </div>-->
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group row">
+                    <label for="umobile" class="col-sm-2 col-form-label">联系号码</label>
+                    <div class="col-sm-10">
+                        <input type="tel" class="form-control" id="umobile" name="umobile" placeholder="${user.umobile}" value="${user.umobile}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="uaddress" class="col-sm-2 col-form-label">地址</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="uaddress" name="uaddress" placeholder="${user.uaddress}" value="${user.uaddress}">
+                    </div>
+                </div>
+                <div class="form-group row" id="first">
+                    <label for="ubirthday" class="col-sm-2 col-form-label">出生年月</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" name="ubirthday" id="ubirthday">
+                    </div>
+                </div>
+                <!--<div class="form-group row">
+                    <div class="col-sm-2">Checkbox</div>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="male" value="男" onclick="changegender(this.value)">
-                            <label class="form-check-label" for="male">
-                                男
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="female" value="女" onclick="changegender(this.value)">
-                            <label class="form-check-label" for="female">
-                                女
-                            </label>
-                        </div>
-                        <!--<div class="form-check disabled">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                            <label class="form-check-label" for="gridRadios3">
-                        Third disabled radio
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
                     </label>
-                        </div>-->
+                        </div>
+                    </div>
+                </div>-->
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn subscrib-btnn" id="handin">提交</button>
                     </div>
                 </div>
-            </fieldset>
-            <div class="form-group row">
-                <label for="umobile" class="col-sm-2 col-form-label">联系号码</label>
-                <div class="col-sm-10">
-                    <input type="tel" class="form-control" id="umobile" name="umobile" placeholder="联系方式">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="uaddress" class="col-sm-2 col-form-label">地址</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="uaddress" name="uaddress" placeholder="地址">
-                </div>
-            </div>
-            <div class="form-group row" id="first">
-                <label for="ubirthday" class="col-sm-2 col-form-label">出生年月</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" name="ubirthday" id="ubirthday">
-                </div>
-            </div>
-            <!--<div class="form-group row">
-                <div class="col-sm-2">Checkbox</div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                        <label class="form-check-label" for="gridCheck1">
-                    Example checkbox
-                </label>
-                    </div>
-                </div>
-            </div>-->
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn subscrib-btnn" id="handin">提交</button>
-                </div>
-            </div>
-        </form>
+            </form>
             <!--// form2 -->
         </section>
     </div>
@@ -269,6 +270,48 @@
                     for(i = 0, len = items.length; i < len; i++) {}
                 }
             });
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                console.log("I'm in");
+                var gender="${user.ugender}";
+                $("#ugender").val(gender);
+                if(gender=='男'){
+                    var male=document.getElementById("male");
+                    male.checked=true;
+                }else{
+                    var female=document.getElementById("female");
+                    female.checked=true;
+                }
+                //var date=new Date(${user.ubirthday}).toLocaleString();
+                var date=dateFormat("${user.ubirthday}","yyyy-MM-dd");
+                console.log(date);
+                $("#ubirthday").val(date);
+
+                function dateFormat (date, format) {
+                    date = new Date(date);
+                    date.setHours(date.getHours()-14);
+                    var o = {
+                        'M+' : date.getMonth() + 1, //month
+                        'd+' : date.getDate(), //day
+                        'H+' : date.getHours(), //hour
+                        'm+' : date.getMinutes(), //minute
+                        's+' : date.getSeconds(), //second
+                        'q+' : Math.floor((date.getMonth() + 3) / 3), //quarter
+                        'S' : date.getMilliseconds() //millisecond
+                    };
+
+                    if (/(y+)/.test(format))
+                        format = format.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+
+                    for (var k in o)
+                        if (new RegExp('(' + k + ')').test(format))
+                            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+
+                    return format;
+                }
+            })
+
         </script>
         <!-- //cart-js -->
         <!-- start-smoth-scrolling -->
@@ -336,10 +379,10 @@
         -->
         <script type="text/javascript">
             function changegender(value){
-                console.log(value);
                 $("#ugender").val(value);
             }
         </script>
+
 </body>
 
 </html>

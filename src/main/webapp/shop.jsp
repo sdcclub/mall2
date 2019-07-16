@@ -72,11 +72,17 @@
                   <div class="cart-icons">
                      <ul>
                         <li>
+<%--
                            <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
+--%>
+                            <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="getinfo()"> <span class="far fa-user"></span></button>
                         </li>
                         <li class="toyscart toyscart2 cart cart box_1">
-                           <a href="/checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
+                           <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
                         </li>
+                         <li>
+                             <a href="/history_order.html"><span class="fas fa-history"></span></a>
+                         </li>
                      </ul>
                   </div>
                </div>
@@ -86,7 +92,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <%--<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                <ul class="navbar-nav ">
                   <li class="nav-item active">
                      <a class="nav-link" href="/showgoods.html">首页<span class="sr-only">(current)</span></a>
@@ -121,7 +127,7 @@
                      <a href="contact.html" class="nav-link">Contact</a>
                   </li>
                </ul>
-            </div>
+            </div>--%>
          </nav>
       </div>
 	  </div>
@@ -195,37 +201,50 @@
       <!-- //footer -->
       <!-- Modal 1-->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <div class="register-form">
-                     <form action="#" method="post">
-                        <div class="fields-grid">
-                           <div class="styled-input">
-                              <input type="text" placeholder="Your Name" name="Your Name" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="email" placeholder="Your Email" name="Your Email" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="password" placeholder="password" name="password" required="">
-                           </div>
-<!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
-                        </div>
-                     </form>
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
                   </div>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-               </div>
-            </div>
-         </div>
+                  <div class="modal-body">
+                      <div class="register-form">
+                          <form action="#" method="post">
+                              <div class="fields-grid">
+                                  <div  class="styled-input" >
+                                      <label class="col-sm-4 col-form-label" name="username" style="display: inline-block;">用户名</label>
+                                      <div id="infousername"style="display: inline-block;"></div>
+                                  </div>
+                                  <div class="styled-input" >
+                                      <label class="col-sm-4 col-form-label" name="gender"style="display: inline-block;">性别</label>
+                                      <div id="infogender"style="display: inline-block;"></div>
+                                  </div>
+                                  <div class="styled-input" >
+                                      <label class="col-sm-4 col-form-label" name="mobile"style="display: inline-block;">联系方式</label>
+                                      <div id="infomobile"style="display: inline-block;"></div>
+                                  </div>
+                                  <div class="styled-input" >
+                                      <label class="col-sm-4 col-form-label" name="address"style="display: inline-block;">收货地址</label>
+                                      <div id="infoaddress"style="display: inline-block;"style="display: inline-block;"></div>
+                                  </div>
+                                  <div class="styled-input">
+                                      <label class="col-sm-4 col-form-label" name="birthday"style="display: inline-block;">出生日期</label>
+                                      <div id="infobirthday"style="display: inline-block;"></div>
+                                  </div>
+                                  <!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondarys" onclick="logout()">退出登录</button>
+                      <button type="button" class="btn btn-primary" onclick="modifyuserinfo()">修改</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                  </div>
+              </div>
+          </div>
       </div>
       <!-- //Modal 1-->
       <!--js working-->
@@ -248,13 +267,13 @@
       </script>
       <script>
          toys.render();
-         
+
          toys.cart.on('toys_checkout', function (evt) {
          	var items, len, i;
-         
+
          	if (this.subtotal() > 0) {
          		items = this.items();
-         
+
          		for (i = 0, len = items.length; i < len; i++) {}
          	}
          });
@@ -263,7 +282,7 @@
 		<!-- price range (top products) -->
 		<script src="js/jquery-ui.js"></script>
 		<script>
-			//<![CDATA[ 
+			//<![CDATA[
 			$(window).load(function () {
 				$("#slider-range").slider({
 					range: true,
@@ -297,24 +316,65 @@
       <!-- here stars scrolling icon -->
       <script>
          $(document).ready(function () {
-         
+
          	var defaults = {
          		containerID: 'toTop', // fading element id
          		containerHoverID: 'toTopHover', // fading element hover id
          		scrollSpeed: 1200,
          		easingType: 'linear'
          	};
-         
-         
+
+
          	$().UItoTop({
          		easingType: 'easeOutQuart'
          	});
-         
+
          });
       </script>
       <!-- //here ends scrolling icon -->
       <!--bootstrap working-->
       <script src="js/bootstrap.min.js"></script>
-      <!-- //bootstrap working--> 
+      <!-- //bootstrap working-->
+      <script type="text/javascript">
+          function getinfo() {
+              $.post("getinfo.html", null, function (d) {
+                  var data = JSON.parse(d);
+                  var username=data.username;
+                  var gender=data.ugender;
+                  var mobile=data.umobile;
+                  var address=data.uaddress;
+                  var birthday=data.ubirthday;
+                  var date=new Date(birthday).toLocaleString();
+                  /*var year=date.getFullYear();
+                  var month=date.getMonth()+1;
+                  var day=date.getData();*/
+
+                  $("#infousername").empty();
+                  $("#infogender").empty();
+                  $("#infoaddress").empty();
+                  $("#infomobile").empty();
+                  $("#infobirthday").empty();
+
+                  $("#infousername").append("<label>" + username + "</label>");
+                  $("#infogender").append("<label>" + gender + "</label>");
+                  $("#infomobile").append("<label>" + mobile + "</label>");
+                  $("#infoaddress").append("<label>" + address + "</label>");
+                  //$("#infobirthday").append("<label>" + year+"-"+month+"-"+day+"</label>");
+                  $("#infobirthday").append("<label>" +date+"</label>");
+              })
+
+              Date.prototype.toLocaleString = function() {
+                  return this.getFullYear() + "/" + (this.getMonth() + 1) + "/" + this.getDate() ;
+              };
+          }
+
+          function modifyuserinfo(){
+              window.location.href="modifyuserinfo.html";
+          }
+
+          function logout(){
+              window.location.href="logout.html";
+          }
+      </script>
    </body>
 </html>
