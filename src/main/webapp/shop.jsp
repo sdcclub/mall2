@@ -192,11 +192,11 @@
       </section>
 
       <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
-         <div class="copy-agile-right">
-            <p> 
-               Copyright &copy; 2019 sdcclub All rights reserved.
-            </p>
-         </div>
+          <div class="copy-agile-right">
+              <p>
+                  Copyright &copy; 2019 sdcclub All rights reserved.
+              </p>
+          </div>
       </footer>
       <!-- //footer -->
       <!-- Modal 1-->

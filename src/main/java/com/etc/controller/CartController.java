@@ -20,8 +20,8 @@ public class CartController {
 
     @RequestMapping("checkout")
     public String showCart(Model model, HttpSession session){
-        int uid=(Integer)session.getAttribute("uid");
-        List<CartVO> cartVOList=cartService.getCart(uid);
+        //int uid=(Integer)session.getAttribute("uid");
+        List<CartVO> cartVOList=cartService.getCart(1);
         System.out.println(cartVOList.size());
         model.addAttribute("cartVOList",cartVOList);
 

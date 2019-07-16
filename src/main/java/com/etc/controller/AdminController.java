@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Controller
-@SessionAttributes({"uid"})
 @RequestMapping("/")
 public class AdminController {
 

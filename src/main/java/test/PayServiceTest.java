@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import com.etc.model.entity.Goods;
 import com.etc.model.entity.User;
@@ -40,3 +40,4 @@ public class PayServiceTest {
         }
     }
 }
+*/
