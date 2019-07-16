@@ -13,12 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/")
 @Controller
@@ -80,4 +82,10 @@ public class GoodsController {
         model.addAttribute("list",list);
         return "shop";
     }
+
+//    @RequestMapping("getdata")
+//    @ResponseBody
+//    public List<Map<String,Object>> getData(){
+//        return goodsService.groupByType();
+//    }
 }

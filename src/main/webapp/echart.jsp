@@ -89,7 +89,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                <ul class="navbar-nav ">
                   <li class="nav-item active">
-                     <a class="nav-link" href="/showgoods.html">首页<span class="sr-only">(current)</span></a>
+                     <a class="nav-link">数据分析<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                      <a href="about.html" class="nav-link">About</a>
@@ -137,49 +137,41 @@
             <div style="margin-left: 60px" class="row" >
                <div class="left-ads-display col-lg-9">
                   <div class="row">
-                      <c:if test="${not empty list}">
-                          <c:forEach items="${list}" var="good">
-                              <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
-                                  <div class="product-toys-info">
-                                      <div class="men-pro-item">
-                                          <div class="men-thumb-item">
-                                              <img src="${good.gpicture}" style="width: 400px;height: 300px" class="img-thumbnail img-fluid" alt="">
-                                              <div class="men-cart-pro">
-                                                  <div class="inner-men-cart-pro">
-                                                      <a href="javascript:toSpecific(${good.gid})" class="link-product-add-cart">商品详情</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="item-info-product">
-                                              <div class="info-product-price">
-                                                  <div class="grid_meta">
-                                                      <div class="product_price">
-                                                          <h4>
-                                                              <a href="javascript:toSpecific(${good.gid})">${good.gname}</a>
-                                                          </h4>
-                                                          <div class="grid-price mt-2">
-                                                              <span class="money ">${good.gprice}</span>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                                  <div class="toys single-item hvr-outline-out">
-                                                      <form action="/addcart.html" method="post" id="addcart">
-                                                          <input type="hidden" name="gid" value="${good.gid}">
-                                                          <input type="hidden" id="ccount" name="ccount" value="1">
-                                                          <button type="submit" class="toys-cart ptoys-cart" >
-                                                              <i class="fas fa-cart-plus"></i>
-                                                          </button>
-                                                      </form>
-                                                  </div>
-                                              </div>
-                                              <div class="clearfix"></div>
-                                          </div>
-                                      </div>
-                                  </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">品类销量柱状图</div>
+                              <div class="panel-body">
+                                  <div id="quantity-bar-echarts" style="width:470px;height:300px"></div>
                               </div>
-                          </c:forEach>
-                      </c:if>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">品类销量环形图</div>
+                              <div class="panel-body">
+                                  <div id="quantity-doughnut-echarts" style="width:470px;height:300px"></div>
+                              </div>
+                          </div>
+                      </div>
                   </div>
+                   <div class="row">
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                           <div class="panel panel-default">
+                               <div class="panel-heading">品类销售额柱状图</div>
+                               <div class="panel-body">
+                                   <div id="total-bar-echarts" style="width:470px;height:300px"></div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                           <div class="panel panel-default">
+                               <div class="panel-heading">品类销售额环形图</div>
+                               <div class="panel-body">
+                                   <div id="total-doughnut-echarts" style="width:470px;height:300px"></div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
                </div>
             </div>
          </div>
@@ -246,6 +238,147 @@
               }
           }
       </script>
+      <script type="text/javascript">
+          //初始化好X轴或图表数据的数组
+          var types = new Array();
+          var nums = new Array();
+          var amounts = new Array();
+          var qbeChart = echarts.init(document.getElementById("quantity-bar-echarts"));
+          var qdeChart = echarts.init(document.getElementById("quantity-doughnut-echarts"));
+          var tbeChart = echarts.init(document.getElementById("total-bar-echarts"));
+          var tdeChart = echarts.init(document.getElementById("total-doughnut-echarts"));
+          //发起ajax请求，向后台获取数据，填充数组
+          $.post("getdata.html",{},function(data){
+              var jsonObj = JSON.parse(data);
+              $.each(jsonObj, function() {
+                  types.push(this.type);
+                  nums.push(this.num);
+                  amounts.push(this.amount);
+              });
+              //使用数组填充图表配置项Option
+              var qdeList = new Array();
+              var tdeList = new Array();
+              for(var i=0;i<types.length;i++){
+                  var str = new Object();
+                  var str1 = new Object();
+                  str.name = types[i];
+                  str.value = nums[i];
+                  str1.name = types[i];
+                  str1.value = amounts[i];
+                  qdeList.push(str);
+                  tdeList.push(str1);
+              }
+              //使用数组填充图表配置项Option
+              var qbeOption = {
+                  xAxis: {
+                      type: 'category',
+                      data: types
+                  },
+                  yAxis: {
+                      type: 'value'
+                  },
+                  series: [{
+                      data: nums,
+                      type: 'bar'
+                  }]
+              };
+              var qdeOption = {
+                  tooltip: {
+                      trigger: 'item',
+                      formatter: "{a} <br/>{b}: {c} ({d}%)"
+                  },
+                  legend: {
+                      orient: 'vertical',
+                      x: 'left',
+                      data:types
+                  },
+                  series: [
+                      {
+                          name:'品类销量',
+                          type:'pie',
+                          radius: ['50%', '70%'],
+                          avoidLabelOverlap: false,
+                          label: {
+                              normal: {
+                                  show: false,
+                                  position: 'center'
+                              },
+                              emphasis: {
+                                  show: true,
+                                  textStyle: {
+                                      fontSize: '30',
+                                      fontWeight: 'bold'
+                                  }
+                              }
+                          },
+                          labelLine: {
+                              normal: {
+                                  show: false
+                              }
+                          }
+                      }
+                  ]
+              };
+              qdeOption.series[0].data =qdeList;
+              var tbeOption = {
+                  xAxis: {
+                      type: 'category',
+                      data: types
+                  },
+                  yAxis: {
+                      type: 'value'
+                  },
+                  series: [{
+                      data: amounts,
+                      type: 'bar'
+                  }]
+              };
+              var tdeOption = {
+                  tooltip: {
+                      trigger: 'item',
+                      formatter: "{a} <br/>{b}: {c} ({d}%)"
+                  },
+                  legend: {
+                      orient: 'vertical',
+                      x: 'left',
+                      data:types
+                  },
+                  series: [
+                      {
+                          name:'品类销售额',
+                          type:'pie',
+                          radius: ['50%', '70%'],
+                          avoidLabelOverlap: false,
+                          label: {
+                              normal: {
+                                  show: false,
+                                  position: 'center'
+                              },
+                              emphasis: {
+                                  show: true,
+                                  textStyle: {
+                                      fontSize: '30',
+                                      fontWeight: 'bold'
+                                  }
+                              }
+                          },
+                          labelLine: {
+                              normal: {
+                                  show: false
+                              }
+                          }
+                      }
+                  ]
+              };
+              tdeOption.series[0].data =tdeList;
+              //使用指定的配置项来设置图表，从而显示图表数据
+              qbeChart.setOption(qbeOption);
+              qdeChart.setOption(qdeOption);
+              tbeChart.setOption(tbeOption);
+              tdeChart.setOption(tdeOption);
+          });
+      </script>
+
       <script>
          toys.render();
          

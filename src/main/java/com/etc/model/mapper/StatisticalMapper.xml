@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.model.dao.StatisticalDao">
+
+	<select id="groupByType" resultType="hashmap">
+		select type,sum(count) as num ,sum(amount) as amount 
+		from goods inner join detail on goods.gid=detail.gid 
+		group by type
+	</select>
+</mapper>

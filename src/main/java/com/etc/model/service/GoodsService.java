@@ -13,11 +13,13 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class GoodsService {
     private GoodsMapper goodsMapper;
     private CartMapper cartMapper;
+//    private StatisticalMapper statisticalMapper;
     int usedCount;
 
     public CartMapper getCartMapper() {
@@ -76,4 +78,8 @@ public class GoodsService {
         ge.createCriteria().andGnameLike("%"+string+"%");
         return goodsMapper.selectByExample(ge);
     }
+
+//    public List<Map<String,Object>> groupByType(){
+//        return dao.groupByType();
+//    }
 }
