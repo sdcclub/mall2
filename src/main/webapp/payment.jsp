@@ -165,6 +165,12 @@
                <h3>Pay<span>ment</span></h3>
                <!--/tabs-->
                <div class="responsive_tabs">
+                   <c:if test="${empty ordervolist}">
+<%--                       当前是直接访问的，不能让他直接访问，就跳转去别处吧。--%>
+                       <% response.sendRedirect("checkout.html");%>
+                   </c:if>
+
+                   <c:if test="${not empty ordervolist}">
                   <!--订单详情框-->
                   <div class="resp-tabs-container">
                      <h5>订单详情</h5>
@@ -187,7 +193,7 @@
                                  <c:out value="${count}"/>
                                  <c:set var="count" value="${count+1}"/>
                               </td>
-                              <td class="invert"><img height="150px" width="200px" src="pictures/${goods.goods.gpicture}" alt=" " class="img-responsive"></td>
+                              <td class="invert"><img height="150px" width="200px" src="${goods.goods.gpicture}" alt=" " class="img-responsive"></td>
                               <td class="invert-image">${goods.goods.gname}</td>
                               <td class="invert">${goods.ccount}</td>
                               <td class="invert">${goods.goods.gprice}</td>
@@ -207,7 +213,7 @@
                         <a href="alipay.html?oid=${order.oid}">立即付款</a>
                      </div>
                   </div>
-
+                   </c:if>
 
                </div>
                <!--//tabs-->

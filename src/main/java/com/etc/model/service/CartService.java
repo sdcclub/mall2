@@ -27,7 +27,7 @@ public class CartService {
     private OrderMapper orderMapper;
     public List<CartVO> getCart(int uid){
         final CartExample cartExample=new CartExample();
-        System.out.println(cartExample);
+        //System.out.println(cartExample);
         cartExample.createCriteria().andUidEqualTo(uid);
         System.out.println(cartExample);
         List<Cart> cartList=cartMapper.selectByExample(cartExample);
@@ -64,7 +64,7 @@ public class CartService {
         cartMapper.updateByPrimaryKey(cart);
     }
 
-    public void payThings(List<Integer> list){
+    public void payThings(List<Integer> list,int uid){
         Random random=new Random();
         Order order=new Order();
         int n= random.nextInt(9999999)%+100000;
@@ -77,7 +77,8 @@ public class CartService {
             order.setGid(cart.getGid());
             order.setCcount(cart.getCcount());
             order.setOprice(cart.getCcount()*goods.getGprice());
-            order.setUid(1);
+            order.setUid(uid);
+
             order.setOrderdate(new Timestamp(System.currentTimeMillis()));
             order.setOpaydate(null);
             order.setOstatus("未支付");

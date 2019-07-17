@@ -140,20 +140,6 @@
 <div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
 </div>
 <!--//banner -->
-<!-- short -->
-<div class="using-border py-3">
-    <div class="inner_breadcrumb  ml-4">
-        <ul class="short_ls">
-            <li>
-                <a href="index.html">Home</a>
-                <span>/ /</span>
-            </li>
-            <li>Typography</li>
-        </ul>
-    </div>
-</div>
-<!-- //short-->
-<!--//banner -->
 <!--Typography-->
 <section class="inner-pages py-5">
     <div class="container py-xl-5 py-sm-3">

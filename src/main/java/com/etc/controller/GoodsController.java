@@ -61,17 +61,15 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "addcart",method = RequestMethod.POST)
-    public String addCart(int gid, int ccount){
-//        User user = (User)request.getSession().getAttribute("user");
-//        int uid = user.getUid();
-        int temp = 1;
+    public String addCart(HttpServletRequest request,int gid, int ccount){
+        int uid = (Integer) request.getSession().getAttribute("uid");
         Date date = new Date();
         Timestamp time = new Timestamp(date.getTime());
-        if(goodsService.selectCartByUidAndGid(temp,gid).isEmpty()){
-            Cart cart = new Cart(temp,gid,ccount,time);
+        if(goodsService.selectCartByUidAndGid(uid,gid).isEmpty()){
+            Cart cart = new Cart(uid,gid,ccount,time);
             goodsService.insertCart(cart);
         }else{
-            goodsService.updateCcountByUidAndGid(temp,gid,ccount);
+            goodsService.updateCcountByUidAndGid(uid,gid,ccount);
         }
         return "forward:/showgoods.html";
     }
@@ -83,9 +81,10 @@ public class GoodsController {
         return "shop";
     }
 
-//    @RequestMapping("getdata")
-//    @ResponseBody
-//    public List<Map<String,Object>> getData(){
-//        return goodsService.groupByType();
-//    }
+    @RequestMapping("getdata")
+    @ResponseBody
+    public List<Map<String,Object>> getData(){
+        System.out.println("hhh");
+        return goodsService.groupByType();
+    }
 }
