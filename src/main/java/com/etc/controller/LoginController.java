@@ -56,8 +56,9 @@ public class LoginController {
 
     @RequestMapping("checkrepeat")
     @ResponseBody
-    public boolean checkRepeat(String username){
-        return loginService.checkRepeat(username);
+    public boolean checkRepeat(String username,HttpSession session){
+        int uid= (int) session.getAttribute("uid");
+        return loginService.checkRepeat(username,uid);
     }
 
     @RequestMapping("doregister")
