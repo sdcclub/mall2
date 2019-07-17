@@ -376,7 +376,7 @@
         $('input[name="buy"]:checked').each(function(){
             arr.push($(this).val());
         });
-        if(arr.size()==0){
+        if( $('input[name="buy"]:checked').length==0){
             //如果当前什么也没选
             alert("您什么也没选！请重新选择");
         }else if(confirm("您是否确定购买这些商品？")){
