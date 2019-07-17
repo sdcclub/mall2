@@ -4,8 +4,8 @@
 <mapper namespace="com.etc.model.dao.StatisticalMapper">
 
 	<select id="groupByType" resultType="hashmap">
-		select gname, sum(count) as count , sum(amount) as amount
-		from goods inner join details on goods.gid=details.gid
+		select gname, sum(num) as count , sum(amount) as amount
+		from goods inner join detail on goods.gid=detail.gid
 		group by gname
 	</select>
 </mapper>

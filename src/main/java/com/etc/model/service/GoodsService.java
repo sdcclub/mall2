@@ -25,7 +25,6 @@ import java.util.Map;
 public class GoodsService {
     private GoodsMapper goodsMapper;
     private CartMapper cartMapper;
-    private StatisticalMapper statisticalMapper;
 
     int usedCount;
 
@@ -49,17 +48,15 @@ public class GoodsService {
         this.goodsMapper = goodsMapper;
     }
 
-    public StatisticalMapper getStatisticalMapper() {
-        return statisticalMapper;
-    }
-
-    @Autowired
-    public void setStatisticalMapper(StatisticalMapper statisticalMapper) {
-        this.statisticalMapper = statisticalMapper;
-    }
-
     public List<Goods> findAll(){
-        return goodsMapper.selectByExample(null);
+        List<Goods> list = goodsMapper.selectByExample(null);
+        List<Goods> goods = new ArrayList<>();
+        for (Goods good:list){
+            if(good.getGcount()>0){
+                goods.add(good);
+            }
+        }
+        return goods;
     }
 
     public Goods findByGid(int gid){
@@ -94,7 +91,14 @@ public class GoodsService {
     public List<Goods> findByLike(String string){
         GoodsExample ge = new GoodsExample();
         ge.createCriteria().andGnameLike("%"+string+"%");
-        return goodsMapper.selectByExample(ge);
+        List<Goods> list = goodsMapper.selectByExample(ge);
+        List<Goods> goods = new ArrayList<>();
+        for (Goods good:list){
+            if(good.getGcount()>0){
+                goods.add(good);
+            }
+        }
+        return goods;
     }
 
 
@@ -108,13 +112,6 @@ public class GoodsService {
 
     }
 
-    public List<Map<String,Object>> groupByType(){
-        return statisticalMapper.groupByType();
-    }
-//    public List<Map<String,Object>> groupByType(){
-//        return dao.groupByType();
-//    }
-
     public List<Goods> getRecomendList(int uid){
         List<Integer> cart = cartMapper.selectGidByUid(uid);
         return cart2RecommendList(cart);
@@ -122,18 +119,21 @@ public class GoodsService {
 
     private List<Goods>cart2RecommendList(List<Integer> cart){
         List<Integer> gids = new ArrayList<>();
-        if(recommend==null)
+        if(recommend==null) {
             return null;
+        }
         System.out.println(recommend);
         for (RecommendSet r:recommend){
             List<Integer> forzen = r.getForzen();
             int i=-1;
             for (i=0;i<forzen.size();i++) {
-                if (!cart.contains(forzen.get(i)))
+                if (!cart.contains(forzen.get(i))) {
                     break;
+                }
             }
-            if(i==forzen.size())
-            gids.add(r.getRecomend());
+            if(i==forzen.size()) {
+                gids.add(r.getRecomend());
+            }
         }
 
         GoodsExample ge = new GoodsExample();
