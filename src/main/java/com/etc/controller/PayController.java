@@ -25,17 +25,16 @@ public class PayController {
 
     @RequestMapping("payment")
     String pay(HttpServletRequest request, Model model){
-        //User user= (User) request.getSession().getAttribute("user");
-        User user=new User();
-        user.setUid(1);
-        List<OrderVO> orderVOList=payService.getPayList(user);
+        int uid= (int) request.getSession().getAttribute("uid");
+        //User user=new User();
+        //user.setUid(1);
+        List<OrderVO> orderVOList=payService.getPayList(uid);
         model.addAttribute("ordervolist",orderVOList);
         return "payment";
     }
 
     @RequestMapping("alipay")
     String alipay(HttpServletRequest request,Integer oid){
-        //Order order=payService.getOrderByOid(2);
         Order order=payService.getOrderByOid(oid);
         //把当前订单放入session中，jsp就能get,下面的支付成功也能get
         request.getSession().setAttribute("order",order);
@@ -43,12 +42,12 @@ public class PayController {
     }
 
     @RequestMapping("history_orders")
-    String historyOrders(Model model){
-        //User user= (User) request.getSession().getAttribute("user");
-        User user=new User();
-        user.setUid(1);
+    String historyOrders(HttpServletRequest request,Model model){
+        int uid= (int) request.getSession().getAttribute("uid");
+        //User user=new User();
+        //user.setUid(1);
 
-        List<List<OrderVO>> orders=payService.getHistoryOrdersByUid(user.getUid());
+        List<List<OrderVO>> orders=payService.getHistoryOrdersByUid(uid);
         model.addAttribute("orders",orders);
         return "history_order";
     }
@@ -62,11 +61,11 @@ public class PayController {
         //通过onumber修改所有的购买日期
         payService.updateOrdersPaydate(order.getOnumber());
 
-        //User user= (User) request.getSession().getAttribute("user");
-        User user=new User();
-        user.setUid(1);
+        int uid= (int) request.getSession().getAttribute("uid");
+//        User user=new User();
+//        user.setUid(1);
 
-        List<List<OrderVO>> orders=payService.getHistoryOrdersByUid(user.getUid());
+        List<List<OrderVO>> orders=payService.getHistoryOrdersByUid(uid);
         model.addAttribute("orders",orders);
         return "history_order";
     }

@@ -58,10 +58,10 @@ public class PayService {
         return orderVO;
     }
 
-    public List<OrderVO> getPayList(User user) {
+    public List<OrderVO> getPayList(int uid) {
         OrderExample orderExample=new OrderExample();
         //获取当前用户待支付的所有订单
-        orderExample.createCriteria().andUidEqualTo(user.getUid())
+        orderExample.createCriteria().andUidEqualTo(uid)
                 .andOstatusEqualTo("未支付");
         if(orderMapper.selectByExample(orderExample)==null){
             System.out.println("什么也没查到");

@@ -36,7 +36,12 @@ public class LoginController {
             session.setAttribute("uid",re);
             int id = identification==null?1:0;
             session.setAttribute("identification",id);
-            return "forward:/showgoods.html";
+            if(id==1) {
+                return "forward:/showgoods.html";
+            }
+            else{
+                return "forward:/admin.html";
+            }
         }else {
             model.addAttribute("msg","用户名或密码错误，请重新登录");
             return "login";
