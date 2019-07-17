@@ -69,9 +69,8 @@ public class LoginService {
     }
 
     public boolean checkRepeat(String username, int uid){
-        User user=userMapper.selectByPrimaryKey(uid);
-        if(user.getUsername().equals(username)){
-            //如果当前用户改名为本名
+        if(uid!=-1&&userMapper.selectByPrimaryKey(uid).getUsername().equals(username)){
+            //如果当前用户存在且改名为本名
             return true;
         }else {
             //找当前username不同但是仍然有数据被查出来了，说明重名
