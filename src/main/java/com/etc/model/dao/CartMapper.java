@@ -4,6 +4,9 @@ import com.etc.model.entity.Cart;
 import com.etc.model.entity.CartExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+
+import javax.print.attribute.IntegerSyntax;
 
 public interface CartMapper {
     long countByExample(CartExample example);
@@ -27,4 +30,6 @@ public interface CartMapper {
     int updateByPrimaryKeySelective(Cart record);
 
     int updateByPrimaryKey(Cart record);
+
+    List<Integer> selectGidByUid(Integer uid);
 }
