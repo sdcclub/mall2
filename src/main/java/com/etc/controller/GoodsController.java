@@ -80,11 +80,4 @@ public class GoodsController {
         model.addAttribute("list",list);
         return "shop";
     }
-
-    @RequestMapping("getdata")
-    @ResponseBody
-    public List<Map<String,Object>> getData(){
-        System.out.println("hhh");
-        return goodsService.groupByType();
-    }
 }
