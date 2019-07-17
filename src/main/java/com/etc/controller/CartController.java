@@ -48,14 +48,15 @@ public class CartController {
 
     @RequestMapping("paythings")
     @ResponseBody
-    public String payThings(@RequestParam(value="list[]",required = false) List<String> list){
+    public String payThings(@RequestParam(value="list[]",required = false) List<String> list, HttpSession session){
         System.out.println(list);
         List<Integer> resultList = new ArrayList<>();
         for (String s : list) {
             int i=Integer.parseInt(s);
             resultList.add(i);
         }
-        cartService.payThings(resultList);
+        int uid=(Integer)session.getAttribute("uid");
+        cartService.payThings(resultList,uid);
         return "pay";
     }
 }
