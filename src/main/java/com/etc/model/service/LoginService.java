@@ -68,11 +68,18 @@ public class LoginService {
         return res;
     }
 
-    public boolean checkRepeat(String username){
-        UserExample ue = new UserExample();
-        ue.createCriteria().andUsernameEqualTo(username);
-        int row = userMapper.selectByExample(ue).size();
-        return row==0;
+    public boolean checkRepeat(String username, int uid){
+        User user=userMapper.selectByPrimaryKey(uid);
+        if(user.getUsername().equals(username)){
+            //如果当前用户改名为本名
+            return true;
+        }else {
+            //找当前username不同但是仍然有数据被查出来了，说明重名
+            UserExample ue = new UserExample();
+            ue.createCriteria().andUsernameEqualTo(username);
+            int row = userMapper.selectByExample(ue).size();
+            return row == 0;
+        }
     }
 
     public int register(User user){
