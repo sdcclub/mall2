@@ -29,9 +29,9 @@ public class CartService {
         final CartExample cartExample=new CartExample();
         //System.out.println(cartExample);
         cartExample.createCriteria().andUidEqualTo(uid);
-        System.out.println(cartExample);
+        //System.out.println(cartExample);
         List<Cart> cartList=cartMapper.selectByExample(cartExample);
-        System.out.println(cartList.size());
+       //System.out.println(cartList.size());
         List<CartVO> cartVOList=new ArrayList<>();
         for(Cart cart:cartList){
             CartVO cartVO=new CartVO();
@@ -44,7 +44,7 @@ public class CartService {
             cartVO.setGprice(goods.getGprice());
             cartVOList.add(cartVO);
         }
-        System.out.println(cartVOList.size());
+        //System.out.println(cartVOList.size());
         return cartVOList;
     }
     public void removeCart(int cid){
@@ -68,23 +68,24 @@ public class CartService {
         Random random=new Random();
         Order order=new Order();
         int n= random.nextInt(9999999)%+100000;
-        System.out.println(n);
+        //System.out.println(n);
         order.setOnumber(n);
 
         for(int cid:list){
             Cart cart=cartMapper.selectByPrimaryKey(cid);
             Goods goods=goodsMapper.selectByPrimaryKey(cart.getGid());
+            goods.setGcount(goods.getGcount()-cart.getCcount());
             order.setGid(cart.getGid());
             order.setCcount(cart.getCcount());
             order.setOprice(cart.getCcount()*goods.getGprice());
             order.setUid(uid);
-
             order.setOrderdate(new Timestamp(System.currentTimeMillis()));
             order.setOpaydate(null);
             order.setOstatus("未支付");
             orderMapper.insert(order);
             cartMapper.deleteByPrimaryKey(cid);
+            //减少库存
+            goodsMapper.updateByPrimaryKey(goods);
         }
-        System.out.println("bye");
     }
 }

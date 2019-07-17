@@ -106,7 +106,7 @@
       </div>
       <!--//banner -->
       <!--/shop-->
-      <section class="banner-bottom py-lg-5 py-3">
+      <section class="banner-bottom py-lg-5 py-3 one-img">
          <div class="container">
             <div class="inner-sec-shop pt-lg-4 pt-3">
                <div class="row">
