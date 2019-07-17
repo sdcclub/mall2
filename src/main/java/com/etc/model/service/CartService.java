@@ -54,8 +54,13 @@ public class CartService {
     public void minusCart(int cid){
         Cart cart=cartMapper.selectByPrimaryKey(cid);
         int count=cart.getCcount()-1;
-        cart.setCcount(count);
-        cartMapper.updateByPrimaryKey(cart);
+        if(count==0){
+            cartMapper.deleteByPrimaryKey(cid);
+        }
+        else {
+            cart.setCcount(count);
+            cartMapper.updateByPrimaryKey(cart);
+        }
     }
     public void plusCart(int cid){
         Cart cart=cartMapper.selectByPrimaryKey(cid);
