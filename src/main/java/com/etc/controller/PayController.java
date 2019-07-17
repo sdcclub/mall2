@@ -36,8 +36,11 @@ public class PayController {
     @RequestMapping("alipay")
     String alipay(HttpServletRequest request,Integer oid){
         Order order=payService.getOrderByOid(oid);
+        System.out.println(oid);
+        System.out.println(order);
         //把当前订单放入session中，jsp就能get,下面的支付成功也能get
         request.getSession().setAttribute("order",order);
+
         return "alipay.trade.page.pay";
     }
 
@@ -57,7 +60,7 @@ public class PayController {
         //获取当前支付的订单
         Order order= (Order) request.getSession().getAttribute("order");
         //Order order=payService.getOrderByOid(1);
-
+        System.out.println("华丽的分界线"+order.getOnumber());
         //通过onumber修改所有的购买日期
         payService.updateOrdersPaydate(order.getOnumber());
 

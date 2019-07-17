@@ -39,7 +39,20 @@ public class CartService {
             cartVO.setCid(cart.getCid());
             cartVO.setGid(goods.getGid());
             cartVO.setGname(goods.getGname());
-            cartVO.setGcount(cart.getCcount());
+            if(goods.getGcount()>=cart.getCcount()) {
+                cartVO.setGcount(cart.getCcount());
+            }else if(goods.getGcount()>0&&goods.getGcount()<cart.getCcount()){
+                //如果购物车超库存了，并且库存还有，就改数量为库存
+                cartVO.setGcount(goods.getGcount());
+                Cart cart1=new Cart();
+                cart1.setCid(cart.getCid());
+                cart1.setCcount(goods.getGcount());
+                cartMapper.updateByPrimaryKeySelective(cart1);
+            }else{
+                //当前vo不要加入购物车中
+                cartMapper.deleteByPrimaryKey(cart.getCid());
+                continue;
+            }
             cartVO.setGpicture(goods.getGpicture());
             cartVO.setGprice(goods.getGprice());
             cartVOList.add(cartVO);
@@ -53,13 +66,21 @@ public class CartService {
 
     public void minusCart(int cid){
         Cart cart=cartMapper.selectByPrimaryKey(cid);
-        int count=cart.getCcount()-1;
+        int count=cart.getCcount();
+        if(count>0){
+            count--;
+        }
         cart.setCcount(count);
         cartMapper.updateByPrimaryKey(cart);
     }
     public void plusCart(int cid){
         Cart cart=cartMapper.selectByPrimaryKey(cid);
-        int count=cart.getCcount()+1;
+        int count=cart.getCcount();
+        Goods goods=goodsMapper.selectByPrimaryKey(cart.getGid());
+        //如果库存大于购物车数量
+        if(goods.getGcount()>count){
+            count++;
+        }
         cart.setCcount(count);
         cartMapper.updateByPrimaryKey(cart);
     }

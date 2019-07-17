@@ -65,7 +65,7 @@
             <div class="container-fluid">
                <div class="hedder-up row">
                   <div class="col-lg-3 col-md-3 logo-head">
-                     <h1><a class="navbar-brand" href="index.html">电子商城</a></h1>
+                     <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
                   </div>
                   <div class="col-lg-5 col-md-6 search-right">
                       <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
@@ -97,39 +97,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-               <ul class="navbar-nav ">
-                  <li class="nav-item">
-                     <a href="/showgoods.html" class="nav-link">首页</a>
-                  </li>
-                  <li class="nav-item active">
-                     <a class="nav-link" href="#">商品详情<span class="sr-only">(current)</span></a>
-                  </li>
-                 <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="icon.html">404 Page</a>
-                        <a class="nav-link " href="typography.html">Typography</a>
-                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Product
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="product.html">Kids Toys</a>
-                        <a class="nav-link " href="product.html">Dolls</a>
-                        <a class="nav-link " href="product.html">Key Toys</a>
-                        <a class="nav-link " href="product.html">Boys Toys</a>
-                     </div>
-					 </li>
-                  <li class="nav-item">
-                     <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-               </ul>
-            </div>
+
          </nav>
       </div>
 	  </div>
@@ -160,29 +128,19 @@
                      <p><span class="item_price">${good.gprice}</span>
                      </p>
                      <div class="rating1">
-                        <ul class="stars">
-                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                        </ul>
+                        <h5>库存${good.gcount}</h5>
                      </div>
                      <div style="height: 50px"></div>
                      <div class="color-quality">
                         <div class="color-quality-right">
                            <h5>数量 :</h5>
-                           <select id="country1"  class="frm-field required sect" onchange="showWholePrice(this)">
-                              <option value="null">1</option>
-                              <option value="null">2</option>
-                              <option value="null">3</option>
-                              <option value="null">4</option>
-                              <option value="null">5</option>
-                           </select>
+                           <button onclick="subnum()">-</button>
+                           <input width="100px" type="number" id="count" value="1" onblur="checkGcount(this.value)"/>
+                           <button onclick="addnum()">+</button>
                         </div>
                      </div>
                      <div class="description">
-                        <h5>一共支付金额（默认采用支付宝扫码付款方式）</h5>
+                        <h5>一共支付金额（默认采用支付宝付款）</h5>
                         <input class="form-control" type="text" id="price" name="Email" placeholder="${good.gprice}" readonly="readonly" >
                      </div>
                      <div class="occasional">
@@ -203,7 +161,7 @@
                            <form action="addcart.html" method="post">
                               <input type="hidden" name="gid" value="${good.gid}">
                               <input type="hidden" id="ccount" name="ccount" value="1">
-                              <button type="submit" class="toys-cart ptoys-cart add">
+                              <button type="submit" class="toys-cart ptoys-cart add" onclick="setccount()">
                                  添加购物车
                               </button>
                            </form>
@@ -215,42 +173,6 @@
             </div>
          </div>
       </section>
-
-      <!-- Modal 1-->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <div class="register-form">
-                     <form action="#" method="post">
-                        <div class="fields-grid">
-                           <div class="styled-input">
-                              <input type="text" placeholder="Your Name" name="Your Name" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="email" placeholder="Your Email" name="Your Email" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="password" placeholder="password" name="password" required="">
-                           </div>
-                           <button type="submit" class="btn subscrib-btnn">Login</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               </div>
-            </div>
-         </div>
-      </div>
-
       <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
          <div class="copy-agile-right">
             <p>
@@ -265,12 +187,91 @@
       <!-- cart-js -->
       <script src="js/minicart.js"></script>
       <script type="text/javascript">
-         function showWholePrice(ch) {
-            document.getElementById('price').value = ch.options[ch.selectedIndex].text * ${good.gprice};
-            document.getElementById('ccount').value = ch.options[ch.selectedIndex].text;
+         function setccount() {
+            $("#ccount").val($("#count").val());
+         }
+         function checkGcount(ccount){
+            var param={
+               "num":Number($("#count").val()),
+               "gid":${good.gid}
+            }
+            $.post("checkgcount.html", param, function (data) {
+               if(data=="true"){
+                  $("#price").val($("#count").val()* ${good.gprice});
+               }else{
+                  $("#count").val(${good.gcount});
+                  $("#price").val(${good.gcount}* ${good.gprice});
+               }
+            });
+         }
+         function subnum() {
+            var n=$("#count").val();
+            if(n>0){
+               $("#count").val(n-1);
+               $("#price").val($("#count").val()* ${good.gprice});
+            }
+         }
+         function addnum() {
+            var param={
+               "num":Number($("#count").val()),
+               "gid":${good.gid}
+            }
+            $.post("checkgcount.html", param, function (data) {
+               if(data=="true"){
+                  $("#count").val(param.num+1);
+                  $("#price").val($("#count").val()* ${good.gprice});
+               }
+            });
          }
       </script>
-
+      <!-- Modal 1-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="register-form">
+                     <form action="#" method="post">
+                        <div class="fields-grid">
+                           <div  class="styled-input" >
+                              <label class="col-sm-4 col-form-label" name="username" style="display: inline-block;">用户名</label>
+                              <div id="infousername"style="display: inline-block;"></div>
+                           </div>
+                           <div class="styled-input" >
+                              <label class="col-sm-4 col-form-label" name="gender"style="display: inline-block;">性别</label>
+                              <div id="infogender"style="display: inline-block;"></div>
+                           </div>
+                           <div class="styled-input" >
+                              <label class="col-sm-4 col-form-label" name="mobile"style="display: inline-block;">联系方式</label>
+                              <div id="infomobile"style="display: inline-block;"></div>
+                           </div>
+                           <div class="styled-input" >
+                              <label class="col-sm-4 col-form-label" name="address"style="display: inline-block;">收货地址</label>
+                              <div id="infoaddress"style="display: inline-block;"style="display: inline-block;"></div>
+                           </div>
+                           <div class="styled-input">
+                              <label class="col-sm-4 col-form-label" name="birthday"style="display: inline-block;">出生日期</label>
+                              <div id="infobirthday"style="display: inline-block;"></div>
+                           </div>
+                           <!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
+                        </div>
+                     </form>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondarys" onclick="logout()">退出登录</button>
+                  <button type="button" class="btn btn-primary" onclick="modifyuserinfo()">修改</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- //Modal 1-->
       <script>
          toys.render();
          
@@ -343,6 +344,7 @@
          });
       </script>
       <!-- //FlexSlider-->
+
       <!-- start-smoth-scrolling -->
       <script src="js/move-top.js"></script>
       <script src="js/easing.js"></script>

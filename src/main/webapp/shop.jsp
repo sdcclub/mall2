@@ -59,34 +59,32 @@
         </div>
         <div class="container-fluid">
             <div class="hedder-up row">
-                <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
-                </div>
-                <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0" action="showsearchgoods.html" method="post">
-                        <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
-                        <button class="btn" type="submit">搜索</button>
-                    </form>
-                </div>
-                <div class="col-lg-4 col-md-3 right-side-cart">
-                    <div class="cart-icons">
-                        <ul>
-                            <li>
-                                <%--
-                                                           <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                                --%>
-                                <button type="button" data-toggle="modal" data-target="#exampleModal"
-                                        onclick="getinfo()"><span class="far fa-user"></span></button>
-                            </li>
-                            <li class="toyscart toyscart2 cart cart box_1">
-                                <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
-                            </li>
-                            <li>
-                                <a href="history_orders.html"><span class="fas fa-history"></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+               <div class="col-lg-3 col-md-3 logo-head">
+                  <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
+               </div>
+               <div class="col-lg-5 col-md-6 search-right">
+                  <form class="form-inline my-lg-0" action="showsearchgoods.html" method="post">
+                     <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
+                     <button class="btn" type="submit">搜索</button>
+                  </form>
+               </div>
+               <div class="col-lg-4 col-md-3 right-side-cart">
+                  <div class="cart-icons">
+                     <ul>
+                        <li>
+                            <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="getinfo()"> <span class="far fa-user"></span></button>
+                        </li>
+                        <li class="toyscart toyscart2 cart cart box_1">
+                           <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
+                        </li>
+                         <li>
+                             <a href="history_orders.html"><span class="fas fa-history"></span></a>
+                         </li>
+                     </ul>
+                  </div>
+               </div>
+
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -94,42 +92,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <%--<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-               <ul class="navbar-nav ">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="/showgoods.html">首页<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="about.html" class="nav-link">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="service.html" class="nav-link">Service</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="icon.html">404 Page</a>
-                        <a class="nav-link " href="typography.html">Typography</a>
-                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Product
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="product.html">Kids Toys</a>
-                        <a class="nav-link " href="product.html">Dolls</a>
-                        <a class="nav-link " href="product.html">Key Toys</a>
-                        <a class="nav-link " href="product.html">Boys Toys</a>
-                     </div>
-                  </li>
-                  <li class="nav-item">
-                     <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-               </ul>
-            </div>--%>
+
         </nav>
     </div>
 </div>
@@ -253,6 +216,10 @@
                             </div>
                         </c:forEach>
                     </c:if>
+                  <c:if test="${empty list}">
+                          <h3>当前没有符合条件的商品~</h3>
+                          <div width="300px"></div>
+                      </c:if>
                 </div>
             </div>
         </div>
@@ -375,6 +342,7 @@
        <script src="js/move-top.js"></script>
       <script src="js/easing.js"></script>
       <script>
+
          jQuery(document).ready(function ($) {
          	$(".scroll").click(function (event) {
          		event.preventDefault();

@@ -97,6 +97,17 @@ public class GoodsService {
         return goodsMapper.selectByExample(ge);
     }
 
+
+    public boolean checkGcount(int num, int gid) {
+        Goods goods=goodsMapper.selectByPrimaryKey(gid);
+        if(goods.getGcount()>num){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     public List<Map<String,Object>> groupByType(){
         return statisticalMapper.groupByType();
     }

@@ -88,4 +88,10 @@ public class GoodsController {
         model.addAttribute("list",list);
         return "shop";
     }
+
+    @RequestMapping("checkgcount")
+    @ResponseBody
+    public boolean  checkGcount(int num,int gid){
+        return goodsService.checkGcount(num,gid);
+    }
 }

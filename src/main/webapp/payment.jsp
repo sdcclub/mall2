@@ -137,7 +137,7 @@
                                  <c:out value="${count}"/>
                                  <c:set var="count" value="${count+1}"/>
                               </td>
-                              <td class="invert"><img height="150px" width="200px" src="pictures/${goods.goods.gpicture}" alt=" " class="img-responsive"></td>
+                              <td class="invert"><img height="150px" width="200px" src="${goods.goods.gpicture}" alt=" " class="img-responsive"></td>
                               <td class="invert-image">${goods.goods.gname}</td>
                               <td class="invert">${goods.ccount}</td>
                               <td class="invert">${goods.goods.gprice}</td>
