@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -48,9 +49,16 @@ public class GoodsController {
     }
 
     @RequestMapping("showgoods")
-    public String showGoods(Model model){
+    public String showGoods(Model model, HttpSession session){
         model.addAttribute("list",goodsService.findAll());
+        model.addAttribute("recomendlist",goodsService.getRecomendList((Integer)session.getAttribute("uid")));
         return "shop";
+    }
+
+    @RequestMapping("getrecommend")
+    public String Test(){
+        goodsService.readRelationFile("F:\\test.txt");
+        return "forward:/admin.html";
     }
 
     @RequestMapping("specificgood")
