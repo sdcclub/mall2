@@ -105,13 +105,11 @@ public class GoodsService {
 //    }
 
     public List<Goods> getRecomendList(int uid){
-        System.out.println("getRecommendList");
         List<Integer> cart = cartMapper.selectGidByUid(uid);
         return cart2RecommendList(cart);
     }
 
     private List<Goods>cart2RecommendList(List<Integer> cart){
-        System.out.println("cart2RecommendList");
         List<Integer> gids = new ArrayList<>();
         if(recommend==null)
             return null;
@@ -133,7 +131,6 @@ public class GoodsService {
     }
 
     public void readRelationFile(String filename){
-            System.out.println("readRelationFile");
             List<RecommendSet> result = new ArrayList<>();
 
             try(FileReader reader = new FileReader(filename);
@@ -149,7 +146,6 @@ public class GoodsService {
                         haveAlready.add(Integer.parseInt(a));
                     }
                     int recomend = Integer.parseInt(line.substring(line.indexOf("}")+1));
-                    System.out.println(haveAlready+" "+recomend);
                     temp.setForzen(haveAlready);
                     temp.setRecommend(recomend);
                     result.add(temp);
