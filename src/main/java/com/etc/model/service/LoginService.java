@@ -86,6 +86,10 @@ public class LoginService {
         return userMapper.selectByPrimaryKey(uid);
     }
 
+    public Admin getAdminInfo(int aid){
+        return adminMapper.selectByPrimaryKey(aid);
+    }
+
     public void modify(User user){
         UserExample ue=new UserExample();
         ue.createCriteria().andUidEqualTo(user.getUid());
