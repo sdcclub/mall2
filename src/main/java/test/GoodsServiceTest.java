@@ -74,4 +74,12 @@ public class GoodsServiceTest {
             System.out.println(maps.get(i).toString());
         }
     }
+
+    @Test
+    public void findAll(){
+        List<Goods> list = goodsService.findAll();
+        for (Goods g:list){
+            System.out.println(g);
+        }
+    }
 }

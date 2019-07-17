@@ -62,7 +62,7 @@
          <div class="container-fluid">
             <div class="hedder-up row">
                <div class="col-lg-3 col-md-3 logo-head">
-                  <h1><a class="navbar-brand" >电子商城</a></h1>
+                  <h1><a class="navbar-brand" href="admin.html">电子商城</a></h1>
                </div>
                <div class="col-lg-5 col-md-6 search-right">
                   <form class="form-inline my-lg-0" action="#" method="post" hidden>
@@ -113,8 +113,8 @@
                       </div>
                       <div class="col-md-6 col-sm-12 col-xs-12">
                           <div class="panel panel-default">
-                              <div class="panel-heading"><h5>品类销量环形图</h5></div>
-                              <div class="panel-body" style="margin-left: 30px">
+                              <div class="panel-heading" style="margin-left: 30px"><h5>品类销量环形图</h5></div>
+                              <div class="panel-body" style="margin-left: 60px">
                                   <div id="quantity-doughnut-echarts" style="width:500px;height:300px"></div>
                               </div>
                           </div>
@@ -131,8 +131,8 @@
                        </div>
                        <div class="col-md-6 col-sm-12 col-xs-12">
                            <div class="panel panel-default">
-                               <div class="panel-heading"><h5>品类销售额环形图</h5></div>
-                               <div class="panel-body" style="margin-left: 30px">
+                               <div class="panel-heading" style="margin-left: 30px"><h5>品类销售额环形图</h5></div>
+                               <div class="panel-body" style="margin-left: 60px">
                                    <div id="total-doughnut-echarts" style="width:500px;height:300px"></div>
                                </div>
                            </div>
