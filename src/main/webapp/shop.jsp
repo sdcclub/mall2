@@ -142,7 +142,6 @@
 <section class="py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat center;">
     <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
         <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">电子商城</h3>
-        <a href="getrecommend.html">暂时测试</a>
         <!--猜你喜欢-->
         <c:if test="${not empty recomendlist}">
             <div>

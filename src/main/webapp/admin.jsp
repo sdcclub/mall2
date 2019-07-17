@@ -85,6 +85,7 @@
                             <li hidden>
                                 <a href="#"><span class="fas fa-history"></span></a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -106,6 +107,7 @@
 <!-- //banner -->
 <!-- top Products -->
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+    <button onclick="getRecommand()" class="btn btn-outline-secondary" style="float: left;">刷新推荐</button>
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
         <div class="shop_inner_inf">
             <div class="privacy about">
@@ -246,6 +248,11 @@
 <!-- start-smoth-scrolling -->
 <script src="js/move-top.js"></script>
 <script src="js/easing.js"></script>
+<script>
+    function getRecommand() {
+        window.location.href = "getrecommend.html";
+    }
+</script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
