@@ -74,9 +74,6 @@
                     <div class="cart-icons">
                         <ul>
                             <li>
-                                <%--
-                                                           <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                                --%>
                                 <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="getinfo()"> <span class="far fa-user"></span></button>
                             </li>
                             <li class="toyscart toyscart2 cart cart box_1">
@@ -94,65 +91,16 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <%--<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-               <ul class="navbar-nav ">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="/showgoods.html">首页<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="about.html" class="nav-link">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="service.html" class="nav-link">Service</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="icon.html">404 Page</a>
-                        <a class="nav-link " href="typography.html">Typography</a>
-                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Product
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="product.html">Kids Toys</a>
-                        <a class="nav-link " href="product.html">Dolls</a>
-                        <a class="nav-link " href="product.html">Key Toys</a>
-                        <a class="nav-link " href="product.html">Boys Toys</a>
-                     </div>
-                  </li>
-                  <li class="nav-item">
-                     <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-               </ul>
-            </div>--%>
         </nav>
     </div>
 </div>
 <!--//headder-->
 <!-- banner -->
-<div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
+<div class="inner_page-banner" style="min-height: 200px;">
 </div>
 <!--//banner -->
-<!-- short -->
-<div class="using-border py-3">
-    <div class="inner_breadcrumb  ml-4">
-        <ul class="short_ls">
-            <li>
-                <a href="index.html">Home</a>
-                <span>/ /</span>
-            </li>
-            <li>Payment</li>
-        </ul>
-    </div>
-</div>
-<!-- //short-->
 <!-- top Products -->
-<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat">
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
         <div class="ads-grid_shop">
             <div class="shop_inner_inf">
@@ -208,17 +156,13 @@
                                         </div>
                                     </c:if>
                                 </ul>
-<%--                                <c:if test="${order.ostatus=='待支付'}">--%>
-<%--                                    <div class="checkout-right-basket">--%>
-<%--                                        <a href="alipay.html?oid="${order.oid}>立即付款</a>--%>
-<%--                                    </div>--%>
-<%--                                </c:if>--%>
                             </div>
                         </c:forEach>
                         </c:if>
                         <div height="100px"></div>
                         <c:if test="${empty orders}">
-                            <h6 class="nav-link">您当前没有订单哦~</h6>
+                            <h3 class="nav-link">您当前没有订单哦~</h3>
+                            <div width="300px"></div>
                         </c:if>
                     </div>
                     <!--//tabs-->

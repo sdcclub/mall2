@@ -209,7 +209,7 @@ h5#exampleModalLabel{
 /*-- banner --*/ 
 .one-img{  background: url(../pictures/b7.jpg) repeat center;}
 .two-img{  background: url(../images/b2.jpg)no-repeat center;}
-.three-img{  background: url(../images/b3.jpg)no-repeat center;} 
+.three-img{  background: url(../images/b3.jpg)no-repeat center;}
 .slider-img{  background-size: cover;
 min-height: 800px;}  
 .rslides {
