@@ -64,7 +64,7 @@ public class CartService {
         cartMapper.updateByPrimaryKey(cart);
     }
 
-    public void payThings(List<Integer> list){
+    public void payThings(List<Integer> list,int uid){
         Random random=new Random();
         Order order=new Order();
         int n= random.nextInt(9999999)%+100000;
