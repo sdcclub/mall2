@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -22,8 +26,10 @@ public class AdminController {
     private AdminService adminService;
 
     @RequestMapping("admin")
-    public String getGoods(Model model){
+    public String getGoods(HttpServletRequest request,Model model){
+        int aid = (Integer) request.getSession().getAttribute("uid");
         model.addAttribute("list",adminService.findAll());
+        model.addAttribute("aid",aid);
         return "admin";
     }
 
@@ -85,5 +91,11 @@ public class AdminController {
         }
         adminService.editGood(goods);
         return "forward:/admin.html";
+    }
+
+    @RequestMapping("getdata")
+    @ResponseBody
+    public List<Map<String,Object>> getData(){
+        return adminService.groupByType();
     }
 }

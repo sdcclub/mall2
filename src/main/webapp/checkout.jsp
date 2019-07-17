@@ -78,9 +78,6 @@
                     <div class="cart-icons">
                         <ul>
                             <li>
-                                <%--
-                                                           <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                                --%>
                                 <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="getinfo()"> <span class="far fa-user"></span></button>
                             </li>
                             <li class="toyscart toyscart2 cart cart box_1">
@@ -139,13 +136,18 @@
 </div>
 <!--//headder-->
 <!-- banner -->
-<div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
+<div class="inner_page-banner one-img" style="min-height: 200px;">
 </div>
 <!--//banner -->
 <!-- top Products -->
-<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat">
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
         <div class="shop_inner_inf">
+            <c:if test="${empty cartVOList}">
+                <h3>您的购物车里什么也没有哦~快去购物吧！</h3>
+                <div width="300px"></div>
+            </c:if>
+            <c:if test="${not empty cartVOList}">
             <div class="privacy about">
                 <h3>Chec<span>kout</span></h3>
                 <div class="checkout-right">
@@ -165,7 +167,7 @@
                         <c:forEach items="${cartVOList}" var="cartVO">
                         <tr class="rem1">
                             <td class="invert"><input type="checkbox" name="buy" value="${cartVO.cid}"/>${cartVO.cid}</td>
-                            <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="${cartVO.gpicture}" alt=" " class="img-responsive"></a></td>
+                            <td class="invert-image"><a href="single.html?gid=${cartVO.gid}"><img src="${cartVO.gpicture}" alt=" " style="width: 150px;height: 150px"></a></td>
                             <td class="invert">
                                 <div class="quantity">
                                     <div class="quantity-select">
@@ -186,6 +188,7 @@
                         </c:forEach>
                         </tbody>
                     </table>
+
                 </div>
                 <div class="checkout-left">
                     <div class="col-md-4 checkout-left-basket">
@@ -207,6 +210,7 @@
                     <div class="clearfix"> </div>
                     <div class="clearfix"></div>
                 </div>
+                </c:if>
             </div>
         </div>
         <!-- //top products -->
@@ -372,7 +376,10 @@
         $('input[name="buy"]:checked').each(function(){
             arr.push($(this).val());
         });
-        if(confirm("您是否确定购买这些商品？")){
+        if( $('input[name="buy"]:checked').length==0){
+            //如果当前什么也没选
+            alert("您什么也没选！请重新选择");
+        }else if(confirm("您是否确定购买这些商品？")){
             $.ajax({
                 type: "POST",
                 url: "paythings.html",

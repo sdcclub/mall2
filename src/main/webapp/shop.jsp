@@ -133,11 +133,11 @@
 	  </div>
       <!--//headder-->
       <!-- banner -->
-      <div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
+      <div class="inner_page-banner one-img" style="min-height: 200px;">
       </div>
       <!--//banner -->
       <!--show Now-->  
-      <section class="py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat center;" >
+      <section class="py-lg-4 py-md-3 py-sm-3 py-3" style="background: url(pictures/b7.jpg) repeat">
          <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3" >
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">电子商城</h3>
             <div style="margin-left: 60px" class="row" >
@@ -149,7 +149,7 @@
                                   <div class="product-toys-info">
                                       <div class="men-pro-item">
                                           <div class="men-thumb-item">
-                                              <img src="${good.gpicture}" style="width: 400px;height: 300px" class="img-thumbnail img-fluid" alt="">
+                                              <img src="${good.gpicture}" style="width: 400px;height: 250px" class="img-thumbnail img-fluid" alt="">
                                               <div class="men-cart-pro">
                                                   <div class="inner-men-cart-pro">
                                                       <a href="javascript:toSpecific(${good.gid})" class="link-product-add-cart">商品详情</a>
