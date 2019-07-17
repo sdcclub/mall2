@@ -39,7 +39,7 @@ public class CartService {
             cartVO.setCid(cart.getCid());
             cartVO.setGid(goods.getGid());
             cartVO.setGname(goods.getGname());
-            if(goods.getGcount()>cart.getCcount()) {
+            if(goods.getGcount()>=cart.getCcount()) {
                 cartVO.setGcount(cart.getCcount());
             }else if(goods.getGcount()>0&&goods.getGcount()<cart.getCcount()){
                 //如果购物车超库存了，并且库存还有，就改数量为库存
@@ -49,7 +49,9 @@ public class CartService {
                 cart1.setCcount(goods.getGcount());
                 cartMapper.updateByPrimaryKeySelective(cart1);
             }else{
+                //当前vo不要加入购物车中
                 cartMapper.deleteByPrimaryKey(cart.getCid());
+                continue;
             }
             cartVO.setGpicture(goods.getGpicture());
             cartVO.setGprice(goods.getGprice());
