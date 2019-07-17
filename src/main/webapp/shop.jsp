@@ -185,6 +185,10 @@
                               </div>
                           </c:forEach>
                       </c:if>
+                      <c:if test="${empty list}">
+                          <h3>当前没有符合条件的商品~</h3>
+                          <div width="300px"></div>
+                      </c:if>
                   </div>
                </div>
             </div>

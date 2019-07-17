@@ -79,4 +79,14 @@ public class GoodsService {
         ge.createCriteria().andGnameLike("%"+string+"%");
         return goodsMapper.selectByExample(ge);
     }
+
+    public boolean checkGcount(int num, int gid) {
+        Goods goods=goodsMapper.selectByPrimaryKey(gid);
+        if(goods.getGcount()>num){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 }
