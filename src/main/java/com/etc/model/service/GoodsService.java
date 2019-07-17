@@ -21,16 +21,6 @@ public class GoodsService {
     private GoodsMapper goodsMapper;
     private CartMapper cartMapper;
 
-    public StatisticalMapper getStatisticalMapper() {
-        return statisticalMapper;
-    }
-
-    @Autowired
-    public void setStatisticalMapper(StatisticalMapper statisticalMapper) {
-        this.statisticalMapper = statisticalMapper;
-    }
-
-    private StatisticalMapper statisticalMapper;
     int usedCount;
 
     public CartMapper getCartMapper() {
@@ -88,9 +78,5 @@ public class GoodsService {
         GoodsExample ge = new GoodsExample();
         ge.createCriteria().andGnameLike("%"+string+"%");
         return goodsMapper.selectByExample(ge);
-    }
-
-    public List<Map<String,Object>> groupByType(){
-        return statisticalMapper.groupByType();
     }
 }

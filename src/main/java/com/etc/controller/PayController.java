@@ -70,9 +70,4 @@ public class PayController {
         return "history_order";
     }
 
-    @RequestMapping("typography")
-    String sha(){
-        return "typography";
-    }
-
 }

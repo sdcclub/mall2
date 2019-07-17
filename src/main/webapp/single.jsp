@@ -65,7 +65,7 @@
             <div class="container-fluid">
                <div class="hedder-up row">
                   <div class="col-lg-3 col-md-3 logo-head">
-                     <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
+                     <h1><a class="navbar-brand" href="index.html">电子商城</a></h1>
                   </div>
                   <div class="col-lg-5 col-md-6 search-right">
                       <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
@@ -97,6 +97,39 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+               <ul class="navbar-nav ">
+                  <li class="nav-item">
+                     <a href="/showgoods.html" class="nav-link">首页</a>
+                  </li>
+                  <li class="nav-item active">
+                     <a class="nav-link" href="#">商品详情<span class="sr-only">(current)</span></a>
+                  </li>
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Pages
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="icon.html">404 Page</a>
+                        <a class="nav-link " href="typography.html">Typography</a>
+                     </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Product
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="product.html">Kids Toys</a>
+                        <a class="nav-link " href="product.html">Dolls</a>
+                        <a class="nav-link " href="product.html">Key Toys</a>
+                        <a class="nav-link " href="product.html">Boys Toys</a>
+                     </div>
+					 </li>
+                  <li class="nav-item">
+                     <a href="contact.html" class="nav-link">Contact</a>
+                  </li>
+               </ul>
+            </div>
          </nav>
       </div>
 	  </div>
@@ -126,6 +159,15 @@
                      <h3>${good.gname}</h3>
                      <p><span class="item_price">${good.gprice}</span>
                      </p>
+                     <div class="rating1">
+                        <ul class="stars">
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
                      <div style="height: 50px"></div>
                      <div class="color-quality">
                         <div class="color-quality-right">

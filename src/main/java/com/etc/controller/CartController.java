@@ -22,8 +22,9 @@ public class CartController {
     public String showCart(Model model, HttpSession session){
         int uid=(Integer)session.getAttribute("uid");
         List<CartVO> cartVOList=cartService.getCart(uid);
-        //System.out.println(cartVOList.size());
+        System.out.println(cartVOList.size());
         model.addAttribute("cartVOList",cartVOList);
+
         return "checkout";
     }
     @RequestMapping("removecart")
@@ -47,16 +48,14 @@ public class CartController {
 
     @RequestMapping("paythings")
     @ResponseBody
-    public String payThings(@RequestParam(value="list[]",required = false) List<String> list, HttpSession session){
+    public String payThings(@RequestParam(value="list[]",required = false) List<String> list){
         System.out.println(list);
-
         List<Integer> resultList = new ArrayList<>();
         for (String s : list) {
             int i=Integer.parseInt(s);
             resultList.add(i);
         }
-        int uid=(Integer)session.getAttribute("uid");
-        cartService.payThings(resultList,uid);
+        cartService.payThings(resultList);
         return "pay";
     }
 }
