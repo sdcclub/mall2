@@ -64,7 +64,7 @@ public class CartService {
         cartMapper.updateByPrimaryKey(cart);
     }
 
-    public void payThings(List<Integer> list){
+    public void payThings(List<Integer> list,int uid){
         Random random=new Random();
         Order order=new Order();
         int n= random.nextInt(9999999)%+100000;
@@ -77,9 +77,7 @@ public class CartService {
             order.setGid(cart.getGid());
             order.setCcount(cart.getCcount());
             order.setOprice(cart.getCcount()*goods.getGprice());
-
-            //改成seccsion
-            order.setUid(1);
+            order.setUid(uid);
 
             order.setOrderdate(new Timestamp(System.currentTimeMillis()));
             order.setOpaydate(null);
