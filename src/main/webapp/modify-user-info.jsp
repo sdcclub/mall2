@@ -162,7 +162,12 @@
                 <div class="form-group row">
                     <label for="upassword" class="col-sm-2 col-form-label">密码</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="upassword" name="upassword" value="${user.upassword}">
+                        <input type="password" class="form-control" id="upassword" name="upassword" value="">
+                    </div>
+                    <label for="upassword" class="col-sm-2 col-form-label">确认密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="reupassword" name="reupassword" value="" onblur="same(this.value)">
+                        <div id="f1"></div>
                     </div>
                 </div>
                 <fieldset class="form-group">
@@ -194,7 +199,7 @@
                 <div class="form-group row">
                     <label for="umobile" class="col-sm-2 col-form-label">联系号码</label>
                     <div class="col-sm-10">
-                        <input type="tel" class="form-control" id="umobile" name="umobile" placeholder="${user.umobile}" value="${user.umobile}">
+                        <input type="number" class="form-control" id="umobile" name="umobile" placeholder="${user.umobile}" value="${user.umobile}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -390,20 +395,40 @@
     描述：检查用户名是否重复
 -->
         <script type="text/javascript">
+            function same(password) {
+                var pass=password;
+                var repass=$("#reupassword").val();
+                $("#f1").empty();
+                if(pass==repass){
+                    $("#f1").append("<span class='fas fa-check-square' style='color: green;'></span>");
+                    $("#handin").attr("disabled", false);
+                }else{
+                    $("#f1").append("<span class='fas fa-remove'style='color: red;'/>两次输入的密码不一致，请重新输入！");
+                    $("#handin").attr("disabled", true);
+                }
+            }
+
             function checkrepeat(username) {
                 var param = {
                     "username": username
                 }
-                $.post("checkrepeat.html", param, function(data) {
+                if(username.length==0){
+                    //当前姓名为空
                     $("#f").empty();
-                    if(data=="true") {
-                        $("#f").append("<span class='fas fa-check-square' style='color: green;'></span>");
-                        $("#handin").attr("disabled",false);
-                    } else {
-                        $("#f").append("<span class='fas fa-remove'style='color: red;'/>用户名已被注册");
-                        $("#handin").attr("disabled",true);
-                    }
-                })
+                    $("#f").append("<span class='fas fa-remove'style='color: red;'/>用户名不能为空");
+                    $("#handin").attr("disabled",true);
+                }else {
+                    $.post("checkrepeat.html", param, function (data) {
+                        $("#f").empty();
+                        if (data == "true") {
+                            $("#f").append("<span class='fas fa-check-square' style='color: green;'></span>");
+                            $("#handin").attr("disabled", false);
+                        } else {
+                            $("#f").append("<span class='fas fa-remove'style='color: red;'/>用户名已被注册");
+                            $("#handin").attr("disabled", true);
+                        }
+                    });
+                }
             }
         </script>
         <!--

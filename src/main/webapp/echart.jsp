@@ -62,7 +62,7 @@
          <div class="container-fluid">
             <div class="hedder-up row">
                <div class="col-lg-3 col-md-3 logo-head">
-                  <h1><a class="navbar-brand" >电子商城</a></h1>
+                  <h1><a class="navbar-brand" href="admin.html">电子商城</a></h1>
                </div>
                <div class="col-lg-5 col-md-6 search-right">
                   <form class="form-inline my-lg-0" action="#" method="post" hidden>
@@ -76,8 +76,8 @@
                         <li>
                            <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                         </li>
-                        <li class="toyscart toyscart2 cart cart box_1">
-                           <a href="/checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
+                        <li class="toyscart toyscart2 cart cart box_1" hidden>
+                            <span class="fas fa-cart-arrow-down"></span>
                         </li>
                      </ul>
                   </div>
@@ -88,42 +88,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-<%--            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">--%>
-<%--               <ul class="navbar-nav ">--%>
-<%--                  <li class="nav-item active">--%>
-<%--                     <a class="nav-link">数据分析<span class="sr-only">(current)</span></a>--%>
-<%--                  </li>--%>
-<%--                  <li class="nav-item">--%>
-<%--                     <a href="about.html" class="nav-link">About</a>--%>
-<%--                  </li>--%>
-<%--                  <li class="nav-item">--%>
-<%--                     <a href="service.html" class="nav-link">Service</a>--%>
-<%--                  </li>--%>
-<%--                  <li class="nav-item dropdown">--%>
-<%--                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                     Pages--%>
-<%--                     </a>--%>
-<%--                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-<%--                        <a class="nav-link" href="icon.html">404 Page</a>--%>
-<%--                        <a class="nav-link " href="typography.html">Typography</a>--%>
-<%--                     </div>--%>
-<%--                  </li>--%>
-<%--                  <li class="nav-item dropdown">--%>
-<%--                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                     Product--%>
-<%--                     </a>--%>
-<%--                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-<%--                        <a class="nav-link" href="product.html">Kids Toys</a>--%>
-<%--                        <a class="nav-link " href="product.html">Dolls</a>--%>
-<%--                        <a class="nav-link " href="product.html">Key Toys</a>--%>
-<%--                        <a class="nav-link " href="product.html">Boys Toys</a>--%>
-<%--                     </div>--%>
-<%--                  </li>--%>
-<%--                  <li class="nav-item">--%>
-<%--                     <a href="contact.html" class="nav-link">Contact</a>--%>
-<%--                  </li>--%>
-<%--               </ul>--%>
-<%--            </div>--%>
          </nav>
       </div>
 	  </div>
@@ -141,35 +105,35 @@
                   <div class="row">
                       <div class="col-md-6 col-sm-12 col-xs-12">
                           <div class="panel panel-default">
-                              <div class="panel-heading">品类销量柱状图</div>
-                              <div class="panel-body">
-                                  <div id="quantity-bar-echarts" style="width:470px;height:300px"></div>
+                              <div class="panel-heading" style="margin-left: 30px"><h5>品类销量柱状图</h5></div>
+                              <div class="panel-body" style="margin-left: 30px">
+                                  <div id="quantity-bar-echarts" style="width:500px;height:300px"></div>
                               </div>
                           </div>
                       </div>
                       <div class="col-md-6 col-sm-12 col-xs-12">
                           <div class="panel panel-default">
-                              <div class="panel-heading">品类销量环形图</div>
-                              <div class="panel-body">
-                                  <div id="quantity-doughnut-echarts" style="width:470px;height:300px"></div>
+                              <div class="panel-heading" style="margin-left: 30px"><h5>品类销量环形图</h5></div>
+                              <div class="panel-body" style="margin-left: 60px">
+                                  <div id="quantity-doughnut-echarts" style="width:500px;height:300px"></div>
                               </div>
                           </div>
                       </div>
                   </div>
                    <div class="row">
-                       <div class="col-md-6 col-sm-12 col-xs-12">
+                       <div class="col-md-6 col-sm-12 col-xs-12" >
                            <div class="panel panel-default">
-                               <div class="panel-heading">品类销售额柱状图</div>
-                               <div class="panel-body">
-                                   <div id="total-bar-echarts" style="width:470px;height:300px"></div>
+                               <div class="panel-heading" style="margin-left: 30px"><h5>品类销售额柱状图</h5></div>
+                               <div class="panel-body" style="margin-left: 30px">
+                                   <div id="total-bar-echarts" style="width:500px;height:300px"></div>
                                </div>
                            </div>
                        </div>
                        <div class="col-md-6 col-sm-12 col-xs-12">
                            <div class="panel panel-default">
-                               <div class="panel-heading">品类销售额环形图</div>
-                               <div class="panel-body">
-                                   <div id="total-doughnut-echarts" style="width:470px;height:300px"></div>
+                               <div class="panel-heading" style="margin-left: 30px"><h5>品类销售额环形图</h5></div>
+                               <div class="panel-body" style="margin-left: 60px">
+                                   <div id="total-doughnut-echarts" style="width:500px;height:300px"></div>
                                </div>
                            </div>
                        </div>
@@ -189,37 +153,37 @@
       <!-- //footer -->
       <!-- Modal 1-->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <div class="register-form">
-                     <form action="#" method="post">
-                        <div class="fields-grid">
-                           <div class="styled-input">
-                              <input type="text" placeholder="Your Name" name="Your Name" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="email" placeholder="Your Email" name="Your Email" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="password" placeholder="password" name="password" required="">
-                           </div>
-<!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
-                        </div>
-                     </form>
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
                   </div>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-               </div>
-            </div>
-         </div>
+                  <div class="modal-body">
+                      <div class="register-form">
+                          <form action="#" method="post">
+                              <div class="fields-grid">
+                                  <div  class="styled-input" >
+                                      <label class="col-sm-4 col-form-label" name="adminname" style="display: inline-block;">帐户名</label>
+                                      <div id="infoadminname"style="display: inline-block;"></div>
+                                  </div>
+                                  <div class="styled-input" >
+                                      <label class="col-sm-4 col-form-label" name="password"style="display: inline-block;">密码</label>
+                                      <div id="infopassword"style="display: inline-block;"></div>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondarys" onclick="logout()">退出登录</button>
+                      <button type="button" class="btn btn-primary" hidden>修改</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                  </div>
+              </div>
+          </div>
       </div>
       <!-- //Modal 1-->
       <!--js working-->
@@ -369,7 +333,25 @@
                   tbeChart.setOption(tbeOption);
                   tdeChart.setOption(tdeOption);
               });
+
+              $.post("getadmininfo.html", null, function (d) {
+                  var data = JSON.parse(d);
+                  var adminname=data.aname;
+                  var password=data.apassword;
+
+                  $("#infoadminname").empty();
+                  $("#infopassword").empty();
+
+                  $("#infoadminname").append("<label>" + adminname + "</label>");
+                  $("#infopassword").append("<label>" + password + "</label>");
+              });
           });
+      </script>
+
+      <script type="text/javascript">
+          function logout(){
+              window.location.href="logout.html";
+          }
       </script>
 
       <script>

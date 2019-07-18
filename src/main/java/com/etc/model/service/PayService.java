@@ -99,6 +99,10 @@ public class PayService {
         orderExample.createCriteria().andUidEqualTo(uid);
         List<Order> orderList=orderMapper.selectByExample(orderExample);
 
+        if(orderList.isEmpty()){
+            return null;
+        }
+
         //先获取第一个订单的订单号，按照订单号给订单分类
         int onumber=orderList.get(0).getOnumber();
 

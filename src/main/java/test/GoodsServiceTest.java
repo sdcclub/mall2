@@ -2,6 +2,7 @@ package test;
 
 import com.etc.model.entity.Cart;
 import com.etc.model.entity.Goods;
+import com.etc.model.service.AdminService;
 import com.etc.model.service.GoodsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,16 @@ import java.util.Map;
 @ContextConfiguration(locations={"classpath*:test/Configuration.xml","classpath*:test/springmvc-servlet.xml"})
 public class GoodsServiceTest {
     GoodsService goodsService;
+    AdminService adminService;
+
+    public AdminService getAdminService() {
+        return adminService;
+    }
+
+    @Autowired
+    public void setAdminService(AdminService adminService) {
+        this.adminService = adminService;
+    }
 
     public GoodsService getGoodsService() {
         return goodsService;
@@ -58,9 +69,17 @@ public class GoodsServiceTest {
     @Test
     public void groupByType(){
         System.out.println("hhh");
-        List<Map<String,Object>> maps = goodsService.groupByType();
+        List<Map<String,Object>> maps = adminService.groupByType();
         for(int i=0;i<maps.size();i++){
             System.out.println(maps.get(i).toString());
+        }
+    }
+
+    @Test
+    public void findAll(){
+        List<Goods> list = goodsService.findAll();
+        for (Goods g:list){
+            System.out.println(g);
         }
     }
 }

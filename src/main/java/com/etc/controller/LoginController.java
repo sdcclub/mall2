@@ -1,5 +1,6 @@
 package com.etc.controller;
 
+import com.etc.model.entity.Admin;
 import com.etc.model.entity.User;
 import com.etc.model.service.LoginService;
 import com.etc.model.vo.UserVO;
@@ -55,8 +56,9 @@ public class LoginController {
 
     @RequestMapping("checkrepeat")
     @ResponseBody
-    public boolean checkRepeat(String username){
-        return loginService.checkRepeat(username);
+    public boolean checkRepeat(String username,HttpSession session){
+        int uid= (int) session.getAttribute("uid");
+        return loginService.checkRepeat(username,uid);
     }
 
     @RequestMapping("doregister")
@@ -72,6 +74,12 @@ public class LoginController {
     @ResponseBody
     public User getInfo(HttpSession session){
         return loginService.getInfo((Integer)session.getAttribute("uid"));
+    }
+
+    @RequestMapping("getadmininfo")
+    @ResponseBody
+    public Admin getAdminInfo(HttpSession session){
+        return loginService.getAdminInfo((Integer)session.getAttribute("uid"));
     }
 
     @RequestMapping("modifyuserinfo")

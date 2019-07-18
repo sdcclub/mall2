@@ -65,29 +65,27 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="/showgoods.html">电子商城</a></h1>
+                    <h1><a class="navbar-brand" href="#">电子商城</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0" action="/showsearchgoods.html" method="post">
-                        <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
-                        <button class="btn" type="submit">搜索</button>
+                    <form class="form-inline my-lg-0" action="#" method="post">
+                        <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string" hidden>
+                        <button class="btn" type="submit" hidden="hidden">搜索</button>
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-3 right-side-cart">
                     <div class="cart-icons">
                         <ul>
                             <li>
-                                <%--
-                                                           <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                                --%>
-                                <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="getinfo()"> <span class="far fa-user"></span></button>
+                                <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                             </li>
-                            <li class="toyscart toyscart2 cart cart box_1">
-                                <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
+                            <li class="toyscart toyscart2 cart cart box_1" hidden>
+                                <a href="#"><span class="fas fa-cart-arrow-down"></span></a>
                             </li>
-                            <li>
-                                <a href="history_orders.html"><span class="fas fa-history"></span></a>
+                            <li hidden>
+                                <a href="#"><span class="fas fa-history"></span></a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -97,42 +95,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <%--<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-               <ul class="navbar-nav ">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="/showgoods.html">首页<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="about.html" class="nav-link">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="service.html" class="nav-link">Service</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="icon.html">404 Page</a>
-                        <a class="nav-link " href="typography.html">Typography</a>
-                     </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Product
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="product.html">Kids Toys</a>
-                        <a class="nav-link " href="product.html">Dolls</a>
-                        <a class="nav-link " href="product.html">Key Toys</a>
-                        <a class="nav-link " href="product.html">Boys Toys</a>
-                     </div>
-                  </li>
-                  <li class="nav-item">
-                     <a href="contact.html" class="nav-link">Contact</a>
-                  </li>
-               </ul>
-            </div>--%>
         </nav>
     </div>
 </div>
@@ -141,27 +103,15 @@
 <div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
 </div>
 <!--//banner -->
-<!-- short -->
-<div class="using-border py-3">
-    <div class="inner_breadcrumb  ml-4">
-        <ul class="short_ls">
-            <li>
-                <a href="index.html">Home</a>
-                <span>/ /</span>
-            </li>
-            <li>Admin</li>
-        </ul>
-    </div>
-</div>
-<!-- //short-->
 <!--Checkout-->
 <!-- //banner -->
 <!-- top Products -->
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+    <button onclick="getRecommand()" class="btn btn-outline-secondary" style="float: left;">刷新推荐</button>
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
         <div class="shop_inner_inf">
             <div class="privacy about">
-                <h3>Chec<span>kout</span></h3>
+                <h3><span>商品列表</span></h3>
                 <div class="checkout-right">
                     <table class="timetable_sub">
                         <thead>
@@ -200,7 +150,7 @@
                     <div class="col-md-8 address_form">
                         <div class="checkout-right-basket">
                             <a href="addgoods.html">新增商品</a>
-                            <a href="showsearchgoods.html">查看报表</a>
+                            <a href="echart.jsp">查看报表</a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -235,33 +185,20 @@
                     <form action="#" method="post">
                         <div class="fields-grid">
                             <div  class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="username" style="display: inline-block;">用户名</label>
-                                <div id="infousername"style="display: inline-block;"></div>
+                                <label class="col-sm-4 col-form-label" name="adminname" style="display: inline-block;">帐户名</label>
+                                <div id="infoadminname"style="display: inline-block;"></div>
                             </div>
                             <div class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="gender"style="display: inline-block;">性别</label>
-                                <div id="infogender"style="display: inline-block;"></div>
+                                <label class="col-sm-4 col-form-label" name="password"style="display: inline-block;">密码</label>
+                                <div id="infopassword"style="display: inline-block;"></div>
                             </div>
-                            <div class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="mobile"style="display: inline-block;">联系方式</label>
-                                <div id="infomobile"style="display: inline-block;"></div>
-                            </div>
-                            <div class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="address"style="display: inline-block;">收货地址</label>
-                                <div id="infoaddress"style="display: inline-block;"style="display: inline-block;"></div>
-                            </div>
-                            <div class="styled-input">
-                                <label class="col-sm-4 col-form-label" name="birthday"style="display: inline-block;">出生日期</label>
-                                <div id="infobirthday"style="display: inline-block;"></div>
-                            </div>
-                            <!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondarys" onclick="logout()">退出登录</button>
-                <button type="button" class="btn btn-primary" onclick="modifyuserinfo()">修改</button>
+                <button type="button" class="btn btn-primary" hidden>修改</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
             </div>
         </div>
@@ -312,6 +249,11 @@
 <script src="js/move-top.js"></script>
 <script src="js/easing.js"></script>
 <script>
+    function getRecommand() {
+        window.location.href = "getrecommend.html";
+    }
+</script>
+<script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();
@@ -338,50 +280,24 @@
 
     });
 </script>
-<script type="text/javascript">
-    function doRemove(gid){
-        if(confirm("您是否确定删除编号为："+gid+" 的商品吗？")){
-            location.href = "removegood.html?gid="+gid;
-        }
-    }
-</script>
-
 <!-- //here ends scrolling icon -->
 <!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>
 <!-- //bootstrap working-->
 <script type="text/javascript">
-    function getinfo() {
-        $.post("getinfo.html", null, function (d) {
+    jQuery(document).ready(function ($) {
+        $.post("getadmininfo.html", null, function (d) {
             var data = JSON.parse(d);
-            var username=data.username;
-            var gender=data.ugender;
-            var mobile=data.umobile;
-            var address=data.uaddress;
-            var birthday=data.ubirthday;
-            var date=new Date(birthday).toLocaleString();
-            /*var year=date.getFullYear();
-            var month=date.getMonth()+1;
-            var day=date.getData();*/
+            var adminname=data.aname;
+            var password=data.apassword;
 
-            $("#infousername").empty();
-            $("#infogender").empty();
-            $("#infoaddress").empty();
-            $("#infomobile").empty();
-            $("#infobirthday").empty();
+            $("#infoadminname").empty();
+            $("#infopassword").empty();
 
-            $("#infousername").append("<label>" + username + "</label>");
-            $("#infogender").append("<label>" + gender + "</label>");
-            $("#infomobile").append("<label>" + mobile + "</label>");
-            $("#infoaddress").append("<label>" + address + "</label>");
-            //$("#infobirthday").append("<label>" + year+"-"+month+"-"+day+"</label>");
-            $("#infobirthday").append("<label>" +date+"</label>");
-        })
-
-        Date.prototype.toLocaleString = function() {
-            return this.getFullYear() + "/" + (this.getMonth() + 1) + "/" + this.getDate() ;
-        };
-    }
+            $("#infoadminname").append("<label>" + adminname + "</label>");
+            $("#infopassword").append("<label>" + password + "</label>");
+        });
+    });
 
     function modifyuserinfo(){
         window.location.href="modifyuserinfo.html";

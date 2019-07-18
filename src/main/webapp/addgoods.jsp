@@ -87,7 +87,7 @@
                                 <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
                             </li>
                             <li>
-                                <a href="history_orders.html"><span class="fas fa-history"></span></a>
+                                <a href="/history_order.html"><span class="fas fa-history"></span></a>
                             </li>
                         </ul>
                     </div>

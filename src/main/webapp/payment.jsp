@@ -62,81 +62,34 @@
       <div class="container-fluid">
          <div class="hedder-up row">
             <div class="col-lg-3 col-md-3 logo-head">
-               <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
+               <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
             </div>
-            <div class="col-lg-5 col-md-6 search-right">
-               <form class="form-inline my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                  <button class="btn" type="submit">Search</button>
-               </form>
-            </div>
+             <div class="col-lg-5 col-md-6 search-right">
+                 <form class="form-inline my-lg-0" action="showsearchgoods.html" method="post">
+                     <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
+                     <button class="btn" type="submit">搜索</button>
+                 </form>
+             </div>
             <div class="col-lg-4 col-md-3 right-side-cart">
                <div class="cart-icons">
                   <ul>
                      <li>
-                        <span class="far fa-heart"></span>
-                     </li>
-                     <li>
                         <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                      </li>
                      <li class="toyscart toyscart2 cart cart box_1">
-                        <form action="#" method="post" class="last">
-                           <input type="hidden" name="cmd" value="_cart">
-                           <input type="hidden" name="display" value="1">
-                           <button class="top_toys_cart" type="submit" name="submit" value="">
+                        <a href="checkout.html">
                               <span class="fas fa-cart-arrow-down"></span>
-                           </button>
-                        </form>
+                        </a>
                      </li>
+                      <li>
+                          <a href="history_orders.html"><span class="fas fa-history"></span></a>
+                      </li>
                   </ul>
                </div>
             </div>
          </div>
       </div>
-      <nav class="navbar navbar-expand-lg navbar-light">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav ">
-               <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-               </li>
-               <li class="nav-item">
-                  <a href="about.html" class="nav-link">About</a>
-               </li>
-               <li class="nav-item">
-                  <a href="history_orders.html" class="nav-link">Service</a>
-               </li>
-               <li class="nav-item active">
-                  <a href="shop.html" class="nav-link">Shop Now</a>
-               </li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Pages
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="nav-link" href="icon.html">404 Page</a>
-                     <a class="nav-link " href="typography.html">Typography</a>
-                  </div>
-               </li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Product
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="nav-link" href="product.html">Kids Toys</a>
-                     <a class="nav-link " href="product.html">Dolls</a>
-                     <a class="nav-link " href="product.html">Key Toys</a>
-                     <a class="nav-link " href="product.html">Boys Toys</a>
-                  </div>
-               </li>
-               <li class="nav-item">
-                  <a href="contact.html" class="nav-link">Contact</a>
-               </li>
-            </ul>
-         </div>
-      </nav>
+
    </div>
 </div>
 <!--//headder-->
@@ -147,10 +100,6 @@
 <div class="using-border py-3">
    <div class="inner_breadcrumb  ml-4">
       <ul class="short_ls">
-         <li>
-            <a href="index.html">Home</a>
-            <span>/ /</span>
-         </li>
          <li>Payment</li>
       </ul>
    </div>
@@ -162,15 +111,10 @@
       <div class="ads-grid_shop">
          <div class="shop_inner_inf">
             <div class="privacy about">
+               <div style="height: 100px"></div>
                <h3>Pay<span>ment</span></h3>
                <!--/tabs-->
                <div class="responsive_tabs">
-                   <c:if test="${empty ordervolist}">
-<%--                       当前是直接访问的，不能让他直接访问，就跳转去别处吧。--%>
-                       <% response.sendRedirect("checkout.html");%>
-                   </c:if>
-
-                   <c:if test="${not empty ordervolist}">
                   <!--订单详情框-->
                   <div class="resp-tabs-container">
                      <h5>订单详情</h5>
@@ -213,7 +157,7 @@
                         <a href="alipay.html?oid=${order.oid}">立即付款</a>
                      </div>
                   </div>
-                   </c:if>
+
 
                </div>
                <!--//tabs-->

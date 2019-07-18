@@ -208,4 +208,8 @@
       cadddate = #{cadddate,jdbcType=TIMESTAMP}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectGidByUid" parameterType="Integer" resultType="int">
+    select gid from cart where uid=#{uid}
+  </select>
 </mapper>
