@@ -44,7 +44,7 @@ public class CartService {
             cartVO.setGprice(goods.getGprice());
             cartVOList.add(cartVO);
         }
-        System.out.println(cartVOList.size());
+        //System.out.println(cartVOList.size());
         return cartVOList;
     }
     public void removeCart(int cid){
