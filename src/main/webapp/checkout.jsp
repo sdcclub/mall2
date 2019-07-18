@@ -44,7 +44,6 @@
 </head>
 <body>
 <!--headder-->
-<!--headder-->
 <div class="header-outs" id="home">
     <div class="header-bar">
         <div class="info-top-grid">
