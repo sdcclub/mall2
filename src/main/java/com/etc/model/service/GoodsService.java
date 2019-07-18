@@ -30,7 +30,7 @@ public class GoodsService {
 
     int usedCount;
 
-    private List<RecommendSet> recommend;
+    private static List<RecommendSet> recommend;
 
     public CartMapper getCartMapper() {
         return cartMapper;
@@ -124,11 +124,10 @@ public class GoodsService {
         if(recommend==null) {
             return null;
         }
-        System.out.println(recommend);
+        //System.out.println(recommend);
         for (RecommendSet r:recommend){
-
             if(gids.contains(r.getRecomend()))
-                break;
+                continue;
             List<Integer> forzen = r.getForzen();
             int i=-1;
             for (i=0;i<forzen.size();i++) {
