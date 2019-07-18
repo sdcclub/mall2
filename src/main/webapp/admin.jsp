@@ -281,6 +281,13 @@
     });
 </script>
 <!-- //here ends scrolling icon -->
+<script type="text/javascript">
+    function doRemove(gid){
+        if(confirm("您是否确定删除编号为："+gid+" 的商品吗？")){
+            location.href = "removegood.html?gid="+gid;
+        }
+    }
+</script>
 <!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>
 <!-- //bootstrap working-->

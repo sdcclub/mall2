@@ -55,4 +55,16 @@ public class CartVO {
     public void setGprice(double gprice) {
         this.gprice = gprice;
     }
+
+    @Override
+    public String toString() {
+        return "CartVO{" +
+                "cid=" + cid +
+                ", gid=" + gid +
+                ", gname='" + gname + '\'' +
+                ", gpicture='" + gpicture + '\'' +
+                ", gcount=" + gcount +
+                ", gprice=" + gprice +
+                '}';
+    }
 }

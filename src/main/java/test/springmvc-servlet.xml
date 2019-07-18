@@ -16,7 +16,7 @@ http://www.springframework.org/schema/util/spring-util-4.0.xsd"
 
     <!-- 指定包中的类头上带有特定注解，如：@Component、@Repository、@Service、@Controller
     就会将这个类作为bean注册到Spring容器里面，自动注册-->
-    <context:component-scan base-package="com.etc.model.*"></context:component-scan>
+    <context:component-scan base-package="com.etc.*"></context:component-scan>
     <!-- 用来开始Spring的注解模式 -->
     <!-- <context:annotation-config></context:annotation-config> -->
     <!-- 开启springmvc的注解机制，同时相当于注册了DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter这两个Bean -->
@@ -39,7 +39,7 @@ http://www.springframework.org/schema/util/spring-util-4.0.xsd"
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="url" value="jdbc:mysql://127.0.0.1/mall?characterEncoding=utf-8"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="Root123"></property>
+        <property name="password" value="123456"></property>
     </bean>
     <!--classpath 加了个*-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
