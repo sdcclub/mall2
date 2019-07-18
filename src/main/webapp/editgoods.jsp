@@ -106,7 +106,7 @@
 <!--Typography-->
 <section class="inner-pages py-5">
     <div class="container py-xl-5 py-sm-3">
-        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">新增商品</h3>
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">修改商品</h3>
         <!-- forms -->
         <div class="typo-section py-4 border-top border-bottom">
             <h3 class="typo-main-heading mb-lg-4 mb-3 pr-3 pb-1">商品信息</h3>
@@ -116,14 +116,15 @@
                 <div class="form-group row">
                     <label for="gname" class="col-sm-2 col-form-label">商品名</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gname" name="gname" placeholder="商品名" onblur="checkrepeat(this.value)" value="${good.gname}">
+                        <input type="text" class="form-control" id="gname" name="gname" placeholder="商品名" onblur="checknull(this.value)" value="${good.gname}">
                         <div id="f"></div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="gcount" class="col-sm-2 col-form-label">库存</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gcount" name="gcount" placeholder="库存" value="${good.gcount}">
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
+                               id="gcount" name="gcount" placeholder="库存" value="${good.gcount}" onblur="checkInt(this.value)"/>
                     </div>
                 </div>
                 <fieldset class="form-group">
@@ -133,12 +134,14 @@
                 <div class="form-group row">
                     <label for="gprice" class="col-sm-2 col-form-label">价格</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gprice" name="gprice" placeholder="价格" value="${good.gprice}">
+                        <input type="number" class="form-control" id="gprice" name="gprice" placeholder="价格" value="${good.gprice}" onblur="checkdouble(this.value)">
+<%--                        <input onkeyup="this.value=this.value.replace(/\.{2,}/g,'.')" onafterpaste="this.value=this.value.replace(/\.{2,}/g,'.') "--%>
+<%--                               type="number" class="form-control" id="gprice" name="gprice" placeholder="价格" value="${good.gprice}">--%>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-10">
-                        <input type="submit" class="btn btn-primary" value="提交" />
+                        <input type="submit" id="handin" class="btn btn-primary" value="提交" />
                     </div>
                 </div>
             </form>
@@ -263,20 +266,32 @@
 <!--
 -->
 <script type="text/javascript">
-    function checkrepeat(gname) {
-        var param = {
-            "gname": gname
+    function checkInt(gcount) {
+       if(gcount.length==0){
+           $("#gcount").val(0);
+       }
+    }
+    function checkdouble(gprice){
+        if(gcount.length==0){
+            $("#gcount").val(0);
+            return;
         }
-        $.post("checkgname.html", param, function(data) {
-            $("#f").empty();
-            if(data=="true") {
-                $("#f").append("<span class='fas fa-check-square' style='color: green;'></span>");
-                $("#handin").attr("disabled",false);
-            } else {
-                $("#f").append("<span class='fas fa-remove'style='color: red;'/>商品已存在");
-                $("#handin").attr("disabled",true);
-            }
-        })
+            if(!/^[0-9]+(.[0-9]{1,2})?$/.test(gprice)){
+            alert("请输入正确的商品价格！（如：100或50.50，小数点最多两位）");
+            $("#handin").attr("disabled",true);
+        }else{
+            $("#handin").attr("disabled",false);
+        }
+    }
+
+    function checknull(gname) {
+        $("#f").empty();
+        if(gname.length==0){
+            $("#f").append("<span class='fas fa-remove'style='color: red;'/>商品名不能为空！");
+            $("#handin").attr("disabled",true);
+        }else{
+            $("#handin").attr("disabled",false);
+        }
     }
 </script>
 <script type="text/javascript">

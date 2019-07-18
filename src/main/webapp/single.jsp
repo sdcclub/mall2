@@ -135,7 +135,8 @@
                         <div class="color-quality-right">
                            <h5>数量 :</h5>
                            <button onclick="subnum()">-</button>
-                           <input width="100px" type="number" id="count" value="1" onblur="checkGcount(this.value)"/>
+                           <input onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
+                                   width="100px" type="number" id="count" value="1" onblur="checkGcount(this.value)"/>
                            <button onclick="addnum()">+</button>
                         </div>
                      </div>
@@ -206,7 +207,7 @@
          }
          function subnum() {
             var n=$("#count").val();
-            if(n>0){
+            if(n>1){
                $("#count").val(n-1);
                $("#price").val($("#count").val()* ${good.gprice});
             }
