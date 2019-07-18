@@ -113,14 +113,15 @@
                 <div class="form-group row">
                     <label for="gname" class="col-sm-2 col-form-label">商品名</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gname" name="gname" placeholder="商品名" onblur="checkrepeat(this.value)">
+                        <input type="text" class="form-control" id="gname" name="gname" placeholder="商品名" onblur="checknull(this.value)">
                         <div id="f"></div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="gcount" class="col-sm-2 col-form-label">库存</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gcount" name="gcount" placeholder="库存">
+                        <input onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
+                               type="text" class="form-control" id="gcount" name="gcount" placeholder="库存" onblur="checkInt(this.value)">
                     </div>
                 </div>
                 <fieldset class="form-group">
@@ -130,7 +131,7 @@
                 <div class="form-group row">
                     <label for="gprice" class="col-sm-2 col-form-label">价格</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="gprice" name="gprice" placeholder="价格">
+                        <input type="text" class="form-control" id="gprice" name="gprice" placeholder="价格" onblur="checkdouble(this.value)">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -257,23 +258,6 @@
         <!-- //OnScroll-Number-Increase-JavaScript -->
         <!--
 -->
-        <script type="text/javascript">
-            function checkrepeat(gname) {
-                var param = {
-                    "gname": gname
-                }
-                $.post("checkgname.html", param, function(data) {
-                    $("#f").empty();
-                    if(data=="true") {
-                        $("#f").append("<span class='fas fa-check-square' style='color: green;'></span>");
-                        $("#handin").attr("disabled",false);
-                    } else {
-                        $("#f").append("<span class='fas fa-remove'style='color: red;'/>商品已存在");
-                        $("#handin").attr("disabled",true);
-                    }
-                })
-            }
-        </script>
 <script type="text/javascript">
     function showImg(did,obj){
         var patn = /\.jpg$|\.jpeg$|\.png$|\.gif$/i;
@@ -338,6 +322,35 @@
 
     function logout(){
         window.location.href="logout.html";
+    }
+</script>
+<script type="text/javascript">
+    function checkInt(gcount) {
+        if(gcount.length==0){
+            $("#gcount").val(0);
+        }
+    }
+    function checkdouble(gprice){
+        if(gcount.length==0){
+            $("#gcount").val(0);
+            return;
+        }
+        if(!/^[0-9]+(.[0-9]{1,2})?$/.test(gprice)){
+            alert("请输入正确的商品价格！（如：100或50.50，小数点最多两位）");
+            $("#handin").attr("disabled",true);
+        }else{
+            $("#handin").attr("disabled",false);
+        }
+    }
+
+    function checknull(gname) {
+        $("#f").empty();
+        if(gname.length==0){
+            $("#f").append("<span class='fas fa-remove'style='color: red;'/>商品名不能为空！");
+            $("#handin").attr("disabled",true);
+        }else{
+            $("#handin").attr("disabled",false);
+        }
     }
 </script>
 </body>
