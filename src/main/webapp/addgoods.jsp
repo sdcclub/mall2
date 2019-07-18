@@ -66,12 +66,12 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="#">电子商城</a></h1>
+                    <h1><a class="navbar-brand" href="admin.html">电子商城</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
-                    <form class="form-inline my-lg-0" action="#" method="post">
-                        <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string" hidden>
-                        <button class="btn" type="submit" hidden="hidden">搜索</button>
+                    <form class="form-inline my-lg-0" action="#" method="post" hidden>
+                        <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
+                        <button class="btn" type="submit">搜索</button>
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-3 right-side-cart">
@@ -81,12 +81,8 @@
                                 <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
                             </li>
                             <li class="toyscart toyscart2 cart cart box_1" hidden>
-                                <a href="#"><span class="fas fa-cart-arrow-down"></span></a>
+                                <span class="fas fa-cart-arrow-down"></span>
                             </li>
-                            <li hidden>
-                                <a href="#"><span class="fas fa-history"></span></a>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -104,20 +100,7 @@
 <div class="inner_page-banner one-img" style="background: url('pictures/b7.jpg') repeat center;min-height: 200px;">
 </div>
 <!--//banner -->
-<!-- short -->
-<div class="using-border py-3">
-    <div class="inner_breadcrumb  ml-4">
-        <ul class="short_ls">
-            <li>
-                <a href="index.html">Home</a>
-                <span>/ /</span>
-            </li>
-            <li>Typography</li>
-        </ul>
-    </div>
-</div>
-<!-- //short-->
-<!--//banner -->
+
 <!--Typography-->
 <section class="inner-pages py-5">
     <div class="container py-xl-5 py-sm-3">
