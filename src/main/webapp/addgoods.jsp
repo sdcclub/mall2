@@ -154,7 +154,7 @@
 </footer>
 <!--//footer-->
 <!-- Modal 1-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" onclick="info()">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -168,33 +168,20 @@
                     <form action="#" method="post">
                         <div class="fields-grid">
                             <div  class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="username" style="display: inline-block;">用户名</label>
-                                <div id="infousername"style="display: inline-block;"></div>
+                                <label class="col-sm-4 col-form-label" name="adminname" style="display: inline-block;">帐户名</label>
+                                <div id="infoadminname"style="display: inline-block;"></div>
                             </div>
                             <div class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="gender"style="display: inline-block;">性别</label>
-                                <div id="infogender"style="display: inline-block;"></div>
+                                <label class="col-sm-4 col-form-label" name="password"style="display: inline-block;">密码</label>
+                                <div id="infopassword"style="display: inline-block;"></div>
                             </div>
-                            <div class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="mobile"style="display: inline-block;">联系方式</label>
-                                <div id="infomobile"style="display: inline-block;"></div>
-                            </div>
-                            <div class="styled-input" >
-                                <label class="col-sm-4 col-form-label" name="address"style="display: inline-block;">收货地址</label>
-                                <div id="infoaddress"style="display: inline-block;"style="display: inline-block;"></div>
-                            </div>
-                            <div class="styled-input">
-                                <label class="col-sm-4 col-form-label" name="birthday"style="display: inline-block;">出生日期</label>
-                                <div id="infobirthday"style="display: inline-block;"></div>
-                            </div>
-                            <!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondarys" onclick="logout()">退出登录</button>
-                <button type="button" class="btn btn-primary" onclick="modifyuserinfo()">修改</button>
+                <button type="button" class="btn btn-primary" hidden>修改</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
             </div>
         </div>
@@ -206,6 +193,26 @@
         <!--//js working-->
         <!-- cart-js -->
         <script src="js/minicart.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        info();
+    });
+
+    function info() {
+        $.post("getadmininfo.html", null, function (d) {
+            var data = JSON.parse(d);
+            var adminname=data.aname;
+            var password=data.apassword;
+
+            $("#infoadminname").empty();
+            $("#infopassword").empty();
+
+            $("#infoadminname").append("<label>" + adminname + "</label>");
+            $("#infopassword").append("<label>" + password + "</label>");
+        });
+    }
+</script>
         <script>
             toys.render();
 
