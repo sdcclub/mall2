@@ -153,6 +153,7 @@
                <div style="height: 100px"></div>
                <h3>Pay<span>ment</span></h3>
                <!--/tabs-->
+                <c:if test="${not empty ordervolist}">
                <div class="responsive_tabs">
                   <!--订单详情框-->
                   <div class="resp-tabs-container">
@@ -199,6 +200,10 @@
 
 
                </div>
+                </c:if>
+                <c:if test="${empty ordervolist}">
+                    <h3>您当前没有待支付的订单哦~</h3>
+                </c:if>
                <!--//tabs-->
             </div>
          </div>
