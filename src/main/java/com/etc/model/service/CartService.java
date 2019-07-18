@@ -90,7 +90,7 @@ public class CartService {
             order.setOstatus("未支付");
             orderMapper.insert(order);
             cartMapper.deleteByPrimaryKey(cid);
-            goodsMapper.updateByPrimaryKey(goods);
+            goodsMapper.updateByPrimaryKeySelective(goods);
         }
         System.out.println("bye");
     }
