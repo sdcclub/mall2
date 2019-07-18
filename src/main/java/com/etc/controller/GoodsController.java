@@ -56,8 +56,8 @@ public class GoodsController {
     }
 
     @RequestMapping("getrecommend")
-    public String Test(){
-        goodsService.readRelationFile("F:\\test.txt");
+    public String Test(Model model){
+        model.addAttribute("msg",goodsService.readRelationFile());
         return "forward:/admin.html";
     }
 

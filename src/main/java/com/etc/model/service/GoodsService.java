@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import java.util.Map;
 public class GoodsService {
     private GoodsMapper goodsMapper;
     private CartMapper cartMapper;
+    private final String FILE_NAME=this.getClass().getResource("/").getPath()+"../../../../src/main/java/com/etc/relation_file/"+"result.txt";
 
     int usedCount;
 
@@ -117,13 +119,16 @@ public class GoodsService {
         return cart2RecommendList(cart);
     }
 
-    private List<Goods>cart2RecommendList(List<Integer> cart){
+    private List<Goods> cart2RecommendList(List<Integer> cart){
         List<Integer> gids = new ArrayList<>();
         if(recommend==null) {
             return null;
         }
         System.out.println(recommend);
         for (RecommendSet r:recommend){
+
+            if(gids.contains(r.getRecomend()))
+                break;
             List<Integer> forzen = r.getForzen();
             int i=-1;
             for (i=0;i<forzen.size();i++) {
@@ -135,36 +140,38 @@ public class GoodsService {
                 gids.add(r.getRecomend());
             }
         }
-
+        if(gids.isEmpty())
+            return null;
         GoodsExample ge = new GoodsExample();
         ge.createCriteria().andGidIn(gids);
         return goodsMapper.selectByExample(ge);
     }
 
-    public void readRelationFile(String filename){
-            List<RecommendSet> result = new ArrayList<>();
+    public String readRelationFile(){
+        List<RecommendSet> result = new ArrayList<>();
+        try(FileReader reader = new FileReader(FILE_NAME);
+            BufferedReader br = new BufferedReader(reader)){
 
-            try(FileReader reader = new FileReader(filename);
-                BufferedReader br = new BufferedReader(reader)){
-                String line;
-                while((line = br.readLine()) != null){
-                    line = line.replaceAll("\r|\n", "");
-                    String forzen = line.substring(line.indexOf("{")+1,line.indexOf("}"));
-                    String[] forzens = forzen.split(",");
-                    List<Integer> haveAlready=new ArrayList<>();
-                    RecommendSet temp = new RecommendSet();
-                    for(String a:forzens){
-                        haveAlready.add(Integer.parseInt(a));
-                    }
-                    int recomend = Integer.parseInt(line.substring(line.indexOf("}")+1));
-                    temp.setForzen(haveAlready);
-                    temp.setRecommend(recomend);
-                    result.add(temp);
+            String line;
+            while((line = br.readLine()) != null){
+                line = line.replaceAll("\r|\n", "");
+                String forzen = line.substring(line.indexOf("{")+1,line.indexOf("}"));
+                String[] forzens = forzen.split(",");
+                List<Integer> haveAlready=new ArrayList<>();
+                RecommendSet temp = new RecommendSet();
+                for(String a:forzens){
+                    haveAlready.add(Integer.parseInt(a));
                 }
-            }catch (Exception e){
+                int recomend = Integer.parseInt(line.substring(line.indexOf("}")+1));
+                temp.setForzen(haveAlready);
+                temp.setRecommend(recomend);
+                result.add(temp);
+            }
+        }catch (Exception e){
             System.out.println("推荐文件读取错误！");
+            return "失败";
         }
         recommend = result;
+        return "成功";
     }
-
 }
