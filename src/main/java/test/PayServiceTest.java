@@ -31,11 +31,8 @@ public class PayServiceTest{
 
     @Test
     public void getPayList() {
-
-        User user=new User();
-        user.setUid(1);
         //System.out.println("asdfasdfsdf");
-        List<OrderVO> goodsList=payService.getPayList(1);
+        List<OrderVO> goodsList=payService.getPayList(3);
         for(OrderVO orderVO:goodsList){
             System.out.println(orderVO);
         }

@@ -63,12 +63,11 @@ public class PayService {
         //获取当前用户待支付的所有订单
         orderExample.createCriteria().andUidEqualTo(uid)
                 .andOstatusEqualTo("未支付");
-        if(orderMapper.selectByExample(orderExample)==null){
+        List<Order> orderList=orderMapper.selectByExample(orderExample);
+        if(orderList.isEmpty()){
             System.out.println("什么也没查到");
             return null;
         }
-
-        List<Order> orderList=orderMapper.selectByExample(orderExample);
 
         //按照oid降序排序
         Collections.sort(orderList,new MyComparator());
