@@ -89,6 +89,9 @@ public class AdminController {
                 goods.setGpicture(path);
             }
         }
+        if(goods.getGpicture()==null){
+            goods.setGprice(adminService.selectGood(goods.getGid()).getGprice());
+        }
         adminService.editGood(goods);
         return "forward:/admin.html";
     }
