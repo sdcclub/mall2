@@ -116,7 +116,6 @@ public class GoodsService {
 
     public List<Goods> getRecomendList(int uid){
         List<Integer> cart = cartMapper.selectGidByUid(uid);
-        System.out.println(cart);
         return cart2RecommendList(cart);
     }
 
@@ -127,25 +126,21 @@ public class GoodsService {
         }
         //System.out.println(recommend);
         for (RecommendSet r:recommend){
-            System.out.println(r);
             if(gids.contains(r.getRecomend()))
                 continue;
             List<Integer> forzen = r.getForzen();
             int i=-1;
             for (i=0;i<forzen.size();i++) {
-                System.out.println(forzen.get(i));
                 if (!cart.contains(forzen.get(i))) {
                     break;
                 }
             }
             if(i==forzen.size()) {
-                System.out.println("i:"+i+" r:"+r.getRecomend());
                 gids.add(r.getRecomend());
             }
         }
         if(gids.isEmpty())
             return null;
-        System.out.println(gids);
         GoodsExample ge = new GoodsExample();
         ge.createCriteria().andGidIn(gids);
         return goodsMapper.selectByExample(ge);
