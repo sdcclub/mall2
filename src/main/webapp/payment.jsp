@@ -52,7 +52,7 @@
                </li>
                <li>
                   <span class="fas fa-envelope"></span>
-                  <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                  <p>info@example1.com</p>
                </li>
                <li>
                </li>
@@ -64,38 +64,77 @@
             <div class="col-lg-3 col-md-3 logo-head">
                <h1><a class="navbar-brand" href="showgoods.html">电子商城</a></h1>
             </div>
-             <div class="col-lg-5 col-md-6 search-right">
-                 <form class="form-inline my-lg-0" action="showsearchgoods.html" method="post">
-                     <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
-                     <button class="btn" type="submit">搜索</button>
-                 </form>
-             </div>
+            <div class="col-lg-5 col-md-6 search-right">
+               <form class="form-inline my-lg-0" action="showsearchgoods.html" method="post">
+                  <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="string">
+                  <button class="btn" type="submit">搜索</button>
+               </form>
+            </div>
             <div class="col-lg-4 col-md-3 right-side-cart">
                <div class="cart-icons">
                   <ul>
                      <li>
-                        <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
+                        <button type="button" data-toggle="modal" data-target="#exampleModal" onclick="getinfo()"> <span class="far fa-user"></span></button>
                      </li>
                      <li class="toyscart toyscart2 cart cart box_1">
-                        <a href="checkout.html">
-                              <span class="fas fa-cart-arrow-down"></span>
-                        </a>
+                        <a href="checkout.html"><span class="fas fa-cart-arrow-down"></span></a>
                      </li>
-                      <li>
-                          <a href="history_orders.html"><span class="fas fa-history"></span></a>
-                      </li>
+                     <li>
+                        <a href="history_orders.html"><span class="fas fa-history"></span></a>
+                     </li>
                   </ul>
                </div>
             </div>
          </div>
       </div>
-
+      <nav class="navbar navbar-expand-lg navbar-light">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <%--<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+               <li class="nav-item active">
+                  <a class="nav-link" href="/showgoods.html">首页<span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a href="about.html" class="nav-link">About</a>
+               </li>
+               <li class="nav-item">
+                  <a href="service.html" class="nav-link">Service</a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Pages
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="nav-link" href="icon.html">404 Page</a>
+                     <a class="nav-link " href="typography.html">Typography</a>
+                  </div>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Product
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="nav-link" href="product.html">Kids Toys</a>
+                     <a class="nav-link " href="product.html">Dolls</a>
+                     <a class="nav-link " href="product.html">Key Toys</a>
+                     <a class="nav-link " href="product.html">Boys Toys</a>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <a href="contact.html" class="nav-link">Contact</a>
+               </li>
+            </ul>
+         </div>--%>
+      </nav>
    </div>
 </div>
 <!--//headder-->
 <!-- banner -->
-<div class="inner_page-banner one-img">
+<div class="inner_page-banner one-img" style="min-height: 200px;">
 </div>
+<!--//banner -->
 <!-- short -->
 <div class="using-border py-3">
    <div class="inner_breadcrumb  ml-4">
@@ -174,7 +213,7 @@
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <h5 class="modal-title" id="exampleModalLabel">个人信息</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
@@ -183,22 +222,35 @@
             <div class="register-form">
                <form action="#" method="post">
                   <div class="fields-grid">
-                     <div class="styled-input">
-                        <input type="text" placeholder="Your Name" name="Your Name" required="">
+                     <div  class="styled-input" >
+                        <label class="col-sm-4 col-form-label" name="username" style="display: inline-block;">用户名</label>
+                        <div id="infousername"style="display: inline-block;"></div>
+                     </div>
+                     <div class="styled-input" >
+                        <label class="col-sm-4 col-form-label" name="gender"style="display: inline-block;">性别</label>
+                        <div id="infogender"style="display: inline-block;"></div>
+                     </div>
+                     <div class="styled-input" >
+                        <label class="col-sm-4 col-form-label" name="mobile"style="display: inline-block;">联系方式</label>
+                        <div id="infomobile"style="display: inline-block;"></div>
+                     </div>
+                     <div class="styled-input" >
+                        <label class="col-sm-4 col-form-label" name="address"style="display: inline-block;">收货地址</label>
+                        <div id="infoaddress"style="display: inline-block;"style="display: inline-block;"></div>
                      </div>
                      <div class="styled-input">
-                        <input type="email" placeholder="Your Email" name="Your Email" required="">
+                        <label class="col-sm-4 col-form-label" name="birthday"style="display: inline-block;">出生日期</label>
+                        <div id="infobirthday"style="display: inline-block;"></div>
                      </div>
-                     <div class="styled-input">
-                        <input type="password" placeholder="password" name="password" required="">
-                     </div>
-                     <button type="submit" class="btn subscrib-btnn">Login</button>
+                     <!--                           <button type="submit" class="btn subscrib-btnn">Login</button>-->
                   </div>
                </form>
             </div>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-secondarys" onclick="logout()">退出登录</button>
+            <button type="button" class="btn btn-primary" onclick="modifyuserinfo()">修改</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
          </div>
       </div>
    </div>
@@ -303,5 +355,46 @@
 <!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>
 <!-- //bootstrap working-->
+<script type="text/javascript">
+   function getinfo() {
+      $.post("getinfo.html", null, function (d) {
+         var data = JSON.parse(d);
+         var username=data.username;
+         var gender=data.ugender;
+         var mobile=data.umobile;
+         var address=data.uaddress;
+         var birthday=data.ubirthday;
+         var date=new Date(birthday).toLocaleString();
+         /*var year=date.getFullYear();
+         var month=date.getMonth()+1;
+         var day=date.getData();*/
+
+         $("#infousername").empty();
+         $("#infogender").empty();
+         $("#infoaddress").empty();
+         $("#infomobile").empty();
+         $("#infobirthday").empty();
+
+         $("#infousername").append("<label>" + username + "</label>");
+         $("#infogender").append("<label>" + gender + "</label>");
+         $("#infomobile").append("<label>" + mobile + "</label>");
+         $("#infoaddress").append("<label>" + address + "</label>");
+         //$("#infobirthday").append("<label>" + year+"-"+month+"-"+day+"</label>");
+         $("#infobirthday").append("<label>" +date+"</label>");
+      })
+
+      Date.prototype.toLocaleString = function() {
+         return this.getFullYear() + "/" + (this.getMonth() + 1) + "/" + this.getDate() ;
+      };
+   }
+
+   function modifyuserinfo(){
+      window.location.href="modifyuserinfo.html";
+   }
+
+   function logout(){
+      window.location.href="logout.html";
+   }
+</script>
 </body>
 </html>
