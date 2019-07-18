@@ -29,9 +29,9 @@ public class CartService {
         final CartExample cartExample=new CartExample();
         //System.out.println(cartExample);
         cartExample.createCriteria().andUidEqualTo(uid);
-        System.out.println(cartExample);
+       //System.out.println(cartExample);
         List<Cart> cartList=cartMapper.selectByExample(cartExample);
-        System.out.println(cartList.size());
+        //System.out.println(cartList.size());
         List<CartVO> cartVOList=new ArrayList<>();
         for(Cart cart:cartList){
             CartVO cartVO=new CartVO();
@@ -79,6 +79,7 @@ public class CartService {
         for(int cid:list){
             Cart cart=cartMapper.selectByPrimaryKey(cid);
             Goods goods=goodsMapper.selectByPrimaryKey(cart.getGid());
+            goods.setGcount(goods.getGcount()-cart.getCcount());
             order.setGid(cart.getGid());
             order.setCcount(cart.getCcount());
             order.setOprice(cart.getCcount()*goods.getGprice());
@@ -89,6 +90,7 @@ public class CartService {
             order.setOstatus("未支付");
             orderMapper.insert(order);
             cartMapper.deleteByPrimaryKey(cid);
+            goodsMapper.updateByPrimaryKey(goods);
         }
         System.out.println("bye");
     }
