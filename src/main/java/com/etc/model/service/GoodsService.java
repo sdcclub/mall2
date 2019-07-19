@@ -26,7 +26,7 @@ import java.util.Map;
 public class GoodsService {
     private GoodsMapper goodsMapper;
     private CartMapper cartMapper;
-    private final String FILE_NAME=this.getClass().getResource("/").getPath()+"../../../../src/main/java/com/etc/relation_file/"+"result.txt";
+    private final String FILE_NAME="/D:/my/"+"result.txt";
 
     int usedCount;
 
@@ -148,9 +148,9 @@ public class GoodsService {
 
     public String readRelationFile(){
         List<RecommendSet> result = new ArrayList<>();
+        System.out.println(FILE_NAME);
         try(FileReader reader = new FileReader(FILE_NAME);
             BufferedReader br = new BufferedReader(reader)){
-
             String line;
             while((line = br.readLine()) != null){
                 line = line.replaceAll("\r|\n", "");

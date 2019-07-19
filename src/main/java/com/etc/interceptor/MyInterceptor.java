@@ -27,8 +27,10 @@ public class MyInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 		HttpSession session = request.getSession();
 		String path = request.getServletPath();
-		if(session.getAttribute("uid")!=null||path.indexOf("login")!=-1)
+		//如果当前是登录界面或当前用户存在
+		if(session.getAttribute("uid")!=null||path.indexOf("login")!=-1||path.indexOf("register")!=-1) {
 			return true;
+		}
 		else{
 			request.setAttribute("msg","您尚未登录");
 			response.sendRedirect("login.jsp");

@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class PayController {
@@ -31,6 +29,8 @@ public class PayController {
         List<OrderVO> orderVOList=payService.getPayList(uid);
         model.addAttribute("ordervolist",orderVOList);
         return "payment";
+
+
     }
 
     @RequestMapping("alipay")

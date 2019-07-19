@@ -64,10 +64,10 @@ public class PayService {
         orderExample.createCriteria().andUidEqualTo(uid)
                 .andOstatusEqualTo("未支付");
         List<Order> orderList=orderMapper.selectByExample(orderExample);
-        if(orderList.isEmpty()){
-            System.out.println("什么也没查到");
-            return null;
-        }
+//        if(orderList.isEmpty()){
+//            System.out.println("什么也没查到");
+//            return null;
+//        }
 
         //按照oid降序排序
         Collections.sort(orderList,new MyComparator());
