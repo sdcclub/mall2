@@ -182,7 +182,7 @@
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
-      <version>1.2.6</version>
+      <version>1.2.83</version>
     </dependency>
     <!-- 这套是用于spring3的jar包，无需额外添加配置 -->
     <!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-mapper-asl</artifactId>
